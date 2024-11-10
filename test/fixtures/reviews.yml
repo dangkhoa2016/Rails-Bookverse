@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  rating: 1
+  book: one
+  active: false
+
+two:
+  content: MyText
+  rating: 1
+  book: two
+  active: false

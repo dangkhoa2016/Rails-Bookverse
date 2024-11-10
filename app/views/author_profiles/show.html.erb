@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @author_profile %>
+
+<div>
+  <%= link_to "Edit this author profile", edit_author_profile_path(@author_profile) %> |
+  <%= link_to "Back to author profiles", author_profiles_path %>
+
+  <%= button_to "Destroy this author profile", @author_profile, method: :delete %>
+</div>
