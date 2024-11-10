@@ -1,0 +1,57 @@
+<%= form_with(model: author_profile) do |form| %>
+  <% if author_profile.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(author_profile.errors.count, "error") %> prohibited this author_profile from being saved:</h2>
+
+      <ul>
+        <% author_profile.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :author_id, style: "display: block" %>
+    <%= form.text_field :author_id %>
+  </div>
+
+  <div>
+    <%= form.label :bio, style: "display: block" %>
+    <%= form.text_area :bio %>
+  </div>
+
+  <div>
+    <%= form.label :social_facebook, style: "display: block" %>
+    <%= form.text_field :social_facebook %>
+  </div>
+
+  <div>
+    <%= form.label :social_twitter, style: "display: block" %>
+    <%= form.text_field :social_twitter %>
+  </div>
+
+  <div>
+    <%= form.label :social_instagram, style: "display: block" %>
+    <%= form.text_field :social_instagram %>
+  </div>
+
+  <div>
+    <%= form.label :social_linkedin, style: "display: block" %>
+    <%= form.text_field :social_linkedin %>
+  </div>
+
+  <div>
+    <%= form.label :social_youtube, style: "display: block" %>
+    <%= form.text_field :social_youtube %>
+  </div>
+
+  <div>
+    <%= form.label :active, style: "display: block" %>
+    <%= form.check_box :active %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
