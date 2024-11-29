@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BookManage</title>
+    <title>Rails Bookverse</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <meta name="turbo-prefetch" content="false">
@@ -14,6 +14,18 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= turbo_frame_tag 'nav_frame' do %>
+      <%= render 'layouts/nav' %>
+    <% end %>
+
+    <div class='container-fluid'>
+      <%= yield %>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button id='scrollToTopBtn' class='btn btn-primary position-fixed bottom-0 end-0 m-3'
+      onclick='scrollToTop()' style='display: none;'>
+        Scroll to Top
+    </button>
   </body>
 </html>
