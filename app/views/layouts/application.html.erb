@@ -2,14 +2,14 @@
 <html>
   <head>
     <title>Rails Bookverse</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
 
-    <meta name="turbo-prefetch" content="false">
+    <meta name='turbo-prefetch' content='false'>
   
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -23,8 +23,9 @@
     </div>
 
     <!-- Scroll to Top Button -->
-    <button id='scrollToTopBtn' class='btn btn-primary position-fixed bottom-0 end-0 m-3'
-      onclick='scrollToTop()' style='display: none;'>
+    <button id='scrollToTopBtn'
+      class='btn btn-primary position-fixed bottom-0 end-0 m-3'
+      style='display: none;'>
         Scroll to Top
     </button>
   </body>

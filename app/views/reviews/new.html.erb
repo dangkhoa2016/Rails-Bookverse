@@ -1,9 +1,9 @@
 <h1>New review</h1>
 
-<%= render "form", review: @review %>
+<%= render 'form', review: @review %>
 
 <br>
 
 <div>
-  <%= link_to "Back to reviews", reviews_path %>
+  <%= link_to 'Back to reviews', reviews_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
 </div>

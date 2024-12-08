@@ -1,1 +1,1 @@
-json.array! @publishers, partial: "publishers/publisher", as: :publisher
+json.array! @publishers, partial: 'publishers/publisher', as: :publisher

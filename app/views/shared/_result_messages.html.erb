@@ -1,0 +1,7 @@
+<% if notice %>
+  <% model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil) %>
+
+  <div id='<%= controller_name.singularize %>-result' class='result-messages alert alert-success'>
+    <%= notice %>
+  </div>
+<% end %>
