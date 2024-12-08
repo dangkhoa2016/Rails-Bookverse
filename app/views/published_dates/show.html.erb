@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'shared/result_messages', record: @published_date %>
 
 <%= render @published_date %>
 
 <div>
-  <%= link_to "Edit this published date", edit_published_date_path(@published_date) %> |
-  <%= link_to "Back to published dates", published_dates_path %>
+  <%= link_to 'Edit this published date', edit_published_date_path(@published_date) %> |
+  <%= link_to 'Back to published dates', published_dates_path %>
 
-  <%= button_to "Destroy this published date", @published_date, method: :delete %>
+  <%= button_to 'Destroy this published date', @published_date, method: :delete, data: { turbo_confirm: 'Are you sure ?' } %>
 </div>

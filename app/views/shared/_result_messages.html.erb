@@ -1,0 +1,8 @@
+<% if notice %>
+  <% model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil) %>
+  <% model_name = model_record.class.name.to_s.downcase rescue model_record&.id %>
+
+  <div id='<%= model_name %>-result' class='result-messages alert alert-success'>
+    <%= notice %>
+  </div>
+<% end %>

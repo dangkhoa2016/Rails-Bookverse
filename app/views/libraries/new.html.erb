@@ -1,9 +1,9 @@
 <h1>New library</h1>
 
-<%= render "form", library: @library %>
+<%= render 'form', library: @library %>
 
 <br>
 
 <div>
-  <%= link_to "Back to libraries", libraries_path %>
+  <%= link_to 'Back to libraries', libraries_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
 </div>

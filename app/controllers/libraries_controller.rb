@@ -25,7 +25,7 @@ class LibrariesController < ApplicationController
 
     respond_to do |format|
       if @library.save
-        format.html { redirect_to @library, notice: "Library was successfully created." }
+        format.html { redirect_to @library, notice: "Library [#{@library.name}] was successfully created." }
         format.json { render :show, status: :created, location: @library }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class LibrariesController < ApplicationController
   def update
     respond_to do |format|
       if @library.update(library_params)
-        format.html { redirect_to @library, notice: "Library was successfully updated." }
+        format.html { redirect_to @library, notice: "Library [#{@library.name}] was successfully updated." }
         format.json { render :show, status: :ok, location: @library }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class LibrariesController < ApplicationController
     @library.destroy!
 
     respond_to do |format|
-      format.html { redirect_to libraries_path, status: :see_other, notice: "Library was successfully destroyed." }
+      format.html { redirect_to libraries_path, status: :see_other, notice: "Library [#{@library.name}] was successfully destroyed." }
       format.json { head :no_content }
     end
   end
