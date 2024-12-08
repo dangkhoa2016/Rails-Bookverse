@@ -1,9 +1,8 @@
 <h1>New tag</h1>
 
-<%= render "form", tag: @tag %>
-
+<%= render 'form', tag: @tag %>
 <br>
 
 <div>
-  <%= link_to "Back to tags", tags_path %>
+  <%= link_to 'Back to tags', tags_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
 </div>

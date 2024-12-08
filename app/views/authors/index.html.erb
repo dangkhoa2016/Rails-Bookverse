@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'shared/result_messages', record: @author %>
 
 <h1>Authors</h1>
 
-<div id="authors">
+<div id='authors'>
   <% @authors.each do |author| %>
     <%= render author %>
     <p>
-      <%= link_to "Show this author", author %>
+      <%= link_to 'Show this author', author %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New author", new_author_path %>
+<%= link_to 'New author', new_author_path %>

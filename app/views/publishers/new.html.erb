@@ -1,9 +1,9 @@
 <h1>New publisher</h1>
 
-<%= render "form", publisher: @publisher %>
+<%= render 'form', publisher: @publisher %>
 
 <br>
 
 <div>
-  <%= link_to "Back to publishers", publishers_path %>
+  <%= link_to 'Back to publishers', publishers_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
 </div>

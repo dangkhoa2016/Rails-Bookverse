@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'shared/result_messages', record: @published_date %>
 
 <h1>Published dates</h1>
 
-<div id="published_dates">
+<div id='published_dates'>
   <% @published_dates.each do |published_date| %>
     <%= render published_date %>
     <p>
-      <%= link_to "Show this published date", published_date %>
+      <%= link_to 'Show this published date', published_date %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New published date", new_published_date_path %>
+<%= link_to 'New published date', new_published_date_path %>

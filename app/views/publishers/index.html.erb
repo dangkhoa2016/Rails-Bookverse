@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'shared/result_messages', record: @publisher %>
 
 <h1>Publishers</h1>
 
-<div id="publishers">
+<div id='publishers'>
   <% @publishers.each do |publisher| %>
     <%= render publisher %>
     <p>
-      <%= link_to "Show this publisher", publisher %>
+      <%= link_to 'Show this publisher', publisher %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New publisher", new_publisher_path %>
+<%= link_to 'New publisher', new_publisher_path %>
