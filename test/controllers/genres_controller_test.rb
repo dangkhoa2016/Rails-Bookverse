@@ -17,7 +17,11 @@ class GenresControllerTest < ActionDispatch::IntegrationTest
 
   test "should create genre" do
     assert_difference("Genre.count") do
-      post genres_url, params: { genre: { active: @genre.active, description: @genre.description, name: @genre.name } }
+      post genres_url, params: { genre: {
+        active: @genre.active,
+        description: @genre.description,
+        name: @genre.name + " - New"
+      } }
     end
 
     assert_redirected_to genre_url(Genre.last)
@@ -34,7 +38,11 @@ class GenresControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update genre" do
-    patch genre_url(@genre), params: { genre: { active: @genre.active, description: @genre.description, name: @genre.name } }
+    patch genre_url(@genre), params: { genre: {
+      active: @genre.active,
+      description: @genre.description,
+      name: @genre.name + " - Updated"
+    } }
     assert_redirected_to genre_url(@genre)
   end
 

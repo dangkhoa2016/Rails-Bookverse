@@ -1,10 +1,10 @@
 <h1>Editing library</h1>
 
-<%= render "form", library: @library %>
+<%= render 'form', library: @library %>
 
 <br>
 
 <div>
-  <%= link_to "Show this library", @library %> |
-  <%= link_to "Back to libraries", libraries_path %>
+  <%= link_to 'Show this library', @library, data: { turbo_frame: '_top' }, class: 'model-link' %> |
+  <%= link_to 'Back to libraries', libraries_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
 </div>

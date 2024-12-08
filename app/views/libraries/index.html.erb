@@ -1,14 +1,14 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'shared/result_messages', record: @library %>
 
 <h1>Libraries</h1>
 
-<div id="libraries">
+<div id='libraries'>
   <% @libraries.each do |library| %>
     <%= render library %>
     <p>
-      <%= link_to "Show this library", library %>
+      <%= link_to 'Show this library', library %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New library", new_library_path %>
+<%= link_to 'New library', new_library_path %>

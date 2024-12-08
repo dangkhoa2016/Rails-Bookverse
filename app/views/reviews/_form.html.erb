@@ -1,37 +1,27 @@
-<%= form_with(model: review) do |form| %>
-  <% if review.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+<%= form_with(model: review, class: 'model-form mt-4', novalidate: true) do |form| %>
+  <%= render 'shared/error_messages', record: review %>
 
-      <ul>
-        <% review.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <div class='mb-3'>
+    <%= form.label :content, class: 'form-label' %>
+    <%= form.text_area :content, class: 'form-control', rows: 5 %>
+  </div>
 
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
+  <div class='mb-3'>
+    <%= form.label :rating, class: 'form-label' %>
+    <%= form.number_field :rating, class: 'form-control' %>
+  </div>
+
+  <div class='mb-3'>
+    <%= form.label :book_id, class: 'form-label' %>
+    <%= form.text_field :book_id, class: 'form-control' %>
+  </div>
+
+  <div class='mb-3 form-check'>
+    <%= form.check_box :active, class: 'form-check-input' %>
+    <%= form.label :active, class: 'form-check-label' %>
   </div>
 
   <div>
-    <%= form.label :rating, style: "display: block" %>
-    <%= form.number_field :rating %>
-  </div>
-
-  <div>
-    <%= form.label :book_id, style: "display: block" %>
-    <%= form.text_field :book_id %>
-  </div>
-
-  <div>
-    <%= form.label :active, style: "display: block" %>
-    <%= form.check_box :active %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit 'Save', class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -17,7 +17,16 @@ class PublishersControllerTest < ActionDispatch::IntegrationTest
 
   test "should create publisher" do
     assert_difference("Publisher.count") do
-      post publishers_url, params: { publisher: { active: @publisher.active, address: @publisher.address, ceo_name: @publisher.ceo_name, email: @publisher.email, established_year: @publisher.established_year, name: @publisher.name, phone_number: @publisher.phone_number, website: @publisher.website } }
+      post publishers_url, params: { publisher: {
+        active: @publisher.active,
+        address: @publisher.address,
+        ceo_name: @publisher.ceo_name,
+        email: @publisher.email,
+        established_year: @publisher.established_year,
+        name: @publisher.name + " - New",
+        phone_number: @publisher.phone_number,
+        website: @publisher.website
+      } }
     end
 
     assert_redirected_to publisher_url(Publisher.last)
@@ -34,7 +43,16 @@ class PublishersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update publisher" do
-    patch publisher_url(@publisher), params: { publisher: { active: @publisher.active, address: @publisher.address, ceo_name: @publisher.ceo_name, email: @publisher.email, established_year: @publisher.established_year, name: @publisher.name, phone_number: @publisher.phone_number, website: @publisher.website } }
+    patch publisher_url(@publisher), params: { publisher: {
+      active: @publisher.active,
+      address: @publisher.address,
+      ceo_name: @publisher.ceo_name,
+      email: @publisher.email,
+      established_year: @publisher.established_year,
+      name: @publisher.name + " - Updated",
+      phone_number: @publisher.phone_number,
+      website: @publisher.website
+    } }
     assert_redirected_to publisher_url(@publisher)
   end
 

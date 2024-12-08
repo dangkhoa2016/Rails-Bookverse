@@ -1,10 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<%= render 'shared/result_messages', record: @library %>
 
 <%= render @library %>
 
 <div>
-  <%= link_to "Edit this library", edit_library_path(@library) %> |
-  <%= link_to "Back to libraries", libraries_path %>
+  <%= link_to 'Edit this library', edit_library_path(@library) %> |
+  <%= link_to 'Back to libraries', libraries_path %>
 
-  <%= button_to "Destroy this library", @library, method: :delete %>
+  <%= button_to 'Destroy this library', @library, method: :delete, data: { turbo_confirm: 'Are you sure ?' } %>
 </div>

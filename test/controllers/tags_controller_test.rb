@@ -17,7 +17,10 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create tag" do
     assert_difference("Tag.count") do
-      post tags_url, params: { tag: { active: @tag.active, name: @tag.name } }
+      post tags_url, params: { tag: {
+        active: @tag.active,
+        name: @tag.name + " - New"
+      } }
     end
 
     assert_redirected_to tag_url(Tag.last)
@@ -34,7 +37,10 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update tag" do
-    patch tag_url(@tag), params: { tag: { active: @tag.active, name: @tag.name } }
+    patch tag_url(@tag), params: { tag: {
+      active: @tag.active,
+      name: @tag.name + " - Updated"
+    } }
     assert_redirected_to tag_url(@tag)
   end
 
