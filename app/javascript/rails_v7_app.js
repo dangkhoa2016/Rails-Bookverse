@@ -1,3 +1,5 @@
+import './color_modes';
+
 const handleLinksClick = () => {
   const linkCollection = document.querySelectorAll('a[data-turbo-frame="_top"].model-link');
   if (linkCollection.length > 0) {
@@ -25,6 +27,8 @@ const scrollToTop = function() {
   });
 };
 
+const header = document.querySelector('header.header');
+
 // Show or hide the button based on scroll position
 window.onscroll = function () {
   if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -32,8 +36,13 @@ window.onscroll = function () {
   } else {
     scrollToTopBtn.style.display = 'none';  // Hide button
   }
+
+  if (header) {
+    header.classList.toggle('shadow-sm', document.documentElement.scrollTop > 0);
+  }
 };
 
 // Get the button element
 const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 scrollToTopBtn.addEventListener('click', scrollToTop);
+
