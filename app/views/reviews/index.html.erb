@@ -6,7 +6,8 @@
   <% @reviews.each do |review| %>
     <%= render review %>
     <p>
-      <%= link_to 'Show this review', review %>
+      <%= link_to 'View', review %>
+      <%= link_to 'Edit', edit_review_path(review) %>
     </p>
   <% end %>
 </div>

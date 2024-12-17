@@ -6,7 +6,8 @@
   <% @authors.each do |author| %>
     <%= render author %>
     <p>
-      <%= link_to 'Show this author', author %>
+      <%= link_to 'View', author %>
+      <%= link_to 'Edit', edit_author_path(author) %>
     </p>
   <% end %>
 </div>

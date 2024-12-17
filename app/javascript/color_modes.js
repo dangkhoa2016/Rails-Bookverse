@@ -4,7 +4,7 @@
 * Licensed under the Creative Commons Attribution 3.0 Unported License.
 */
 
-(() => {
+const initTheme = (() => {
   const THEME = 'rails-v7-book-verse-theme'
 
   const getStoredTheme = () => localStorage.getItem(THEME)
@@ -36,6 +36,10 @@
   const showActiveTheme = theme => {
     const activeThemeIcon = document.querySelector('.theme-icon-active use')
     const btnToActive = document.querySelector(`[data-coreui-theme-value="${theme}"]`)
+    if (!btnToActive) {
+      return
+    }
+
     const svgOfActiveBtn = btnToActive.querySelector('svg use').getAttribute('xlink:href')
 
     for (const element of document.querySelectorAll('[data-coreui-theme-value]')) {
@@ -53,16 +57,16 @@
     }
   })
 
-  window.addEventListener('DOMContentLoaded', () => {
-    showActiveTheme(getPreferredTheme())
+  showActiveTheme(getPreferredTheme())
 
-    for (const toggle of document.querySelectorAll('[data-coreui-theme-value]')) {
-      toggle.addEventListener('click', () => {
-        const theme = toggle.getAttribute('data-coreui-theme-value')
-        setStoredTheme(theme)
-        setTheme(theme)
-        showActiveTheme(theme)
-      })
-    }
-  })
-})()
+  for (const toggle of document.querySelectorAll('[data-coreui-theme-value]')) {
+    toggle.addEventListener('click', () => {
+      const theme = toggle.getAttribute('data-coreui-theme-value')
+      setStoredTheme(theme)
+      setTheme(theme)
+      showActiveTheme(theme)
+    })
+  }
+})
+
+export default initTheme

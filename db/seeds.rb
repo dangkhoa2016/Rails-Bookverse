@@ -269,15 +269,12 @@ end
 
 # Real Publishers
 publishers = [
-  { name: 'Penguin Random House', address: '1745 Broadway, Chicago, IL 10019', phone_number: '212-366-2000', email: 'contact@penguinrandomhouse.com', website: 'https://www.penguinrandomhouse.com', ceo_name: 'Markus Dohle', established_year: 1927 },
   { name: 'HarperCollins', address: '195 Broadway, Los Angeles, CA 10007', phone_number: '212-207-7000', email: 'contact@harpercollins.com', website: 'https://www.harpercollins.com', ceo_name: 'Brian Murray', established_year: 1817 },
   { name: 'Macmillan', address: '120 Broadway, Boston, MA 10271', phone_number: '212-674-5151', email: 'info@macmillan.com', website: 'https://www.macmillan.com', ceo_name: 'John Sargent', established_year: 1843 },
   { name: 'Bloomsbury', address: '50 Bedford Square, London, WC1B 3DP', phone_number: '020-7631-5600', email: 'info@bloomsbury.local', website: 'https://www.bloomsbury.com', ceo_name: 'Nigel Newton', established_year: 1986 },
   { name: 'Bantam Books', address: '1745 Broadway, Dallas, TX 10019', phone_number: '212-782-9000', email: 'bantam.books@test.sample', website: 'https://www.bantambooks.com', ceo_name: 'Suzanne Herz', established_year: 1945 },
   { name: 'Hachette', address: '1290 Avenue of the Americas, Miami, FL 10104', phone_number: '212-364-1100', email: 'contact@hachette.local', website: 'https://www.hachette.com', ceo_name: 'Arnaud Nourry', established_year: 1826 },
   { name: 'Penguin Random House', address: '1745 Broadway, Chicago, IL 10019', phone_number: '212-366-2000', email: 'contact@penguinrandomhouse.com', website: 'https://www.penguinrandomhouse.com', ceo_name: 'Markus Dohle', established_year: 1927 },
-  { name: 'HarperCollins', address: '195 Broadway, Los Angeles, CA 10007', phone_number: '212-207-7000', email: 'contact@harpercollins.com', website: 'https://www.harpercollins.com', ceo_name: 'Brian Murray', established_year: 1817 },
-  { name: 'Macmillan', address: '120 Broadway, Boston, MA 10271', phone_number: '212-674-5151', email: 'info@macmillan.com', website: 'https://www.macmillan.com', ceo_name: 'John Sargent', established_year: 1843 },
   { name: 'Simon & Schuster', address: '1230 Avenue of the Americas, San Francisco, CA 10020', phone_number: '212-698-7000', email: 'contact@simonandschuster.com', website: 'https://www.simonandschuster.com', ceo_name: 'Jonathan Karp', established_year: 1924 },
   { name: 'Scholastic', address: '557 Broadway, Seattle, WA 10012', phone_number: '212-343-6100', email: 'info@scholastic.com', website: 'https://www.scholastic.com', ceo_name: 'Richard Robinson', established_year: 1920 },
   { name: 'Random House', address: '1745 Broadway, Houston, TX 10019', phone_number: '212-782-9000', email: 'contact@randomhouse.com', website: 'https://www.randomhouse.com', ceo_name: 'Markus Dohle', established_year: 1927 },
@@ -289,7 +286,23 @@ publishers = [
   { name: 'Kodansha', address: '1-14-5, Kanda-Jimbocho, Chiyoda-ku, Tokyo 101-8050, Japan', phone_number: '+81 3-3230-6161', email: 'info@kodansha.com', website: 'https://www.kodansha.com', ceo_name: 'Nobuyuki Idei', established_year: 1909 },
   { name: 'Plaza & Janés', address: 'Carrer de Pau Claris, 163, 08037 Barcelona, Spain', phone_number: '+34 93 410 46 00', email: 'contacto@plazajanes.com', website: 'https://www.plazajanes.com', ceo_name: 'José Ortega', established_year: 1991 },
   { name: 'Headline Review', address: '75 Varley Street, London E3 2EN, UK', phone_number: '+44 20 7873 8000', email: 'contact@headline.co.uk', website: 'https://www.headline.co.uk', ceo_name: 'Ian Chapman', established_year: 1986 },
-  { name: 'Gnome Press', address: '16 East 52nd Street, Chicago, IL 10022', phone_number: '212-355-6600', email: 'info@gnomepress.com', website: 'https://www.gnomepress.com', ceo_name: 'Martin H. Greenberg', established_year: 1948 }
+  { name: 'Gnome Press', address: '16 East 52nd Street, Chicago, IL 10022', phone_number: '212-355-6600', email: 'info@gnomepress.com', website: 'https://www.gnomepress.com', ceo_name: 'Martin H. Greenberg', established_year: 1948 },
+  { name: 'Tor Books', address: '120 Broadway, New York, NY 10271', phone_number: '212-627-9000', email: 'info@tor.com', website: 'https://www.tor.com', ceo_name: 'Marissa L. Hilliard', established_year: 1980 },
+  { name: 'Wiley', address: '111 River Street, Hoboken, NJ 07030', phone_number: '201-748-6000', email: 'info@wiley.com', website: 'https://www.wiley.com', ceo_name: 'Brian A. Hollar', established_year: 1807 },
+  { name: 'Penguin Books', address: '80 Strand, London WC2R 0RL, UK', phone_number: '+44 20 7840 8400', email: 'info@penguin.com', website: 'https://www.penguin.com', ceo_name: 'Ann Godoff', established_year: 1935 },
+  { name: 'Rizzoli', address: '1745 Broadway, New York, NY 10019', phone_number: '212-307-8900', email: 'contact@rizzoliusa.com', website: 'https://www.rizzoliusa.com', ceo_name: 'Raul G. Castellanos', established_year: 1964 },
+  { name: 'St. Martin\'s Press', address: '175 5th Avenue, New York, NY 10010', phone_number: '212-675-2550', email: 'contact@stmartins.com', website: 'https://www.stmartins.com', ceo_name: 'Alison B. Rich', established_year: 1952 },
+  { name: 'Viking Press', address: '1745 Broadway, New York, NY 10019', phone_number: '212-366-2700', email: 'info@vikingpress.com', website: 'https://www.penguinrandomhouse.com/viking', ceo_name: 'Brian Tart', established_year: 1929 },
+  { name: 'University of Chicago Press', address: '1427 E 60th St, Chicago, IL 60637', phone_number: '773-702-7700', email: 'contact@press.uchicago.edu', website: 'https://www.press.uchicago.edu', ceo_name: 'Michele McKenzie', established_year: 1891 },
+  { name: 'Canongate Books', address: '14 High Street, Edinburgh, EH1 1TE, UK', phone_number: '+44 131 555 4200', email: 'info@canongate.co.uk', website: 'https://www.canongate.co.uk', ceo_name: 'Cheryl Mitchell', established_year: 1994 },
+  { name: 'Faber & Faber', address: '3 Queen Square, London WC1N 3AU, UK', phone_number: '+44 20 7927 3800', email: 'info@faber.co.uk', website: 'https://www.faber.co.uk', ceo_name: 'Stephen Page', established_year: 1929 },
+  { name: 'Oxford University Press', address: 'Great Clarendon Street, Oxford, OX2 6DP, UK', phone_number: '+44 1865 556767', email: 'contact@oup.com', website: 'https://www.oup.com', ceo_name: 'Nigel Portwood', established_year: 1586 },
+  { name: 'Harvill Secker', address: '20 Vauxhall Bridge Road, London SW1V 2SA, UK', phone_number: '+44 20 7598 7000', email: 'info@harvillsecker.co.uk', website: 'https://www.harvillsecker.co.uk', ceo_name: 'Francesca Main', established_year: 1999 },
+  { name: 'Pan Macmillan', address: 'Griffin House, 161-163 Euston Road, London NW1 2B', phone_number: '+44 20 3141 7460', email: 'info@panmacmillan.com', website: 'https://www.panmacmillan.com', ceo_name: 'Anthony Forbes Watson', established_year: 1988 },
+  { name: 'Scribe Publications', address: '1/45-47 The Avenue, Melbourne VIC 3181, Australia', phone_number: '+61 3 9457 1188', email: 'info@scribepub.com.au', website: 'https://www.scribepub.com.au', ceo_name: 'Henry Rosenbloom', established_year: 2007 },
+  { name: 'Granta', address: '12-14 Holywell Street, Cambridge, CB3 0BF, UK', phone_number: '+44 1223 307 940', email: 'info@granta.com', website: 'https://www.granta.com', ceo_name: 'Sigrid Rausing', established_year: 1979 },
+  { name: 'Quercus', address: '55-56 Eagle Street, London, WC1R 4AR, UK', phone_number: '+44 20 7863 5800', email: 'info@quercusbooks.co.uk', website: 'https://www.quercusbooks.co.uk', ceo_name: 'Mark Smith', established_year: 2004 },
+  { name: 'Hodder & Stoughton', address: '338 Euston Road, London NW1 3BH, UK', phone_number: '+44 20 7873 6000', email: 'info@hodder.co.uk', website: 'https://www.hodder.co.uk', ceo_name: 'Jamie Hodder-Williams', established_year: 1868 }
 ]
 
 publishers.each do |publisher|

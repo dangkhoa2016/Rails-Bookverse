@@ -6,7 +6,8 @@
   <% @published_dates.each do |published_date| %>
     <%= render published_date %>
     <p>
-      <%= link_to 'Show this published date', published_date %>
+      <%= link_to 'View', published_date %>
+      <%= link_to 'Edit', edit_published_date_path(published_date) %>
     </p>
   <% end %>
 </div>

@@ -6,7 +6,8 @@
   <% @genres.each do |genre| %>
     <%= render genre %>
     <p>
-      <%= link_to 'Show this genre', genre %>
+      <%= link_to 'View', genre %>
+      <%= link_to 'Edit', edit_genre_path(genre) %>
     </p>
   <% end %>
 </div>

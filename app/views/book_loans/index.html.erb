@@ -6,7 +6,8 @@
   <% @book_loans.each do |book_loan| %>
     <%= render book_loan %>
     <p>
-      <%= link_to 'Show this book loan', book_loan %>
+      <%= link_to 'View', book_loan %>
+      <%= link_to 'Edit', edit_book_loan_path(book_loan) %>
     </p>
   <% end %>
 </div>

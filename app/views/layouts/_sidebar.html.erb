@@ -21,14 +21,18 @@
       <% end %>
 
       <% menus.each do |menu| %>
+        <%
+          url = send("#{menu[:path]}_path")
+          active_class = current_page?(url) ? ' active text-info' : ''
+        %>
         <li class='nav-item'>
           <%#-- Render each menu item --%>
-          <a class='nav-link' href='<%= send("#{menu[:path]}_path") %>'>
+          <%= link_to url, class: "nav-link py-2#{active_class}" do %>
             <svg class='nav-icon'>
               <use xlink:href="<%= asset_path('coreui-free.svg') %>#<%= menu[:icon] %>"></use>
             </svg>
             <%= menu[:name] %>
-          </a>
+          <% end %>
         </li>
       <% end %>
 

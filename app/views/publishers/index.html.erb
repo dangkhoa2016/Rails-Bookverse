@@ -6,7 +6,8 @@
   <% @publishers.each do |publisher| %>
     <%= render publisher %>
     <p>
-      <%= link_to 'Show this publisher', publisher %>
+      <%= link_to 'View', publisher %>
+      <%= link_to 'Edit', edit_publisher_path(publisher) %>
     </p>
   <% end %>
 </div>

@@ -25,7 +25,7 @@ class BookLoansController < ApplicationController
 
     respond_to do |format|
       if @book_loan.save
-        format.html { redirect_to @book_loan, notice: "Book loan was successfully created." }
+        format.html { redirect_to @book_loan, notice: "Book loan for the book [#{@book_loan.book.title}] was successfully created." }
         format.json { render :show, status: :created, location: @book_loan }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BookLoansController < ApplicationController
   def update
     respond_to do |format|
       if @book_loan.update(book_loan_params)
-        format.html { redirect_to @book_loan, notice: "Book loan was successfully updated." }
+        format.html { redirect_to @book_loan, notice: "Book loan for the book [#{@book_loan.book.title}] was successfully updated." }
         format.json { render :show, status: :ok, location: @book_loan }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class BookLoansController < ApplicationController
     @book_loan.destroy!
 
     respond_to do |format|
-      format.html { redirect_to book_loans_path, status: :see_other, notice: "Book loan was successfully destroyed." }
+      format.html { redirect_to book_loans_path, status: :see_other, notice: "Book loan for the book [#{@book_loan.book.title}] was successfully destroyed." }
       format.json { head :no_content }
     end
   end
