@@ -1,17 +1,19 @@
-<div id='<%= dom_id library %>'>
-  <p>
-    <strong>Name:</strong>
-    <%= library.name %>
-  </p>
+<div id='<%= dom_id library %>' class='card mt-3'>
+  <div class='card-header border-warning border-top border-bottom-0 border-4'>
+    <h2 class='mb-0'><%= library.name %></h2>
+  </div>
 
-  <p>
-    <strong>Address:</strong>
-    <%= library.address %>
-  </p>
+  <div class='card-body'>
+    <p>
+      <strong>Address:</strong>
+      <%= library.address %>
+    </p>
 
-  <p>
-    <strong>Active:</strong>
-    <%= library.active %>
-  </p>
+    <p>
+      <strong>Active:</strong>
+      <%= library.active %>
+    </p>
+  </div>
 
+  <%= render 'shared/footer_actions', record: library %>
 </div>

@@ -1,0 +1,11 @@
+<div class='card-footer'>
+  <% if action_name == 'show' %>
+    <%= link_to 'Edit', edit_polymorphic_path(record) %> |
+    <%= link_to 'Delete', record, method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %> |
+    <%= link_to 'Back', polymorphic_path(record.class) %>
+  <% else %>
+    <%= link_to 'View', record %> |
+    <%= link_to 'Edit', edit_polymorphic_path(record) %> |
+    <%= link_to 'Delete', record, method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %>
+  <% end %>
+</div>

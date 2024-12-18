@@ -1,10 +1,10 @@
-<h1>Editing review</h1>
+<%= render 'shared/header_actions', record: @review %>
 
 <%= render 'form', review: @review %>
 
 <br>
 
 <div>
-  <%= link_to 'Show this review', @review, data: { turbo_frame: '_top' }, class: 'model-link' %> |
+  <%= link_to 'View', @review, data: { turbo_frame: '_top' }, class: 'model-link' %> |
   <%= link_to 'Back to reviews', reviews_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
 </div>

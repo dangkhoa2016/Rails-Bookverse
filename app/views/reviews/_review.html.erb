@@ -1,22 +1,29 @@
-<div id='<%= dom_id review %>'>
-  <p>
-    <strong>Content:</strong>
-    <%= review.content %>
-  </p>
+<div id='<%= dom_id review %>' class='card mt-3'>
+  <div class='card-header border-info border-top border-bottom-0 border-4'>
+    <h2 class='mb-0'><%= review.book&.title %></h2>
+  </div>
 
-  <p>
-    <strong>Rating:</strong>
-    <%= review.rating %>
-  </p>
+  <div class='card-body'>
+    <p>
+      <strong>Content:</strong>
+      <%= review.content %>
+    </p>
 
-  <p>
-    <strong>Book:</strong>
-    <%= review.book_id %>
-  </p>
+    <p>
+      <strong>Rating:</strong>
+      <%= review.rating %>
+    </p>
 
-  <p>
-    <strong>Active:</strong>
-    <%= review.active %>
-  </p>
+    <p>
+      <strong>Book ID:</strong>
+      <%= review.book_id %>
+    </p>
 
+    <p>
+      <strong>Active:</strong>
+      <%= review.active %>
+    </p>
+  </div>
+
+  <%= render 'shared/footer_actions', record: review %>
 </div>

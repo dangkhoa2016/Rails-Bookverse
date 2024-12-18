@@ -4,7 +4,7 @@ module ApplicationHelper
     { id: 2, name: 'Authors', path: :authors, group: 'Authors', icon: 'cil-user' },
     { id: 3, name: 'Author Profiles', path: :author_profiles, group: 'Authors', icon: 'cil-address-book' },
     { id: 4, name: 'Books', path: :books, group: 'Books', icon: 'cil-book' },
-    { id: 5, name: 'BookLoans', path: :book_loans, group: 'Rentals', icon: 'cil-cart' },
+    { id: 5, name: 'Book Loans', path: :book_loans, group: 'Rentals', icon: 'cil-cart' },
     { id: 6, name: 'Categories', path: :categories, group: 'Books', icon: 'cil-blur' },
     { id: 7, name: 'Genres', path: :genres, group: 'Books', icon: 'cil-camera-control' },
     { id: 8, name: 'Libraries', path: :libraries, group: 'Rentals', icon: 'cil-library' },

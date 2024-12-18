@@ -1,14 +1,9 @@
 <%= render 'shared/result_messages', record: @review %>
-
-<h1>Reviews</h1>
+<%= render 'shared/index_header' %>
 
 <div id='reviews'>
   <% @reviews.each do |review| %>
     <%= render review %>
-    <p>
-      <%= link_to 'View', review %>
-      <%= link_to 'Edit', edit_review_path(review) %>
-    </p>
   <% end %>
 </div>
 

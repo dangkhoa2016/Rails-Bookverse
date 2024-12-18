@@ -3,7 +3,7 @@ class AuthorProfilesController < ApplicationController
 
   # GET /author_profiles or /author_profiles.json
   def index
-    @author_profiles = AuthorProfile.all
+    @author_profiles = AuthorProfile.includes(:author)
   end
 
   # GET /author_profiles/1 or /author_profiles/1.json

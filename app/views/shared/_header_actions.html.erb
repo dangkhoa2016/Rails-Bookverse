@@ -1,0 +1,15 @@
+<div class='d-flex align-items-center'>
+  <h1 class='mb-0'><%= action_name.titleize %> <%= controller_name.singularize.titleize.downcase %></h1>
+
+  <div class='btn-group ms-auto'>
+    <% if action_name == 'edit' %>
+      <%= link_to 'View', record, data: { turbo_frame: '_top' }, class: 'model-link btn btn-primary' %>
+    <% end %>
+
+    <%= link_to({ controller: controller_name }, data: { turbo_frame: '_top' }, class: 'model-link btn btn-secondary') do %>
+      <svg class='icon'>
+        <use xlink:href="<%= asset_path('coreui-free.svg') %>#cil-backspace"></use>
+      </svg> Back
+    <% end %>
+  </div>
+</div>

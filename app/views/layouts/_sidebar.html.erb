@@ -23,7 +23,7 @@
       <% menus.each do |menu| %>
         <%
           url = send("#{menu[:path]}_path")
-          active_class = current_page?(url) ? ' active text-info' : ''
+          active_class = ((controller_name == menu[:path].to_s) || current_page?(url)) ? ' active text-info' : ''
         %>
         <li class='nav-item'>
           <%#-- Render each menu item --%>

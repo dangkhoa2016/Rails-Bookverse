@@ -1,14 +1,9 @@
 <%= render 'shared/result_messages', record: @library %>
-
-<h1>Libraries</h1>
+<%= render 'shared/index_header' %>
 
 <div id='libraries'>
   <% @libraries.each do |library| %>
     <%= render library %>
-    <p>
-      <%= link_to 'View', library %>
-      <%= link_to 'Edit', edit_library_path(library) %>
-    </p>
   <% end %>
 </div>
 

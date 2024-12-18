@@ -3,7 +3,7 @@ class BookLoansController < ApplicationController
 
   # GET /book_loans or /book_loans.json
   def index
-    @book_loans = BookLoan.all
+    @book_loans = BookLoan.includes(:book, :member)
   end
 
   # GET /book_loans/1 or /book_loans/1.json

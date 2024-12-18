@@ -1,15 +1,10 @@
 <%= render 'shared/result_messages', record: @book_loan %>
+<%= render 'shared/index_header' %>
 
-<h1>Book loans</h1>
-
-<div id='book_loans'>
+<div id='book_loans' class='my-3'>
   <% @book_loans.each do |book_loan| %>
     <%= render book_loan %>
-    <p>
-      <%= link_to 'View', book_loan %>
-      <%= link_to 'Edit', edit_book_loan_path(book_loan) %>
-    </p>
   <% end %>
 </div>
 
-<%= link_to 'New book loan', new_book_loan_path %>
+<%= link_to 'New book_loan', new_book_loan_path %>

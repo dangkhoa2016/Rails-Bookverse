@@ -10,7 +10,7 @@ class Book < ApplicationRecord
   has_many :published_dates, dependent: :destroy
   has_many :publishers, through: :published_dates
 
-  validates :title, presence: true
+  validates :title, :summary, :isbn, :pages, presence: true
 
   # has_one_attached :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
 end

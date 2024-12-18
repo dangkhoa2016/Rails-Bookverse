@@ -1,14 +1,9 @@
 <%= render 'shared/result_messages', record: @genre %>
-
-<h1>Genres</h1>
+<%= render 'shared/index_header' %>
 
 <div id='genres'>
   <% @genres.each do |genre| %>
     <%= render genre %>
-    <p>
-      <%= link_to 'View', genre %>
-      <%= link_to 'Edit', edit_genre_path(genre) %>
-    </p>
   <% end %>
 </div>
 

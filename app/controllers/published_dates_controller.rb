@@ -3,7 +3,7 @@ class PublishedDatesController < ApplicationController
 
   # GET /published_dates or /published_dates.json
   def index
-    @published_dates = PublishedDate.all
+    @published_dates = PublishedDate.includes(:book, :publisher)
   end
 
   # GET /published_dates/1 or /published_dates/1.json

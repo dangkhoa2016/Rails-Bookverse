@@ -1,10 +1,10 @@
-<h1>Editing author</h1>
+<%= render 'shared/header_actions', record: @author %>
 
 <%= render 'form', author: @author %>
 
 <br>
 
 <div>
-  <%= link_to 'Show this author', @author, data: { turbo_frame: '_top' }, class: 'model-link' %> |
+  <%= link_to 'View', @author, data: { turbo_frame: '_top' }, class: 'model-link' %> |
   <%= link_to 'Back to authors', authors_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
 </div>
