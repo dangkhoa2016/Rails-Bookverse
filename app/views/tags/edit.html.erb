@@ -6,6 +6,6 @@
 <br>
 
 <div>
-  <%= link_to 'Show this tag', @tag, data: { turbo_frame: '_top' }, class: 'model-link' %> |
-  <%= link_to 'Back to tags', tags_path, data: { turbo_frame: '_top', class: 'model-link' } %>
+  <%= link_to translate('actions.view'), @tag %> |
+  <%= link_to 'Back to tags', tags_path %>
 </div>

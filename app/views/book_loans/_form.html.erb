@@ -23,7 +23,7 @@
 
   <div class='mb-3'>
     <%= form.label :status, class: 'form-label' %>
-    <%= form.text_field :status, class: 'form-control' %>
+    <%= form.select :status, BookLoan.status_collection_for_select, {}, { class: 'form-select' } %>
   </div>
 
   <div class='mb-3 form-check'>
@@ -32,6 +32,6 @@
   </div>
 
   <div>
-    <%= form.submit 'Save', class: 'btn btn-primary' %>
+    <%= form.submit translate('actions.save'), class: 'btn btn-primary' %>
   </div>
 <% end %>

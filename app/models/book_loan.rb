@@ -21,4 +21,24 @@ class BookLoan < ApplicationRecord
 
   validates :status, presence: true
   validates :borrowed_on, presence: true
+
+  class << self
+
+    def status_collection_for_select(options = {})
+      BookLoan.statuses.map do |status, _|
+        [BookLoan.human_attribute_name("status.#{status}", options), status]
+      end
+    end
+
+    def human_attribute_name(field, options = {})
+      field = field.to_s
+      if field.start_with?('status.')
+        I18n.t("activerecord.attributes.book_loan.#{field}", **options)
+      elsif field == 'status'
+        I18n.t("activerecord.attributes.book_loan.#{field}_enum", **options)
+      else
+        super
+      end
+    end
+  end
 end

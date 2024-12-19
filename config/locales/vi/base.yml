@@ -1,0 +1,100 @@
+# Files in the config/locales directory are used for internationalization and
+# are automatically loaded by Rails. If you want to use locales other than
+# Vietnamese, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :vi
+#
+# This would use the information in config/locales/vi.yml.
+#
+# To learn more about the API, please read the Rails Internationalization guide
+# at https://guides.rubyonrails.org/i18n.html.
+#
+# Be aware that YAML interprets the following case-insensitive strings as
+# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
+# must be quoted to be interpreted as strings. For example:
+#
+#     vi:
+#       "yes": Có
+#       enabled: "ON"
+
+vi:
+  hello: Xin chào thế giới
+
+  locale:
+    vi: Bấm vào để thay đổi ngôn ngữ hiển thị sang Tiếng Việt
+    en: Bấm vào để thay đổi ngôn ngữ hiển thị sang Tiếng Anh
+
+  boolean:
+    "yes": Có
+    "no": Không
+    "on": Bật
+    "off": Tắt
+
+  actions:
+    create: Tạo
+    update: Cập Nhật
+    destroy: Xóa
+    edit: Chỉnh Sửa
+    new: Tạo Mới
+    show: Xem
+    back: Quay Lại
+    cancel: Hủy
+    save: Lưu
+    submit: Gửi
+    search: Tìm Kiếm
+    filter: Lọc
+    reset: Đặt Lại
+    confirm: Xác Nhận
+    delete: Xóa
+    remove: Loại Bỏ
+    view: Xem
+    download: Tải Xuống
+    upload: Tải Lên
+    next: Tiếp Theo
+    previous: Trước
+    close: Đóng
+    sign_in: Đăng Nhập
+    sign_out: Đăng Xuất
+    sign_up: Đăng Ký
+    sign_in_with: Đăng Nhập Với
+    sign_up_with: Đăng Ký Với
+    sign_in_with_provider: Đăng Nhập Với %{provider}
+    sign_up_with_provider: Đăng Ký Với %{provider}
+    sign_in_with_email: Đăng Nhập Với Email
+    sign_up_with_email: Đăng Ký Với Email
+    sign_in_with_facebook: Đăng Nhập Với Facebook
+    sign_up_with_facebook: Đăng Ký Với Facebook
+    sign_in_with_google: Đăng Nhập Với Google
+    sign_up_with_google: Đăng Ký Với Google
+    sign_in_with_twitter: Đăng Nhập Với Twitter
+    sign_up_with_twitter: Đăng Ký Với Twitter
+    sign_in_with_github: Đăng Nhập Với GitHub
+    sign_up_with_github: Đăng Ký Với GitHub
+    sign_in_with_linkedin: Đăng Nhập Với LinkedIn
+    sign_up_with_linkedin: Đăng Ký Với LinkedIn
+    sign_in_with_vk: Đăng Nhập Với VK
+    sign_up_with_vk: Đăng Ký Với VK
+    sign_in_with_yahoo: Đăng Nhập Với Yahoo
+    sign_up_with_yahoo: Đăng Ký Với Yahoo
+    sign_in_with_weibo: Đăng Nhập Với Weibo
+    sign_up_with_weibo: Đăng Ký Với Weibo
+    sign_in_with_wechat: Đăng Nhập Với WeChat
+    sign_up_with_wechat: Đăng Ký Với WeChat
+    sign_in_with_qq: Đăng Nhập Với QQ
+    sign_up_with_qq: Đăng Ký Với QQ
+    sign_in_with_wechat_work: Đăng Nhập Với WeChat Work
+    sign_up_with_wechat_work: Đăng Ký Với WeChat Work
+    sign_in_with_microsoft: Đăng Nhập Với Microsoft
+    sign_up_with_microsoft: Đăng Ký Với Microsoft
+    sign_in_with_line: Đăng Nhập Với LINE
+    sign_up_with_line: Đăng Ký Với LINE

@@ -1,0 +1,51 @@
+vi:
+  ui:
+    sidebar_menu:
+      authors: Tác giả
+      author_profiles: Hồ sơ tác giả
+      books: Sách
+      book_loans: Hồ sơ thuê sách
+      categories: Danh mục
+      tags: Thẻ
+      reviews: Đánh giá
+      genres: Thể loại sách
+      libraries: Thư viện
+      members: Thành viên
+      publishers: Nhà xuất bản
+      published_dates: Ngày xuất bản
+      settings: Cài đặt
+      home: Trang chủ
+      rentals: Thuê sách
+      publications: Xuất bản
+    list_of: Danh sách
+    home: Trang chủ
+
+    notifications:
+      title: Thông Báo
+    
+    tasks:
+      title: Công Việc
+
+    activities:
+      title: Hoạt Động
+
+    themes:
+      title: Giao Diện
+      light: Sáng
+      dark: Tối
+      auto: Tự động (theo Hệ Thống)
+
+    controller_actions:
+      index: Danh Sách
+      show: Chi Tiết
+      new: Tạo Mới
+      edit: Chỉnh Sửa
+      update: Cập Nhật
+      destroy: Xóa
+      search: Tìm Kiếm
+
+    accounts:
+      title: Tài Khoản
+      settings: Cài Đặt
+      profile: Hồ Sơ
+      security: Bảo Mật

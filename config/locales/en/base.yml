@@ -1,0 +1,100 @@
+# Files in the config/locales directory are used for internationalization and
+# are automatically loaded by Rails. If you want to use locales other than
+# English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :en
+#
+# This would use the information in config/locales/en.yml.
+#
+# To learn more about the API, please read the Rails Internationalization guide
+# at https://guides.rubyonrails.org/i18n.html.
+#
+# Be aware that YAML interprets the following case-insensitive strings as
+# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
+# must be quoted to be interpreted as strings. For example:
+#
+#     en:
+#       "yes": yup
+#       enabled: "ON"
+
+en:
+  hello: Hello world
+
+  locale:
+    vi: Click to change the display language to Vietnamese
+    en: Click to change the display language to English
+
+  boolean:
+    "yes": "Yes"
+    "no": "No"
+    "on": "On"
+    "off": "Off"
+
+  actions:
+    create: Create
+    update: Update
+    destroy: Destroy
+    edit: Edit
+    new: New
+    show: Show
+    back: Back
+    cancel: Cancel
+    save: Save
+    submit: Submit
+    search: Search
+    filter: Filter
+    reset: Reset
+    confirm: Confirm
+    delete: Delete
+    remove: Remove
+    view: View
+    download: Download
+    upload: Upload
+    next: Next
+    previous: Previous
+    close: Close
+    sign_in: Sign In
+    sign_out: Sign Out
+    sign_up: Sign Up
+    sign_in_with: Sign In with
+    sign_up_with: Sign Up with
+    sign_in_with_provider: Sign In with %{provider}
+    sign_up_with_provider: Sign Up with %{provider}
+    sign_in_with_email: Sign In with Email
+    sign_up_with_email: Sign Up with Email
+    sign_in_with_facebook: Sign In with Facebook
+    sign_up_with_facebook: Sign Up with Facebook
+    sign_in_with_google: Sign In with Google
+    sign_up_with_google: Sign Up with Google
+    sign_in_with_twitter: Sign In with Twitter
+    sign_up_with_twitter: Sign Up with Twitter
+    sign_in_with_github: Sign In with GitHub
+    sign_up_with_github: Sign Up with GitHub
+    sign_in_with_linkedin: Sign In with LinkedIn
+    sign_up_with_linkedin: Sign Up with LinkedIn
+    sign_in_with_vk: Sign In with VK
+    sign_up_with_vk: Sign Up with VK
+    sign_in_with_yahoo: Sign In with Yahoo
+    sign_up_with_yahoo: Sign Up with Yahoo
+    sign_in_with_weibo: Sign In with Weibo
+    sign_up_with_weibo: Sign Up with Weibo
+    sign_in_with_wechat: Sign In with WeChat
+    sign_up_with_wechat: Sign Up with WeChat
+    sign_in_with_qq: Sign In with QQ
+    sign_up_with_qq: Sign Up with QQ
+    sign_in_with_wechat_work: Sign In with WeChat Work
+    sign_up_with_wechat_work: Sign Up with WeChat Work
+    sign_in_with_microsoft: Sign In with Microsoft
+    sign_up_with_microsoft: Sign Up with Microsoft
+    sign_in_with_line: Sign In with LINE
+    sign_up_with_line: Sign Up with LINE
