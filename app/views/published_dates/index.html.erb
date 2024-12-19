@@ -1,13 +1,9 @@
 <%= render 'shared/result_messages', record: @published_date %>
-
-<h1>Published dates</h1>
+<%= render 'shared/index_header' %>
 
 <div id='published_dates'>
   <% @published_dates.each do |published_date| %>
     <%= render published_date %>
-    <p>
-      <%= link_to 'Show this published date', published_date %>
-    </p>
   <% end %>
 </div>
 

@@ -1,13 +1,9 @@
 <%= render 'shared/result_messages', record: @publisher %>
-
-<h1>Publishers</h1>
+<%= render 'shared/index_header' %>
 
 <div id='publishers'>
   <% @publishers.each do |publisher| %>
     <%= render publisher %>
-    <p>
-      <%= link_to 'Show this publisher', publisher %>
-    </p>
   <% end %>
 </div>
 

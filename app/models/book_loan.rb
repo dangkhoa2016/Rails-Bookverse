@@ -21,4 +21,14 @@ class BookLoan < ApplicationRecord
 
   validates :status, presence: true
   validates :borrowed_on, presence: true
+
+  class << self
+    def display_columns
+      (column_names - ['book_id']).map do |column_name|
+        {
+          column_name => 'col-md-6 col-12',
+        }
+      end
+    end
+  end
 end
