@@ -30,5 +30,16 @@ class BookLoan < ApplicationRecord
         }
       end
     end
+
+    def human_attribute_name(attr, options = {})
+      attr = attr.to_s
+      if attr.start_with?('status.')
+        I18n.t("activerecord.attributes.book_loan.#{attr}")
+      elsif attr == 'status'
+        I18n.t("activerecord.attributes.book_loan.#{attr}_enum")
+      else
+        super
+      end
+    end
   end
 end
