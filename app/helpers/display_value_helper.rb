@@ -29,7 +29,7 @@ module DisplayValueHelper
   end
 
   def display_boolean_value(value)
-    value ? 'Yes' : 'No'
+    value ? translate('boolean.on') : translate('boolean.off')
   end
 
   def is_boolean(value)

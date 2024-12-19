@@ -1,0 +1,16 @@
+<% sidebar_menu = defined?(locals) ? locals[:menu] : (defined?(menu) ? menu : nil) %>
+
+<%
+  url = send("#{sidebar_menu[:path]}_path")
+  active_class = ((controller_name == sidebar_menu[:path].to_s) || current_page?(url)) ? ' active text-info' : ''
+%>
+
+<li class='nav-item'>
+  <%#-- Render each menu item --%>
+  <%= link_to url, class: "nav-link py-2#{active_class}" do %>
+    <svg class='nav-icon'>
+      <use xlink:href="<%= asset_path('coreui-free.svg') %>#<%= sidebar_menu[:icon] %>"></use>
+    </svg>
+    <%= translate("ui.sidebar_menu.#{sidebar_menu[:name]}") %>
+  <% end %>
+</li>

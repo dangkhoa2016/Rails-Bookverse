@@ -1,45 +1,33 @@
 <div class='sidebar sidebar-dark sidebar-fixed border-end' id='sidebar'>
   <div class='sidebar-header border-bottom'>
     <div class='sidebar-brand'>
-      <%= image_tag '/favicon.png', class: 'sidebar-brand-full', height: '32', alt: 'Rails v7 Logo' %>
-      <%= image_tag '/favicon.png', class: 'sidebar-brand-narrow', width: '32', height: '32', alt: 'Rails v7 Logo' %>
+      <%= image_tag asset_path('logo-full.png'), class: 'sidebar-brand-full', height: '32', alt: 'Rails v7 BookVerse' %>
+      <%= image_tag '/favicon.png', class: 'sidebar-brand-narrow', width: '32', height: '32', alt: 'Rails v7 BookVerse' %>
     </div>
     <button class='btn-close d-lg-none' type='button'
       data-coreui-dismiss='offcanvas' data-coreui-theme='dark'
-      aria-label='Close' onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"></button>
+      aria-label='<%= translate("actions.close") %>' onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"></button>
   </div>
   <ul class='sidebar-nav' data-coreui='navigation' data-simplebar>
-    <% # Group NAV_MENUS by group name %>
-    <% grouped_menus = ApplicationHelper::NAV_MENUS.group_by { |menu| menu[:group] } %>
+    <%= render 'layouts/sidebar_menu', menu: home_menu %>
+    <li><hr class='divider'></li>
 
-    <% grouped_menus.each do |group_name, menus| %>
-      <% if group_name == 'settings' %>
-        <li><hr class='divider'></li>
-      <% else %>
+    <% # Group user_menus by group name %>
+    <% grouped_menus = user_menus.group_by { |menu| menu[:group] } %>
+
+    <% grouped_menus.each_with_index do |group, index| %>
+      <% group_name, menus = group %>
+      <% if group_name %>
         <%#-- Render Group Title --%>
-        <li class='nav-title'><%= group_name %></li>
+        <li class='nav-title<%= index == 0 ? " mt-0" : nil %>'><%= translate("ui.sidebar_menu.#{group_name}") %></li>
       <% end %>
 
       <% menus.each do |menu| %>
-        <%
-          url = send("#{menu[:path]}_path")
-          active_class = ((controller_name == menu[:path].to_s) || current_page?(url)) ? ' active text-info' : ''
-        %>
-        <li class='nav-item'>
-          <%#-- Render each menu item --%>
-          <%= link_to url, class: "nav-link py-2#{active_class}" do %>
-            <svg class='nav-icon'>
-              <use xlink:href="<%= asset_path('coreui-free.svg') %>#<%= menu[:icon] %>"></use>
-            </svg>
-            <%= menu[:name] %>
-          <% end %>
-        </li>
-      <% end %>
-
-      <% if group_name.blank? %>
-        <li><hr class='divider'></li>
+        <%= render 'layouts/sidebar_menu', menu: menu %>
       <% end %>
     <% end %>
+    <li><hr class='divider'></li>
+    <%= render 'layouts/sidebar_menu', menu: settings_menu %>
   </ul>
   <div class='sidebar-footer border-top d-none d-md-flex'>
     <button class='sidebar-toggler' type='button' data-coreui-toggle='unfoldable'></button>

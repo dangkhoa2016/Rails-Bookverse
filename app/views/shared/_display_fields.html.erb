@@ -2,7 +2,7 @@
   <% column, css_class = config.to_a.flatten %>
   <div class='col <%= css_class %>'>
     <p>
-      <strong><%= column.split('_').map(&:capitalize).join(' ') %>: </strong>
+      <strong><%= record.class.human_attribute_name(column) %>: </strong>
       <%= display_value(record, column) %>
     </p>
   </div>

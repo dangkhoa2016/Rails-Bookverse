@@ -1,0 +1,152 @@
+vi:
+  activerecord:
+    models:
+      author: Tác Giả
+      author_profile: Hồ Sơ Tác Giả
+      book_loan: Hồ Sơ Thuê Sách
+      book: Sách
+      category: Danh Mục
+      genre: Thể Loại
+      library: Thư Viện
+      member: Thành Viên
+      published_date: Ngày Xuất Bản
+      publisher: Nhà Xuất Bản
+      review: Đánh Giá
+      tag: Nhãn
+
+    attributes:
+      book_loan:
+        status_enum: Trạng thái
+        status:
+          borrowed: Đã mượn
+          returned: Đã trả
+          overdue: Quá hạn
+          reserved: Đã đặt
+          lost: Đã mất
+          damaged: Hư hỏng
+          waiting_for_return: Đang chờ trả
+          in_transit: Đang vận chuyển
+          available: Có sẵn
+          on_hold: Đang giữ
+          in_processing: Đang xử lý
+          renewed: Đã gia hạn
+          cancelled: Đã hủy
+          expired: Hết hạn
+        id: Mã Số
+        book_id: Sách
+        member_id: Mã Thành Viên
+        borrowed_on: Ngày Mượn
+        returned_on: Ngày Trả
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+        member_name: Tên Thành Viên
+
+      author:
+        id: Mã Số
+        first_name: Tên
+        last_name: Họ
+        email: Email
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+
+      book:
+        id: Mã Số
+        title: Tựa Đề
+        summary: Tóm Tắt
+        isbn: Isbn
+        pages: Số Trang
+        price: Giá
+        stock: Trong Kho
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+
+      publisher:
+        id: Mã Số
+        name: Tên
+        address: Địa Chỉ
+        phone_number: Số Điện Thoại
+        email: Email
+        established_year: Năm Thành Lập
+        website: Website
+        ceo_name: Giám Đốc Điều Hành
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+
+      tag:
+        id: Mã Số
+        name: Tên
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+
+      category:
+        id: Mã Số
+        name: Tên
+        description: Mô Tả
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+
+      genre:
+        id: Mã Số
+        name: Tên
+        description: Mô Tả
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+
+      review:
+        id: Mã Số
+        content: Nội Dung
+        rating: Số Sao
+        book_id: Sách
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+
+      published_date:
+        id: Mã Số
+        book_id: Mã Số Sách
+        publisher_id: Mã Nhà Xuất Bản
+        published_date: Ngày Xuất Bản
+        edition: Phiên Bản
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+        active: Kích Hoạt
+        publisher_name: Tên Nhà Xuất Bản
+
+      library:
+        id: Mã Số
+        name: Tên
+        address: Địa Chỉ
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+
+      member:
+        id: Mã Số
+        first_name: Tên
+        last_name: Họ
+        email: Email
+        library_id: Mã Thư Viện
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật
+        library_name: Tên Thư Viện
+
+      author_profile:
+        id: Mã Số
+        author_id: Mã Tác Giả
+        bio: Tiểu Sử
+        social_facebook: Facebook
+        social_twitter: Twitter
+        social_instagram: Instagram
+        social_linkedin: LinkedIn
+        social_youtube: YouTube
+        active: Kích Hoạt
+        created_at: Ngày Tạo
+        updated_at: Ngày Cập Nhật

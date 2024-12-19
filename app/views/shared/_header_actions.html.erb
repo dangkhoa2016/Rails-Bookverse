@@ -1,17 +1,17 @@
 <% model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil) %>
 
 <div class='d-flex align-items-center'>
-  <h2 class='mb-0'><%= action_name.titleize %> <%= controller_name.singularize.titleize.downcase %></h2>
+  <h2 class='mb-0'><%= translate("actions.#{action_name}") %> <%= record.class.model_name.human %></h2>
 
   <div class='btn-group btn-group-sm ms-auto'>
     <% if action_name == 'edit' %>
-      <%= link_to 'View', model_record, data: { turbo_frame: '_top' }, class: 'model-link btn btn-primary' %>
+      <%= link_to translate('actions.show'), model_record, data: { turbo_frame: '_top' }, class: 'btn btn-primary' %>
     <% end %>
 
-    <%= link_to({ controller: controller_name }, data: { turbo_frame: '_top' }, class: 'model-link btn btn-secondary') do %>
+    <%= link_to({ controller: controller_name }, data: { turbo_frame: '_top' }, class: 'btn btn-secondary') do %>
       <svg class='icon'>
         <use xlink:href="<%= asset_path('coreui-free.svg') %>#cil-backspace"></use>
-      </svg> Back
+      </svg> <%= translate('actions.back') %>
     <% end %>
   </div>
 </div>
