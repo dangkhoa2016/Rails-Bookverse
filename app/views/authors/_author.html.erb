@@ -1,22 +1,27 @@
-<div id='<%= dom_id author %>'>
-  <p>
-    <strong>First name:</strong>
-    <%= author.first_name %>
-  </p>
+<div id='<%= dom_id author %>' class='card mt-3'>
+  <div class='card-header border-success border-top border-bottom-0 border-4'>
+    <h4 class='mb-0'><%= author.full_name %></h4>
+  </div>
 
-  <p>
-    <strong>Last name:</strong>
-    <%= author.last_name %>
-  </p>
+  <div class='card-body'>
+    <p>
+      <strong>First name:</strong>
+      <%= author.first_name %>
+    </p>
 
-  <p>
-    <strong>Email:</strong>
-    <%= author.email %>
-  </p>
+    <p>
+      <strong>Last name:</strong>
+      <%= author.last_name %>
+    </p>
 
-  <p>
-    <strong>Active:</strong>
-    <%= author.active %>
-  </p>
+    <p>
+      <strong>Email:</strong>
+      <%= author.email %>
+    </p>
 
+    <p>
+      <strong>Active:</strong>
+      <%= author.active %>
+    </p>
+  </div>
 </div>
