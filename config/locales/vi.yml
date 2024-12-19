@@ -55,7 +55,7 @@ vi:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       short: "%d %b %H:%M"
-      long: "ngày %d %B năm %Y %H:%M"
+      long: "ngày %d, %B năm %Y %H:%M"
     am: "SA"
     pm: "CH"
 
@@ -166,3 +166,7 @@ vi:
           cancelled: "Đã hủy"
           expired: "Hết hạn"
         borrowed_on: "Đã mượn vào"
+
+  locale:
+    vi: "Bấm vào để thay đổi ngôn ngữ hiển thị sang Tiếng Việt"
+    en: "Bấm vào để thay đổi ngôn ngữ hiển thị sang Tiếng Anh"

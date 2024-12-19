@@ -192,3 +192,7 @@ en:
           renewed: "Renewed"
           cancelled: "Cancelled"
           expired: "Expired"
+
+  locale:
+    vi: "Click to change the display language to Vietnamese"
+    en: "Click to change the display language to English"

@@ -8,6 +8,18 @@
       </svg>
     </button>
     <ul class='header-nav d-flex'>
+      <% I18n.available_locales.each do |locale| %>
+        <% current_locale = I18n.locale == locale %>
+        <% url = current_locale ? '#' : url_for(locale: locale) %>
+        <li class='nav-item<%= current_locale ? ' bg-info' : '' %>'>
+          <%= link_to url, class: 'nav-link align-items-center d-flex',
+            title: translate("locale.#{locale}") do %>
+            <svg class='icon icon-lg'>
+              <use xlink:href='<%= asset_path("coreui-flag.svg") %>#cif-<%= locale.to_s == "vi" ? "vn" : "us" %>'></use>
+            </svg>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
     <ul class='header-nav ms-auto'>
       <li class='nav-item'>
