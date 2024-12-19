@@ -1,10 +1,9 @@
 <% model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil) %>
-<% model_name = model_record.class.name.to_s.downcase rescue model_record&.id %>
 
 <% if model_record && model_record.errors.any? %>
-  <div id='<%= model_name %>-error' class='error-messages alert alert-danger'>
+  <div id='<%= controller_name.singularize %>-error' class='error-messages alert alert-danger'>
     <h4 class='alert-heading'>
-      <%= pluralize(model_record.errors.count, 'error') %> prohibited this <%= model_name %> from being saved:
+      <%= pluralize(model_record.errors.count, 'error') %> prohibited this <%= controller_name.singularize.titleize %> from being saved:
     </h4>
     <ul class='mb-0'>
       <% model_record.errors.each do |error| %>

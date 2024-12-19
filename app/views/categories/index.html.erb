@@ -1,13 +1,9 @@
 <%= render 'shared/result_messages', record: @category %>
-
-<h1>Categories</h1>
+<%= render 'shared/index_header' %>
 
 <div id='categories'>
   <% @categories.each do |category| %>
     <%= render category %>
-    <p>
-      <%= link_to 'Show this category', category %>
-    </p>
   <% end %>
 </div>
 

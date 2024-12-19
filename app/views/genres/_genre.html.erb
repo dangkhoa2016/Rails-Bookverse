@@ -1,17 +1,11 @@
-<div id='<%= dom_id genre %>'>
-  <p>
-    <strong>Name:</strong>
-    <%= genre.name %>
-  </p>
+<div id='<%= dom_id genre %>' class='card mt-3'>
+  <div class='card-header border-success border-top border-bottom-0 border-4'>
+    <h4 class='mb-0'><%= genre.name %></h4>
+  </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= genre.description %>
-  </p>
+  <div class='card-body row row-cols-1'>
+    <%= render 'shared/display_fields', record: genre %>
+  </div>
 
-  <p>
-    <strong>Active:</strong>
-    <%= genre.active %>
-  </p>
-
+  <%= render 'shared/footer_actions', record: genre %>
 </div>

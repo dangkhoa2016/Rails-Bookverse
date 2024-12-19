@@ -1,9 +1,9 @@
-<h1>New member</h1>
+<%= render 'shared/header_actions', record: @member %>
 
 <%= render 'form', member: @member %>
 
 <br>
 
 <div>
-  <%= link_to 'Back to members', members_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
+  <%= link_to 'Back to members', members_path %>
 </div>

@@ -1,13 +1,9 @@
 <%= render 'shared/result_messages', record: @book %>
+<%= render 'shared/index_header' %>
 
-<h1>Books</h1>
-
-<div id='books'>
+<div id='books' class='my-3'>
   <% @books.each do |book| %>
     <%= render book %>
-    <p>
-      <%= link_to 'Show this book', book %>
-    </p>
   <% end %>
 </div>
 

@@ -1,13 +1,9 @@
 <%= render 'shared/result_messages', record: @author_profile %>
+<%= render 'shared/index_header' %>
 
-<h1>Author profiles</h1>
-
-<div id='author_profiles'>
+<div id='author_profiles' class='my-3'>
   <% @author_profiles.each do |author_profile| %>
     <%= render author_profile %>
-    <p>
-      <%= link_to 'Show this author profile', author_profile %>
-    </p>
   <% end %>
 </div>
 

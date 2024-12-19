@@ -4,4 +4,4 @@ import 'controllers'
 import '@popperjs/core'
 import 'bootstrap'
 
-import './core'
+import './rails_bookverse_app'

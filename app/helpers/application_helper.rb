@@ -4,7 +4,7 @@ module ApplicationHelper
     { id: 2, name: 'Authors', path: :authors },
     { id: 3, name: 'Author Profiles', path: :author_profiles },
     { id: 4, name: 'Books', path: :books },
-    { id: 5, name: 'BookLoans', path: :book_loans },
+    { id: 5, name: 'Book Loans', path: :book_loans },
     { id: 6, name: 'Categories', path: :categories },
     { id: 7, name: 'Genres', path: :genres },
     { id: 8, name: 'Libraries', path: :libraries },
@@ -87,5 +87,16 @@ module ApplicationHelper
       class: is_active ? "#{css_class} text-primary" : css_class,
       'aria-current': is_active ? 'page' : nil,
       data: { turbo_frame: '_top' }
+  end
+
+  def display_columns_class(model)
+    display_columns = model.respond_to?(:display_columns) ? model.display_columns : model.column_names
+    display_columns.map do |column|
+      if column.is_a?(Hash)
+        column
+      else
+        { column => 'col-md-6 col-12' }
+      end
+    end
   end
 end

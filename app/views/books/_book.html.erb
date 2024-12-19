@@ -1,37 +1,11 @@
-<div id='<%= dom_id book %>'>
-  <p>
-    <strong>Title:</strong>
-    <%= book.title %>
-  </p>
+<div id='<%= dom_id book %>' class='card mt-3'>
+  <div class='card-header border-success border-top border-bottom-0 border-4'>
+    <h4 class='mb-0'><%= book.title %></h4>
+  </div>
 
-  <p>
-    <strong>Summary:</strong>
-    <%= book.summary %>
-  </p>
+  <div class='card-body row row-cols-1'>
+    <%= render 'shared/display_fields', record: book %>
+  </div>
 
-  <p>
-    <strong>Isbn:</strong>
-    <%= book.isbn %>
-  </p>
-
-  <p>
-    <strong>Pages:</strong>
-    <%= book.pages %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= book.price %>
-  </p>
-
-  <p>
-    <strong>Stock:</strong>
-    <%= book.stock %>
-  </p>
-
-  <p>
-    <strong>Active:</strong>
-    <%= book.active %>
-  </p>
-
+  <%= render 'shared/footer_actions', record: book %>
 </div>

@@ -1,13 +1,9 @@
 <%= render 'shared/result_messages', record: @member %>
-
-<h1>Members</h1>
+<%= render 'shared/index_header' %>
 
 <div id='members'>
   <% @members.each do |member| %>
     <%= render member %>
-    <p>
-      <%= link_to 'Show this member', member %>
-    </p>
   <% end %>
 </div>
 
