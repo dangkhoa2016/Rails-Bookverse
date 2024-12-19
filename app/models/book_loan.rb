@@ -23,4 +23,12 @@ class BookLoan < ApplicationRecord
 
   validates :status, presence: true
   validates :borrowed_on, presence: true
+
+  class << self
+    def status_collection_for_select(options = {})
+      BookLoan.statuses.map do |status, _|
+        [ BookLoan.human_attribute_name("status.#{status}", options), status ]
+      end
+    end
+  end
 end
