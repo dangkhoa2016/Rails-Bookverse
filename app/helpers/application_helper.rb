@@ -1,19 +1,19 @@
 module ApplicationHelper
   NAV_MENUS = [
-    { id: 1, name: "Home", path: :root },
-    { id: 2, name: "Authors", path: :authors },
-    { id: 3, name: "Author Profiles", path: :author_profiles },
-    { id: 4, name: "Books", path: :books },
-    { id: 5, name: "BookLoans", path: :book_loans },
-    { id: 6, name: "Categories", path: :categories },
-    { id: 7, name: "Genres", path: :genres },
-    { id: 8, name: "Libraries", path: :libraries },
-    { id: 9, name: "Members", path: :members },
-    { id: 10, name: "Published Dates", path: :published_dates },
-    { id: 11, name: "Publishers", path: :publishers },
-    { id: 12, name: "Reviews", path: :reviews },
-    { id: 13, name: "Tags", path: :tags },
-    { id: 14, name: "Settings", path: :settings }
+    { id: 1, name: "Home", path: :root, icon: "cil-home" },
+    { id: 2, name: "Authors", path: :authors, group: "Authors", icon: "cil-user" },
+    { id: 3, name: "Author Profiles", path: :author_profiles, group: "Authors", icon: "cil-address-book" },
+    { id: 4, name: "Books", path: :books, group: "Books", icon: "cil-book" },
+    { id: 5, name: "Book Loans", path: :book_loans, group: "Rentals", icon: "cil-cart" },
+    { id: 6, name: "Categories", path: :categories, group: "Books", icon: "cil-blur" },
+    { id: 7, name: "Genres", path: :genres, group: "Books", icon: "cil-camera-control" },
+    { id: 8, name: "Libraries", path: :libraries, group: "Rentals", icon: "cil-library" },
+    { id: 9, name: "Members", path: :members, group: "Rentals", icon: "cil-people" },
+    { id: 10, name: "Published Dates", path: :published_dates, group: "Publications", icon: "cil-calendar" },
+    { id: 11, name: "Publishers", path: :publishers, group: "Publications", icon: "cil-building" },
+    { id: 12, name: "Reviews", path: :reviews, group: "Books", icon: "cil-star" },
+    { id: 13, name: "Tags", path: :tags, group: "Books", icon: "cil-tags" },
+    { id: 14, name: "Settings", path: :settings, icon: "cil-settings", group: "settings" }
   ]
 
   HOME_MENU_NAME = "Home"

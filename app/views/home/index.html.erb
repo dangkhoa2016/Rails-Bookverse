@@ -1,4 +1,12 @@
 
-<div class="container-fluid">
-  home
-</div>
+<% content_for :head do %>
+<%= stylesheet_link_tag 'coreui-chartjs.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%= render 'home/charts' %>
+
+<%= render 'home/social_widgets' %>
+
+<%= render 'home/traffic_and_sales' %>
+
+<script type='module'>import 'home';</script>

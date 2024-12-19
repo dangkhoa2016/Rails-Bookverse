@@ -1,22 +1,22 @@
-<div id='<%= dom_id published_date %>'>
-  <p>
-    <strong>Book:</strong>
-    <%= published_date.book_id %>
-  </p>
+<div id='<%= dom_id published_date %>' class='card mt-3'>
+  <div class='card-header border-secondary border-top border-bottom-0 border-4'>
+    <h4 class='mb-0'><%= published_date.book&.title %></h4>
+  </div>
 
-  <p>
-    <strong>Publisher:</strong>
-    <%= published_date.publisher_id %>
-  </p>
+  <div class='card-body'>
+    <p>
+      <strong>Publisher:</strong>
+      <%= published_date.publisher_id %>
+    </p>
 
-  <p>
-    <strong>Published date:</strong>
-    <%= published_date.published_date %>
-  </p>
+    <p>
+      <strong>Published date:</strong>
+      <%= published_date.published_date %>
+    </p>
 
-  <p>
-    <strong>Edition:</strong>
-    <%= published_date.edition %>
-  </p>
-
+    <p>
+      <strong>Edition:</strong>
+      <%= published_date.edition %>
+    </p>
+  </div>
 </div>
