@@ -1,5 +1,8 @@
+import initTheme from './color_modes';
+
 let scrollToTopBtn = null;
-let app_initialized = false;
+let header = null;
+let previous_event = null;
 
 const scrollToTop = function() {
   window.scrollTo({
@@ -10,30 +13,51 @@ const scrollToTop = function() {
 
 // Show or hide the button based on scroll position
 window.onscroll = function () {
-  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-    scrollToTopBtn.style.display = 'block'; // Show button
-  } else {
-    scrollToTopBtn.style.display = 'none';  // Hide button
+  if (scrollToTopBtn) {
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+      scrollToTopBtn.style.display = 'block'; // Show button
+    } else {
+      scrollToTopBtn.style.display = 'none';  // Hide button
+    }
+  }
+  
+  if (header) {
+    header.classList.toggle('shadow-sm', document.documentElement.scrollTop > 0);
   }
 };
 
-const app = () => {
-  if (app_initialized) return;
+const app = (current_event) => {
+  if (previous_event && previous_event !== current_event) {
+    return;
+  }
 
-  app_initialized = true;
   console.log('Rails BookVerse is running at', new Date().toLocaleTimeString());
 
+  initTheme();
+
   scrollToTopBtn = document.getElementById('scrollToTopBtn');
-  scrollToTopBtn.addEventListener('click', scrollToTop);
+  if (scrollToTopBtn)
+    scrollToTopBtn.addEventListener('click', scrollToTop);
+
+  header = document.querySelector('header.header');
 
   setTimeout(() => {
-    app_initialized = false;
-  }, 500);
+    previous_event = null;
+    current_event = null;
+  }, 1000);
+
+  previous_event = current_event;
 };
 
-addEventListener('turbo:load', app);
-addEventListener('turbo:render', app);
-addEventListener('turbo:click', (event) => {
+addEventListener('turbo:load', () => {
+  app('turbo:load');
+});
+
+addEventListener('turbo:render', () => {
+  app('turbo:render');
+});
+
+addEventListener('turbo:click', () => {
   const divError = document.querySelector('form.model-form .error-messages');
   if (divError) {
     console.log('removing error messages');

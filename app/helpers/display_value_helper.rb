@@ -1,4 +1,16 @@
 module DisplayValueHelper
+
+  def display_columns_class(model)
+    display_columns = model.respond_to?(:display_columns) ? model.display_columns : model.column_names
+    display_columns.map do |column|
+      if column.is_a?(Hash)
+        column
+      else
+        { column => 'col-md-6 col-12' }
+      end
+    end
+  end
+
   def display_value(record, column)
     value_method = "#{record.class.name.underscore}_#{column}_display_value"
     if respond_to?(value_method)
