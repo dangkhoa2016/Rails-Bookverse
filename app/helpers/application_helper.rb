@@ -1,23 +1,23 @@
 module ApplicationHelper
   NAV_MENUS = [
-    { id: 1, name: "Home", path: :root, icon: "cil-home" },
-    { id: 2, name: "Authors", path: :authors, group: "Authors", icon: "cil-user" },
-    { id: 3, name: "Author Profiles", path: :author_profiles, group: "Authors", icon: "cil-address-book" },
-    { id: 4, name: "Books", path: :books, group: "Books", icon: "cil-book" },
-    { id: 5, name: "Book Loans", path: :book_loans, group: "Rentals", icon: "cil-cart" },
-    { id: 6, name: "Categories", path: :categories, group: "Books", icon: "cil-blur" },
-    { id: 7, name: "Genres", path: :genres, group: "Books", icon: "cil-camera-control" },
-    { id: 8, name: "Libraries", path: :libraries, group: "Rentals", icon: "cil-library" },
-    { id: 9, name: "Members", path: :members, group: "Rentals", icon: "cil-people" },
-    { id: 10, name: "Published Dates", path: :published_dates, group: "Publications", icon: "cil-calendar" },
-    { id: 11, name: "Publishers", path: :publishers, group: "Publications", icon: "cil-building" },
-    { id: 12, name: "Reviews", path: :reviews, group: "Books", icon: "cil-star" },
-    { id: 13, name: "Tags", path: :tags, group: "Books", icon: "cil-tags" },
-    { id: 14, name: "Settings", path: :settings, icon: "cil-settings", group: "settings" }
+    { id: 1, name: "home", path: :root, icon: "cil-home" },
+    { id: 2, name: "authors", path: :authors, group: "authors", icon: "cil-user" },
+    { id: 3, name: "author_profiles", path: :author_profiles, group: "authors", icon: "cil-address-book" },
+    { id: 4, name: "books", path: :books, group: "books", icon: "cil-book" },
+    { id: 5, name: "book_loans", path: :book_loans, group: "rentals", icon: "cil-cart" },
+    { id: 6, name: "categories", path: :categories, group: "books", icon: "cil-blur" },
+    { id: 7, name: "genres", path: :genres, group: "books", icon: "cil-camera-control" },
+    { id: 8, name: "libraries", path: :libraries, group: "rentals", icon: "cil-library" },
+    { id: 9, name: "members", path: :members, group: "rentals", icon: "cil-people" },
+    { id: 10, name: "published_dates", path: :published_dates, group: "publications", icon: "cil-calendar" },
+    { id: 11, name: "publishers", path: :publishers, group: "publications", icon: "cil-building" },
+    { id: 12, name: "reviews", path: :reviews, group: "books", icon: "cil-star" },
+    { id: 13, name: "tags", path: :tags, group: "books", icon: "cil-tags" },
+    { id: 14, name: "settings", path: :settings, icon: "cil-settings", group: "settings" }
   ]
 
-  HOME_MENU_NAME = "Home"
-  SETTINGS_MENU_NAME = "Settings"
+  HOME_MENU_NAME = "home"
+  SETTINGS_MENU_NAME = "settings"
   DONT_ALLOW_REMOVE = [ HOME_MENU_NAME, SETTINGS_MENU_NAME ]
 
   # generate methods for each menu: home_menu, settings_menu
@@ -66,7 +66,7 @@ module ApplicationHelper
     return "#" if menu.blank?
 
     # Handle the special case for 'Home' (root_path is a special route).
-    return root_path if menu[:name] == "Home"
+    return root_path if menu[:name] == "home"
 
     # Use the path symbol to dynamically generate the path helper.
     send("#{menu[:path]}_path")
@@ -74,18 +74,9 @@ module ApplicationHelper
 
   def is_current_page?(menu_name, url)
     if turbo_frame_request?
-      return menu_name == "Settings"
+      return menu_name == "settings"
     end
 
     current_page?(url)
-  end
-
-  def render_menu(menu, css_class = "nav-link")
-    url = get_menu_link(menu[:id])
-    is_active = is_current_page?(menu[:name], url)
-    link_to menu[:name], url,
-      class: is_active ? "#{css_class} text-primary" : css_class,
-      'aria-current': is_active ? "page" : nil,
-      data: { turbo_frame: "_top" }
   end
 end

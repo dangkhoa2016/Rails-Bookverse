@@ -1,35 +1,4 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :en
-#
-# This would use the information in config/locales/en.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
-
   date:
     formats:
       # Use the strftime parameters for formats.
@@ -65,6 +34,7 @@ en:
       words_connector: ", "
       two_words_connector: " and "
       last_word_connector: ", and "
+
   number:
     # Used in NumberHelper.number_to_delimited()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
@@ -170,25 +140,3 @@ en:
           billion: Billion
           trillion: Trillion
           quadrillion: Quadrillion
-
-  activerecord:
-    models:
-      book_loan: "Book Loan"
-    attributes:
-      book_loan:
-        status: "Status"
-        statuses:
-          borrowed: "Borrowed"
-          returned: "Returned"
-          overdue: "Overdue"
-          reserved: "Reserved"
-          lost: "Lost"
-          damaged: "Damaged"
-          waiting_for_return: "Waiting for Return"
-          in_transit: "In Transit"
-          available: "Available"
-          on_hold: "On Hold"
-          in_processing: "In Processing"
-          renewed: "Renewed"
-          cancelled: "Cancelled"
-          expired: "Expired"
