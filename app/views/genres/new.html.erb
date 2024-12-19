@@ -1,9 +1,9 @@
-<h1>New genre</h1>
+<%= render 'shared/header_actions', record: @genre %>
 
 <%= render 'form', genre: @genre %>
 
 <br>
 
 <div>
-  <%= link_to 'Back to genres', genres_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
+  <%= link_to 'Back to genres', genres_path %>
 </div>

@@ -1,0 +1,9 @@
+<% display_columns_class(record.class).each do |config| %>
+  <% column, css_class = config.to_a.flatten %>
+  <div class='col <%= css_class %>'>
+    <p>
+      <strong><%= column.split('_').map(&:capitalize).join(' ') %>: </strong>
+      <%= display_value(record, column) %>
+    </p>
+  </div>
+<% end %>

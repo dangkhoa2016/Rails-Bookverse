@@ -1,9 +1,9 @@
-<h1>New published date</h1>
+<%= render 'shared/header_actions', record: @published_date %>
 
 <%= render 'form', published_date: @published_date %>
 
 <br>
 
 <div>
-  <%= link_to 'Back to published dates', published_dates_path, data: { turbo_frame: '_top' }, class: 'model-link' %>
+  <%= link_to 'Back to published dates', published_dates_path %>
 </div>
