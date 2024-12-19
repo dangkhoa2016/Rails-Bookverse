@@ -10,18 +10,25 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', 'data-turbo-track': 'reload' %>
+
+    <%# -- Yield additional content in the head section -- %>
+    <%= yield :head %>
+
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= turbo_frame_tag 'nav_frame' do %>
-      <%= render 'layouts/nav' %>
-    <% end %>
-
-    <div class='container-fluid'>
-      <%= yield %>
+    <%= render partial: 'layouts/sidebar' %>
+    <div class='wrapper d-flex flex-column min-vh-100'>
+      <%= render partial: 'layouts/header' %>
+      <div class='body flex-grow-1'>
+        <div class='container-lg p-4'>
+          <%= yield %>
+        </div>
+      </div>
+      <%= render partial: 'layouts/footer' %>
     </div>
-
+  
     <!-- Scroll to Top Button -->
     <button id='scrollToTopBtn'
       class='btn btn-primary position-fixed bottom-0 end-0 m-3'
