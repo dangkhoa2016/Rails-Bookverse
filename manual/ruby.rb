@@ -2,6 +2,7 @@
 ActiveRecord::Base.connection.tables
 
 # list all models
+Rails.application.eager_load!
 ActiveRecord::Base.descendants.map(&:name)
 
 # loop through all models and count rows

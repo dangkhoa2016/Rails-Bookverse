@@ -1,0 +1,152 @@
+en:
+  activerecord:
+    models:
+      author: Author
+      author_profile: Author Profile
+      book_loan: Book Loan
+      book: Book
+      category: Category
+      genre: Genre
+      library: Library
+      member: Member
+      published_date: Published Date
+      publisher: Publisher
+      review: Review
+      tag: Tag
+
+    attributes:
+      book_loan:
+        status_enum: Status
+        status:
+          borrowed: Borrowed
+          returned: Returned
+          overdue: Overdue
+          reserved: Reserved
+          lost: Lost
+          damaged: Damaged
+          waiting_for_return: Waiting for Return
+          in_transit: In Transit
+          available: Available
+          on_hold: On Hold
+          in_processing: In Processing
+          renewed: Renewed
+          cancelled: Cancelled
+          expired: Expired
+        id: Id
+        book_id: Book
+        member_id: Member Id
+        borrowed_on: Borrowed On
+        returned_on: Returned On
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+        member_name: Member Name
+
+      author:
+        id: Id
+        first_name: First Name
+        last_name: Last Name
+        email: Email
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+      
+      book:
+        id: Id
+        title: Title
+        summary: Summary
+        isbn: Isbn
+        pages: Pages
+        price: Price
+        stock: In Stock
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+      
+      publisher:
+        id: Id
+        name: Name
+        address: Address
+        phone_number: Phone Number
+        email: Email
+        established_year: Established Year
+        website: Website
+        ceo_name: Ceo Name
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+      
+      tag:
+        id: Id
+        name: Name
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+      
+      category:
+        id: Id
+        name: Name
+        description: Description
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+      
+      genre:
+        id: Id
+        name: Name
+        description: Description
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+      
+      review:
+        id: Id
+        content: Content
+        rating: Number Of Stars
+        book_id: Book
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+      
+      published_date:
+        id: Id
+        book_id: Book
+        publisher_id: Publisher Id
+        published_date: Published Date
+        edition: Edition
+        created_at: Created At
+        updated_at: Updated At
+        active: Active
+        publisher_name: Publisher Name
+      
+      library:
+        id: Id
+        name: Name
+        address: Address
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+
+      member:
+        id: Id
+        first_name: First Name
+        last_name: Last Name
+        email: Email
+        library_id: Library Id
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
+        library_name: Library Name
+      
+      author_profile:
+        id: Id
+        author_id: Author Id
+        bio: Bio
+        social_facebook: Social Facebook
+        social_twitter: Social Twitter
+        social_instagram: Social Instagram
+        social_linkedin: Social Linkedin
+        social_youtube: Social Youtube
+        active: Active
+        created_at: Created At
+        updated_at: Updated At
