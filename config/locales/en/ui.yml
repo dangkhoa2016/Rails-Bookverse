@@ -1,0 +1,52 @@
+en:
+
+  ui:
+    sidebar_menu:
+      authors: Authors
+      author_profiles: Author Profiles
+      books: Books
+      book_loans: Book Loans
+      categories: Categories
+      tags: Tags
+      reviews: Reviews
+      genres: Genres
+      libraries: Libraries
+      members: Members
+      publishers: Publishers
+      published_dates: Published Dates
+      settings: Settings
+      home: Home
+      rentals: Rentails
+      publications: Publications
+    list_of: List of
+    home: Home
+
+    notifications:
+      title: Notifications
+
+    tasks:
+      title: Tasks
+
+    activities:
+      title: Activities
+
+    themes:
+      title: Themes
+      light: Light
+      dark: Dark
+      auto: Auto (System Default)
+
+    controller_actions:
+      index: List
+      show: Detail
+      new: Create New
+      edit: Edit
+      update: Update
+      destroy: Delete
+      search: Search
+
+    accounts:
+      title: Account
+      settings: Settings
+      profile: Profile
+      security: Security
