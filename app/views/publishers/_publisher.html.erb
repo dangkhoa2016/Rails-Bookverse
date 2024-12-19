@@ -1,43 +1,10 @@
 <div id='<%= dom_id publisher %>' class='card mt-3'>
   <div class='card-header border-secondary border-top border-bottom-0 border-4'>
-    <h2 class='mb-0'><%= publisher.name %></h2>
+    <h4 class='mb-0'><%= publisher.name %></h4>
   </div>
 
-  <div class='card-body'>
-    <p>
-      <strong>Address:</strong>
-      <%= publisher.address %>
-    </p>
-
-    <p>
-      <strong>Phone number:</strong>
-      <%= publisher.phone_number %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= publisher.email %>
-    </p>
-
-    <p>
-      <strong>Established year:</strong>
-      <%= publisher.established_year %>
-    </p>
-
-    <p>
-      <strong>Website:</strong>
-      <%= publisher.website %>
-    </p>
-
-    <p>
-      <strong>Ceo name:</strong>
-      <%= publisher.ceo_name %>
-    </p>
-
-    <p>
-      <strong>Active:</strong>
-      <%= publisher.active %>
-    </p>
+  <div class='card-body row row-cols-1'>
+    <%= render 'shared/display_fields', record: publisher %>
   </div>
 
   <%= render 'shared/footer_actions', record: publisher %>

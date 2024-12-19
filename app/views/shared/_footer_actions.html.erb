@@ -1,11 +1,19 @@
+<% model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil) %>
+<%
+data_attributes = {
+  turbo_method: 'delete',
+  turbo_confirm: "Are you sure to delete this #{controller_name.singularize.titleize} record?",
+}
+%>
+
 <div class='card-footer'>
   <% if action_name == 'show' %>
-    <%= link_to 'Edit', edit_polymorphic_path(record) %> |
-    <%= link_to 'Delete', record, method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %> |
-    <%= link_to 'Back', polymorphic_path(record.class) %>
+    <%= link_to 'Edit', edit_polymorphic_path(model_record) %> |
+    <%= link_to 'Delete', model_record, method: :delete, data: data_attributes %> |
+    <%= link_to 'Back', polymorphic_path(model_record.class) %>
   <% else %>
-    <%= link_to 'View', record %> |
-    <%= link_to 'Edit', edit_polymorphic_path(record) %> |
-    <%= link_to 'Delete', record, method: :delete, data: { turbo_method: 'delete', turbo_confirm: 'Are you sure?' } %>
+    <%= link_to 'View', model_record %> |
+    <%= link_to 'Edit', edit_polymorphic_path(model_record) %> |
+    <%= link_to 'Delete', model_record, method: :delete, data: data_attributes %>
   <% end %>
 </div>

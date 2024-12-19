@@ -1,9 +1,11 @@
-<div class='d-flex align-items-center'>
-  <h1 class='mb-0'><%= action_name.titleize %> <%= controller_name.singularize.titleize.downcase %></h1>
+<% model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil) %>
 
-  <div class='btn-group ms-auto'>
+<div class='d-flex align-items-center'>
+  <h2 class='mb-0'><%= action_name.titleize %> <%= controller_name.singularize.titleize.downcase %></h2>
+
+  <div class='btn-group btn-group-sm ms-auto'>
     <% if action_name == 'edit' %>
-      <%= link_to 'View', record, data: { turbo_frame: '_top' }, class: 'model-link btn btn-primary' %>
+      <%= link_to 'View', model_record, data: { turbo_frame: '_top' }, class: 'model-link btn btn-primary' %>
     <% end %>
 
     <%= link_to({ controller: controller_name }, data: { turbo_frame: '_top' }, class: 'model-link btn btn-secondary') do %>

@@ -13,4 +13,15 @@ class Book < ApplicationRecord
   validates :title, :summary, :isbn, :pages, presence: true
 
   # has_one_attached :cover_image, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+
+  class << self
+    def display_columns
+      result = [{ 'summary' => 'col-12' }]
+      result + (column_names - ['summary', 'title']).map do |column_name|
+        {
+          column_name => 'col-md-6 col-12',
+        }
+      end
+    end
+  end
 end

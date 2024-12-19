@@ -1,18 +1,10 @@
 <div id='<%= dom_id genre %>' class='card mt-3'>
   <div class='card-header border-info border-top border-bottom-0 border-4'>
-    <h2 class='mb-0'><%= genre.name %></h2>
+    <h4 class='mb-0'><%= genre.name %></h4>
   </div>
 
-  <div class='card-body'>
-    <p>
-      <strong>Description:</strong>
-      <%= genre.description %>
-    </p>
-
-    <p>
-      <strong>Active:</strong>
-      <%= genre.active %>
-    </p>
+  <div class='card-body row row-cols-1'>
+    <%= render 'shared/display_fields', record: genre %>
   </div>
 
   <%= render 'shared/footer_actions', record: genre %>

@@ -1,28 +1,10 @@
 <div id='<%= dom_id author %>' class='card mt-3'>
   <div class='card-header border-success border-top border-bottom-0 border-4'>
-    <h2 class='mb-0'><%= author.full_name %></h2>
+    <h4 class='mb-0'><%= author.full_name %></h4>
   </div>
 
-  <div class='card-body'>
-    <p>
-      <strong>First name:</strong>
-      <%= author.first_name %>
-    </p>
-
-    <p>
-      <strong>Last name:</strong>
-      <%= author.last_name %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= author.email %>
-    </p>
-
-    <p>
-      <strong>Active:</strong>
-      <%= author.active %>
-    </p>
+  <div class='card-body row row-cols-1'>
+    <%= render 'shared/display_fields', record: author %>
   </div>
 
   <%= render 'shared/footer_actions', record: author %>

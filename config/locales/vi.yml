@@ -1,0 +1,171 @@
+# Files in the config/locales directory are used for internationalization and
+# are automatically loaded by Rails. If you want to use locales other than
+# Vietnamese, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :vi
+#
+# This would use the information in config/locales/vi.yml.
+#
+# To learn more about the API, please read the Rails Internationalization guide
+# at https://guides.rubyonrails.org/i18n.html.
+#
+# Be aware that YAML interprets the following case-insensitive strings as
+# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
+# must be quoted to be interpreted as strings. For example:
+#
+#     vi:
+#       "yes": Có
+#       enabled: "ON"
+
+vi:
+  hello: "Xin chào thế giới"
+
+  date:
+    formats:
+      # Sử dụng các tham số strftime cho định dạng.
+      # Khi không có định dạng nào được cung cấp, nó sẽ sử dụng mặc định.
+      # Bạn có thể cung cấp các định dạng khác tại đây nếu muốn!
+      default: "%d-%m-%Y"
+      short: "%d %b"
+      long: "ngày %d %B năm %Y"
+
+    day_names: [Chủ Nhật, Thứ Hai, Thứ Ba, Thứ Tư, Thứ Năm, Thứ Sáu, Thứ Bảy]
+    abbr_day_names: [CN, T.Hai, T.Ba, T.Tư, T.Năm, T.Sáu, T.Bảy]
+
+    # Đừng quên dấu ~ ở đầu; không có tháng 0
+    month_names: [~, Tháng 1, Tháng 2, Tháng 3, Tháng 4, Tháng 5, Tháng 6, Tháng 7, Tháng 8, Tháng 9, Tháng 10, Tháng 11, Tháng 12]
+    abbr_month_names: [~, Th.1, Th.2, Th.3, Th.4, Th.5, Th.6, Th.7, Th.8, Th.9, Th.10, Th.11, Th.12]
+    # Được sử dụng trong date_select và datetime_select.
+    order:
+      - year
+      - month
+      - day
+
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "ngày %d %B năm %Y %H:%M"
+    am: "SA"
+    pm: "CH"
+
+  # Được sử dụng trong array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " và "
+      last_word_connector: ", và "
+    
+  number:
+    # Được sử dụng trong NumberHelper.number_to_delimited()
+    # Đây cũng là các giá trị mặc định cho 'currency', 'percentage', 'precision', và 'human'
+    format:
+      # Cài đặt dấu phân cách giữa các đơn vị, cho độ chính xác cao hơn (ví dụ: 1.0 / 2.0 == 0.5)
+      separator: ","
+      # Dấu phân cách nghìn (ví dụ: 1,000,000 là một triệu) (luôn chia theo nhóm ba chữ số)
+      delimiter: "."
+      # Số chữ số thập phân, sau dấu phân cách (ví dụ: số 1 với độ chính xác 2 là: 1.00)
+      precision: 3
+      # Quyết định cách làm tròn (xem BigDecimal::mode)
+      round_mode: default
+      # Nếu đặt là true, độ chính xác sẽ nghĩa là số chữ số có ý nghĩa thay vì số chữ số thập phân
+      # (1234 với độ chính xác 2 sẽ thành 1200, 1.23543 sẽ thành 1.2)
+      significant: false
+      # Nếu đặt, các chữ số 0 sau dấu thập phân sẽ luôn bị loại bỏ (ví dụ: 1.200 sẽ thành 1.2)
+      strip_insignificant_zeros: false
+
+    # Được sử dụng trong NumberHelper.number_to_currency()
+    currency:
+      format:
+        # Đơn vị tiền tệ ở đâu? %u là đơn vị tiền tệ, %n là số tiền (mặc định: $5.00)
+        format: "%n %u"
+        negative_format: "-%n %u"
+        unit: "vnđ"
+        # Sáu cài đặt này dùng để ghi đè số.format và là tùy chọn
+        separator: ","
+        delimiter: "."
+        precision: 0
+        significant: false
+        strip_insignificant_zeros: false
+
+    # Được sử dụng trong NumberHelper.number_to_percentage()
+    percentage:
+      format:
+        # Năm cài đặt này dùng để ghi đè số.format và là tùy chọn
+        delimiter: ""
+        format: "%n%"
+
+    # Được sử dụng trong NumberHelper.number_to_rounded()
+    precision:
+      format:
+        delimiter: ""
+      
+    # Được sử dụng trong NumberHelper.number_to_human_size() và NumberHelper.number_to_human()
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      # Được sử dụng trong number_to_human_size()
+      storage_units:
+        # Định dạng đầu ra cho đơn vị lưu trữ.
+        # %u là đơn vị lưu trữ, %n là số (mặc định: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+          pb: "PB"
+          eb: "EB"
+          zb: "ZB"
+      # Được sử dụng trong NumberHelper.number_to_human()
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "Ngàn"
+          million: "Triệu"
+          billion: "Tỷ"
+          trillion: "Tỷ tỷ"
+          quadrillion: "Tỉ tỉ tỉ"
+
+  activerecord:
+    models:
+      book_loan: "Mượn sách"
+    attributes:
+      book_loan:
+        status:
+          borrowed: "Đã mượn"
+          returned: "Đã trả"
+          overdue: "Quá hạn"
+          reserved: "Đã đặt"
+          lost: "Đã mất"
+          damaged: "Hư hỏng"
+          waiting_for_return: "Đang chờ trả"
+          in_transit: "Đang vận chuyển"
+          available: "Có sẵn"
+          on_hold: "Đang giữ"
+          in_processing: "Đang xử lý"
+          renewed: "Đã gia hạn"
+          cancelled: "Đã hủy"
+          expired: "Hết hạn"
+        borrowed_on: "Đã mượn vào"
+
+  locale:
+    vi: "Bấm vào để thay đổi ngôn ngữ hiển thị sang Tiếng Việt"
+    en: "Bấm vào để thay đổi ngôn ngữ hiển thị sang Tiếng Anh"

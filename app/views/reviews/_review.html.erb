@@ -1,28 +1,10 @@
 <div id='<%= dom_id review %>' class='card mt-3'>
   <div class='card-header border-info border-top border-bottom-0 border-4'>
-    <h2 class='mb-0'><%= review.book&.title %></h2>
+    <h4 class='mb-0'><%= review.book&.title %></h4>
   </div>
 
-  <div class='card-body'>
-    <p>
-      <strong>Content:</strong>
-      <%= review.content %>
-    </p>
-
-    <p>
-      <strong>Rating:</strong>
-      <%= review.rating %>
-    </p>
-
-    <p>
-      <strong>Book ID:</strong>
-      <%= review.book_id %>
-    </p>
-
-    <p>
-      <strong>Active:</strong>
-      <%= review.active %>
-    </p>
+  <div class='card-body row row-cols-1'>
+    <%= render 'shared/display_fields', record: review %>
   </div>
 
   <%= render 'shared/footer_actions', record: review %>

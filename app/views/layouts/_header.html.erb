@@ -7,28 +7,37 @@
         <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-menu'></use>
       </svg>
     </button>
-    <ul class='header-nav d-none d-lg-flex'>
-      <li class='nav-item'><a class='nav-link' href='#'>Dashboard</a></li>
-      <li class='nav-item'><a class='nav-link' href='#'>Users</a></li>
-      <li class='nav-item'><a class='nav-link' href='#'>Settings</a></li>
+    <ul class='header-nav d-flex'>
+      <% I18n.available_locales.each do |locale| %>
+        <% current_locale = I18n.locale == locale %>
+        <% url = current_locale ? '#' : switch_locales_path(locale: locale) %>
+        <li class='nav-item<%= current_locale ? ' bg-info' : '' %>'>
+          <%= link_to url, class: 'nav-link align-items-center d-flex',
+            title: translate("locale.#{locale}") do %>
+            <svg class='icon icon-lg'>
+              <use xlink:href='<%= asset_path("coreui-flag.svg") %>#cif-<%= locale.to_s == "vi" ? "vn" : "us" %>'></use>
+            </svg>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
     <ul class='header-nav ms-auto'>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>
+        <a class='nav-link align-items-center d-flex' href='#'>
           <svg class='icon icon-lg'>
             <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-bell'></use>
           </svg>
         </a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>
+        <a class='nav-link align-items-center d-flex' href='#'>
           <svg class='icon icon-lg'>
             <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-list-rich'></use>
           </svg>
         </a>
       </li>
       <li class='nav-item'>
-        <a class='nav-link' href='#'>
+        <a class='nav-link align-items-center d-flex' href='#'>
           <svg class='icon icon-lg'>
             <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-envelope-open'></use>
           </svg>
@@ -36,10 +45,10 @@
       </li>
     </ul>
     <ul class='header-nav'>
-      <li class='nav-item py-1'>
+      <li class='nav-item align-items-center d-flex py-1'>
         <div class='vr h-100 mx-2 text-body text-opacity-75'></div>
       </li>
-      <li class='nav-item dropdown'>
+      <li class='nav-item align-items-center d-flex dropdown'>
         <button class='btn btn-link nav-link py-2 px-2 d-flex align-items-center' type='button' aria-expanded='false' data-coreui-toggle='dropdown'>
           <svg class='icon icon-lg theme-icon-active'>
             <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-contrast'></use>
@@ -72,7 +81,7 @@
           </li>
         </ul>
       </li>
-      <li class='nav-item py-1'>
+      <li class='nav-item align-items-center d-flex py-1'>
         <div class='vr h-100 mx-2 text-body text-opacity-75'></div>
       </li>
       <li class='nav-item dropdown'>

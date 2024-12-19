@@ -1,48 +1,10 @@
 <div id='<%= dom_id author_profile %>' class='card mt-3'>
   <div class='card-header border-success border-top border-bottom-0 border-4'>
-    <h2 class='mb-0'><%= author_profile.author&.full_name %></h2>
+    <h4 class='mb-0'><%= author_profile.author&.full_name %></h4>
   </div>
 
-  <div class='card-body'>
-    <p>
-      <strong>Bio:</strong>
-      <%= author_profile.bio %>
-    </p>
-
-    <p>
-      <strong>Social facebook:</strong>
-      <%= author_profile.social_facebook %>
-    </p>
-
-    <p>
-      <strong>Social twitter:</strong>
-      <%= author_profile.social_twitter %>
-    </p>
-
-    <p>
-      <strong>Social instagram:</strong>
-      <%= author_profile.social_instagram %>
-    </p>
-
-    <p>
-      <strong>Social linkedin:</strong>
-      <%= author_profile.social_linkedin %>
-    </p>
-
-    <p>
-      <strong>Social youtube:</strong>
-      <%= author_profile.social_youtube %>
-    </p>
-
-    <p>
-      <strong>Author ID:</strong>
-      <%= author_profile.author_id %>
-    </p>
-
-    <p>
-      <strong>Active:</strong>
-      <%= author_profile.active %>
-    </p>
+  <div class='card-body row row-cols-1'>
+    <%= render 'shared/display_fields', record: author_profile %>
   </div>
 
   <%= render 'shared/footer_actions', record: author_profile %>
