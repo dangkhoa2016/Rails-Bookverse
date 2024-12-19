@@ -9,7 +9,9 @@
     <% end %>
 
     <%= link_to({ controller: controller_name }, data: { turbo_frame: '_top' }, class: 'model-link btn btn-secondary') do %>
-      Back
+      <svg class='icon'>
+        <use xlink:href="<%= asset_path('coreui-free.svg') %>#cil-backspace"></use>
+      </svg> Back
     <% end %>
   </div>
 </div>
