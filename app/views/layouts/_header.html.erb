@@ -10,7 +10,7 @@
     <ul class='header-nav d-flex'>
       <% I18n.available_locales.each do |locale| %>
         <% current_locale = I18n.locale.to_s == locale.to_s %>
-        <% url = current_locale ? '#' : url_for(locale: locale) %>
+        <% url = current_locale ? '#' : locale_switch_url(locale) %>
         <li class='nav-item<%= current_locale ? ' bg-info' : '' %>'>
           <%= link_to url, class: 'nav-link align-items-center d-flex',
             title: translate("locale.#{locale}") do %>
@@ -171,16 +171,24 @@
         <%= link_to translate('ui.home'), root_path %>
       </li>
       <% if action_name == 'index' %>
-        <li class='breadcrumb-item'>
-          <span>
-            <%= translate("ui.sidebar_menu.#{controller_name}") %>
-          </span>
-        </li>
-        <li class='breadcrumb-item active'>
-          <span>
-            <%= translate("ui.controller_actions.#{action_name}") %>
-          </span>
-        </li>
+        <% if controller_name == 'home' %>
+          <li class='breadcrumb-item active'>
+            <span>
+              <%= translate('ui.sidebar_menu.dashboard') %>
+            </span>
+          </li>
+        <% else %>
+          <li class='breadcrumb-item'>
+            <span>
+              <%= translate("ui.sidebar_menu.#{controller_name}") %>
+            </span>
+          </li>
+          <li class='breadcrumb-item active'>
+            <span>
+              <%= translate("ui.controller_actions.#{action_name}") %>
+            </span>
+          </li>
+        <% end %>
       <% else %>
         <li class='breadcrumb-item'>
           <%= link_to translate("ui.sidebar_menu.#{controller_name}"), controller: controller_name %>

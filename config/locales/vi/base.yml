@@ -44,10 +44,12 @@ vi:
     create: Tạo
     update: Cập Nhật
     destroy: Xóa
+    confirm_destroy: Bạn có chắc chắn muốn xóa bản ghi %{model} này không?
     edit: Chỉnh Sửa
     new: Tạo Mới
     show: Xem
     back: Quay Lại
+    back_to_list: Quay Lại danh sách %{model}
     cancel: Hủy
     save: Lưu
     submit: Gửi
@@ -98,3 +100,11 @@ vi:
     sign_up_with_microsoft: Đăng Ký Với Microsoft
     sign_in_with_line: Đăng Nhập Với LINE
     sign_up_with_line: Đăng Ký Với LINE
+
+  helpers:
+    select:
+      prompt: Vui lòng chọn
+    submit:
+      create: Tạo %{model}
+      submit: Lưu %{model}
+      update: Cập nhật %{model}
