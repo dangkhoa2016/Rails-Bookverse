@@ -142,6 +142,7 @@ vi:
       author_profile:
         id: Mã Số
         author_id: Mã Tác Giả
+        # author: Mã Tác Giả
         bio: Tiểu Sử
         social_facebook: Facebook
         social_twitter: Twitter
