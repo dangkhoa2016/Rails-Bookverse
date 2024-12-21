@@ -1,4 +1,9 @@
 // Here you can add other styles
+:root {
+  --coreui-free-icons: url('coreui-free.svg');
+  --coreui-flag-icons: url('coreui-flag.svg');
+  --coreui-brand-icons: url('coreui-brand.svg');
+}
 
 .sidebar-nav {
   .nav-link.active.text-info {
@@ -7,3 +12,4 @@
     }
   }
 }
+
