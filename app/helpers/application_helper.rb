@@ -79,4 +79,14 @@ module ApplicationHelper
 
     current_page?(url)
   end
+
+  def locale_switch_url(locale)
+    action = action_name
+    if action == 'create'
+      action = 'new'
+    elsif action == 'update'
+      action = 'edit'
+    end
+    url_for(locale: locale, action: action)
+  end
 end
