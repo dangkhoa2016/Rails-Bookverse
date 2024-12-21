@@ -21,6 +21,7 @@ en:
       dashboard: Dashboard
     list_of: List of
     home: Home
+    scroll_to_top: Scroll to Top
 
     notifications:
       title: Notifications
