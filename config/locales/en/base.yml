@@ -44,10 +44,14 @@ en:
     create: Create
     update: Update
     destroy: Destroy
+    confirm_destroy:
+      one: Are you sure to delete this %{model} record?
+      other: Are you sure to delete these %{model} records?
     edit: Edit
     new: New
     show: Show
     back: Back
+    back_to_list: Back to %{model}
     cancel: Cancel
     save: Save
     submit: Submit
@@ -98,3 +102,11 @@ en:
     sign_up_with_microsoft: Sign Up with Microsoft
     sign_in_with_line: Sign In with LINE
     sign_up_with_line: Sign Up with LINE
+
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
