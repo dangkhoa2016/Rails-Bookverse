@@ -9,7 +9,10 @@
   <%#-- Render each menu item --%>
   <%= link_to url, class: "nav-link py-2#{active_class}" do %>
     <svg class='nav-icon'>
-      <use xlink:href="<%= asset_path('coreui-free.svg') %>#<%= sidebar_menu[:icon] %>"></use>
+      <% if false %>
+        <use xlink:href='<%= asset_path("coreui-free.svg") %>#<%= sidebar_menu[:icon] %>'></use>
+      <% end %>
+      <use data-icon='--coreui-free-icons' xlink:href='#<%= sidebar_menu[:icon] %>'></use>
     </svg>
     <%= translate("ui.sidebar_menu.#{sidebar_menu[:name]}") %>
   <% end %>

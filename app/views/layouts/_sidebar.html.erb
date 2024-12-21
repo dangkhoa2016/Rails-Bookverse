@@ -6,7 +6,7 @@
     </div>
     <button class='btn-close d-lg-none' type='button'
       data-coreui-dismiss='offcanvas' data-coreui-theme='dark'
-      aria-label='<%= translate("actions.close") %>' onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"></button>
+      aria-label='<%= translate("actions.close") %>' onclick="coreui.Sidebar.getOrCreateInstance(document.querySelector('#sidebar')).toggle()"></button>
   </div>
   <ul class='sidebar-nav' data-coreui='navigation' data-simplebar>
     <%= render 'layouts/sidebar_menu', menu: home_menu %>
@@ -30,6 +30,7 @@
     <%= render 'layouts/sidebar_menu', menu: settings_menu %>
   </ul>
   <div class='sidebar-footer border-top d-none d-md-flex'>
-    <button class='sidebar-toggler' type='button' data-coreui-toggle='unfoldable'></button>
+    <button class='sidebar-toggler' type='button'
+    onclick="coreui.Sidebar.getOrCreateInstance(document.querySelector('#sidebar')).toggleUnfoldable()"></button>
   </div>
 </div>

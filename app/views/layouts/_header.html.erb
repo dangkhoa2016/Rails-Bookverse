@@ -1,10 +1,13 @@
 <header class='header header-sticky p-0 mb-4'>
   <div class='container-fluid border-bottom px-4'>
     <button class='header-toggler' type='button'
-      onclick="coreui.Sidebar.getInstance(document.querySelector('#sidebar')).toggle()"
+      onclick="coreui.Sidebar.getOrCreateInstance(document.querySelector('#sidebar')).toggle()"
       style='margin-inline-start: -14px;'>
       <svg class='icon icon-lg'>
-        <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-menu'></use>
+        <% if false %>
+          <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-menu'></use>
+        <% end %>
+        <use data-icon='--coreui-free-icons' xlink:href='#cil-menu'></use>
       </svg>
     </button>
     <ul class='header-nav d-flex'>
@@ -15,7 +18,10 @@
           <%= link_to url, class: 'nav-link align-items-center d-flex',
             title: translate("locale.#{locale}") do %>
             <svg class='icon icon-lg'>
-              <use xlink:href='<%= asset_path("coreui-flag.svg") %>#cif-<%= locale.to_s == "vi" ? "vn" : "us" %>'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-flag.svg") %>#cif-<%= locale.to_s == "vi" ? "vn" : "us" %>'></use>
+              <% end %>
+              <use data-icon='--coreui-flag-icons' xlink:href='#cif-<%= locale.to_s == "vi" ? "vn" : "us" %>'></use>
             </svg>
           <% end %>
         </li>
@@ -25,21 +31,30 @@
       <li class='nav-item'>
         <a class='nav-link align-items-center d-flex' href='#' title='<%= translate("ui.notifications.title") %>'>
           <svg class='icon icon-lg'>
-            <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-bell'></use>
+            <% if false %>
+              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-bell'></use>
+            <% end %>
+            <use data-icon='--coreui-free-icons' xlink:href='#cil-bell'></use>
           </svg>
         </a>
       </li>
       <li class='nav-item'>
         <a class='nav-link align-items-center d-flex' href='#' title='<%= translate("ui.tasks.title") %>'>
           <svg class='icon icon-lg'>
-            <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-list-rich'></use>
+            <% if false %>
+              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-list-rich'></use>
+            <% end %>
+            <use data-icon='--coreui-free-icons' xlink:href='#cil-list-rich'></use>
           </svg>
         </a>
       </li>
       <li class='nav-item'>
         <a class='nav-link align-items-center d-flex' href='#'>
           <svg class='icon icon-lg'>
-            <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-envelope-open'></use>
+            <% if false %>
+              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-envelope-open'></use>
+            <% end %>
+            <use data-icon='--coreui-free-icons' xlink:href='#cil-envelope-open'></use>
           </svg>
         </a>
       </li>
@@ -51,14 +66,20 @@
       <li class='nav-item align-items-center d-flex dropdown' title='<%= translate("ui.themes.title") %>'>
         <button class='btn btn-link nav-link py-2 px-2 d-flex align-items-center' type='button' aria-expanded='false' data-coreui-toggle='dropdown'>
           <svg class='icon icon-lg theme-icon-active'>
-            <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-contrast'></use>
+            <% if false %>
+              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-contrast'></use>
+            <% end %>
+            <use data-icon='--coreui-free-icons' xlink:href='#cil-contrast'></use>
           </svg>
         </button>
         <ul class='dropdown-menu dropdown-menu-end' style='--cui-dropdown-min-width: 8rem;'>
           <li>
             <button class='dropdown-item d-flex align-items-center' type='button' data-coreui-theme-value='light'>
               <svg class='icon icon-lg me-3'>
-                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-sun'></use>
+                <% if false %>
+                  <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-sun'></use>
+                <% end %>
+                <use data-icon='--coreui-free-icons' xlink:href='#cil-sun'></use>
               </svg>
               <%= translate('ui.themes.light') %>
             </button>
@@ -66,7 +87,10 @@
           <li>
             <button class='dropdown-item d-flex align-items-center' type='button' data-coreui-theme-value='dark'>
               <svg class='icon icon-lg me-3'>
-                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-moon'></use>
+                <% if false %>
+                  <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-moon'></use>
+                <% end %>
+                <use data-icon='--coreui-free-icons' xlink:href='#cil-moon'></use>
               </svg>
               <%= translate('ui.themes.dark') %>
             </button>
@@ -74,7 +98,10 @@
           <li>
             <button class='dropdown-item d-flex align-items-center active' type='button' data-coreui-theme-value='auto'>
               <svg class='icon icon-lg me-3'>
-                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-contrast'></use>
+                <% if false %>
+                  <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-contrast'></use>
+                <% end %>
+                <use data-icon='--coreui-free-icons' xlink:href='#cil-contrast'></use>
               </svg>
               <%= translate('ui.themes.auto') %>
             </button>
@@ -96,25 +123,37 @@
           </div>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-bell'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-bell'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-bell'></use>
             </svg>
             Updates <span class='badge badge-sm bg-info ms-2'>42</span>
           </a>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-envelope-open'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-envelope-open'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-envelope-open'></use>
             </svg>
             Messages <span class='badge badge-sm bg-success ms-2'>42</span>
           </a>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-task'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-task'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-task'></use>
             </svg>
             Tasks <span class='badge badge-sm bg-danger ms-2'>42</span>
           </a>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-comment-square'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-comment-square'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-comment-square'></use>
             </svg>
             Comments <span class='badge badge-sm bg-warning ms-2'>42</span>
           </a>
@@ -123,38 +162,56 @@
           </div>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-user'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-user'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-user'></use>
             </svg>
             <%= translate('ui.accounts.profile') %>
           </a>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-settings'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-settings'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-settings'></use>
             </svg>
             <%= translate('ui.accounts.settings') %>
           </a>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-credit-card'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-credit-card'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-credit-card'></use>
             </svg>
             Payments <span class='badge badge-sm bg-secondary ms-2'>42</span>
           </a>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-file'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-file'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-file'></use>
             </svg>
             Projects <span class='badge badge-sm bg-primary ms-2'>42</span>
           </a>
           <div class='dropdown-divider'></div>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-lock-locked'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-lock-locked'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-lock-locked'></use>
             </svg>
             Lock Account
           </a>
           <a class='dropdown-item' href='#'>
             <svg class='icon me-2'>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-account-logout'></use>
+              <% if false %>
+                <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-account-logout'></use>
+              <% end %>
+              <use data-icon='--coreui-free-icons' xlink:href='#cil-account-logout'></use>
             </svg>
             <%= translate('actions.sign_out') %>
           </a>
