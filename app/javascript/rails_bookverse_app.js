@@ -2,7 +2,7 @@ import initTheme from './color_modes';
 
 let scrollToTopBtn = null;
 let header = null;
-let previous_event = null;
+let previousEvent = null;
 
 const scrollToTop = function() {
   window.scrollTo({
@@ -26,14 +26,31 @@ window.onscroll = function () {
   }
 };
 
-const app = (current_event) => {
-  if (previous_event && previous_event !== current_event) {
+const setSvgIconPath = () => {
+  const useElements = document.querySelectorAll('use[data-icon]');
+  useElements.forEach((use) => {
+    const iconVariable = use.getAttribute('data-icon');
+    if (!iconVariable) return;
+    let iconPath = getComputedStyle(document.documentElement).getPropertyValue(iconVariable).trim();
+    if (!iconPath) return;
+    iconPath = iconPath.replace('url(', '').replace(')', '');
+    const icon = use.getAttribute('xlink:href');
+    if (!icon || icon.indexOf('#') !== 0) return;
+
+    use.setAttribute('xlink:href', `${iconPath}${icon}`);
+  });
+};
+
+const app = (currentEvent) => {
+  if (previousEvent && previousEvent !== currentEvent) {
     return;
   }
 
   console.log('Rails BookVerse is running at', new Date().toLocaleTimeString());
 
   initTheme();
+
+  setSvgIconPath();
 
   scrollToTopBtn = document.getElementById('scrollToTopBtn');
   if (scrollToTopBtn)
@@ -42,11 +59,11 @@ const app = (current_event) => {
   header = document.querySelector('header.header');
 
   setTimeout(() => {
-    previous_event = null;
-    current_event = null;
+    previousEvent = null;
+    currentEvent = null;
   }, 1000);
 
-  previous_event = current_event;
+  previousEvent = currentEvent;
 };
 
 addEventListener('turbo:load', () => {
