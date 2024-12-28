@@ -2,13 +2,8 @@
 
 <h1>Reviews</h1>
 
-<div id='reviews'>
-  <% @reviews.each do |review| %>
-    <%= render review %>
-    <p>
-      <%= link_to 'Show this review', review %>
-    </p>
-  <% end %>
+<div id='reviews' class='my-3'>
+  <%= render 'shared/render_list' %>
 </div>
 
 <%= link_to 'New review', new_review_path %>
