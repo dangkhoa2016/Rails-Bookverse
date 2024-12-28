@@ -2,13 +2,8 @@
 
 <h1>Book loans</h1>
 
-<div id='book_loans'>
-  <% @book_loans.each do |book_loan| %>
-    <%= render book_loan %>
-    <p>
-      <%= link_to 'Show this book loan', book_loan %>
-    </p>
-  <% end %>
+<div id='book_loans' class='my-3'>
+  <%= render 'shared/render_list' %>
 </div>
 
 <%= link_to 'New book loan', new_book_loan_path %>
