@@ -2,13 +2,8 @@
 
 <h1>Libraries</h1>
 
-<div id='libraries'>
-  <% @libraries.each do |library| %>
-    <%= render library %>
-    <p>
-      <%= link_to 'Show this library', library %>
-    </p>
-  <% end %>
+<div id='libraries' class='my-3'>
+  <%= render 'shared/render_list' %>
 </div>
 
 <%= link_to 'New library', new_library_path %>

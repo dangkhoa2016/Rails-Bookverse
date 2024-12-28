@@ -1,10 +1,3 @@
 <%= render 'shared/result_messages', record: @book_loan %>
 
 <%= render @book_loan %>
-
-<div>
-  <%= link_to 'Edit this book loan', edit_book_loan_path(@book_loan) %> |
-  <%= link_to 'Back to book loans', book_loans_path %>
-
-  <%= button_to 'Destroy this book loan', @book_loan, method: :delete, data: { turbo_confirm: 'Are you sure ?' } %>
-</div>

@@ -2,13 +2,8 @@
 
 <h1>Published dates</h1>
 
-<div id='published_dates'>
-  <% @published_dates.each do |published_date| %>
-    <%= render published_date %>
-    <p>
-      <%= link_to 'Show this published date', published_date %>
-    </p>
-  <% end %>
+<div id='published_dates' class='my-3'>
+  <%= render 'shared/render_list' %>
 </div>
 
 <%= link_to 'New published date', new_published_date_path %>
