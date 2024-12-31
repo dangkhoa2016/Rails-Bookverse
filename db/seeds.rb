@@ -84,47 +84,40 @@ end
 
 # Real Books
 books = [
-  { title: 'Harry Potter and the Sorcerer\'s Stone', isbn: '9780747532743', pages: 309, price: 19.99, stock: 500 },
-  { title: '1984', isbn: '9780451524935', pages: 328, price: 15.99, stock: 350 },
-  { title: 'Norwegian Wood', isbn: '9780099448570', pages: 296, price: 14.99, stock: 400 },
-  { title: 'Pride and Prejudice', isbn: '9781503290563', pages: 279, price: 10.99, stock: 600 },
-  { title: 'The Fellowship of the Ring', isbn: '9780618574940', pages: 423, price: 25.00, stock: 450 },
-  { title: 'The Adventures of Huckleberry Finn', isbn: '9780451530912', pages: 366, price: 13.99, stock: 300 },
-  { title: 'The Shining', isbn: '9780385121675', pages: 659, price: 21.99, stock: 500 },
-  { title: 'Murder on the Orient Express', isbn: '9780062693662', pages: 256, price: 12.99, stock: 700 },
-  { title: 'I, Robot', isbn: '9780553382563', pages: 320, price: 16.99, stock: 350 },
-  { title: 'The Great Gatsby', isbn: '9780743273565', pages: 180, price: 10.50, stock: 450 },
-  { title: 'To Kill a Mockingbird', isbn: '9780061120084', pages: 281, price: 18.99, stock: 600 },
-  { title: 'The Catcher in the Rye', isbn: '9780316769488', pages: 277, price: 14.99, stock: 400 },
-  { title: 'The Hunger Games', isbn: '9780439023528', pages: 374, price: 14.99, stock: 550 },
-  { title: 'The Road', isbn: '9780307387899', pages: 287, price: 16.99, stock: 300 },
-  { title: 'Brave New World', isbn: '9780060850524', pages: 268, price: 13.99, stock: 450 },
-  { title: 'The Hobbit', isbn: '9780618968633', pages: 310, price: 15.99, stock: 500 },
-  { title: 'Wuthering Heights', isbn: '9780141439556', pages: 416, price: 12.50, stock: 400 },
-  { title: 'The Picture of Dorian Gray', isbn: '9780141439570', pages: 254, price: 10.99, stock: 300 },
-  { title: 'Frankenstein', isbn: '9780486282114', pages: 280, price: 9.99, stock: 350 },
-  { title: 'Slaughterhouse-Five', isbn: '9780440180296', pages: 275, price: 12.99, stock: 450 },
-  { title: 'The Silent Patient', isbn: '9781250301697', pages: 325, price: 19.99, stock: 400 },
-  { title: 'Where the Crawdads Sing', isbn: '9780735219090', pages: 384, price: 16.99, stock: 450 },
-  { title: 'Educated', isbn: '9780399590504', pages: 352, price: 18.00, stock: 350 },
-  { title: 'Becoming', isbn: '9781524763138', pages: 448, price: 27.99, stock: 400 },
-  { title: 'The Goldfinch', isbn: '9780316055437', pages: 771, price: 24.99, stock: 500 },
-  { title: 'Circe', isbn: '9780316556347', pages: 400, price: 17.99, stock: 450 },
-  { title: 'A Little Life', isbn: '9780804172707', pages: 720, price: 19.99, stock: 300 },
-  { title: 'Normal People', isbn: '9781984822178', pages: 269, price: 15.99, stock: 350 },
-  { title: 'The Night Circus', isbn: '9780307744432', pages: 387, price: 22.00, stock: 400 },
-  { title: 'Big Little Lies', isbn: '9780399587207', pages: 460, price: 15.99, stock: 450 }
+  { title: 'Harry Potter and the Sorcerer\'s Stone', isbn: '9780747532743', pages: 309, price: 19.99, stock: 500, summary: 'Harry Potter, an orphaned boy, discovers that he is a wizard and attends Hogwarts School of Witchcraft and Wizardry, where he unravels the mystery of his parents\' deaths.' },
+  { title: '1984', isbn: '9780451524935', pages: 328, price: 15.99, stock: 350, summary: 'In a dystopian society controlled by a totalitarian government, Winston Smith struggles to maintain his individuality while resisting the surveillance and propaganda of Big Brother.' },
+  { title: 'Norwegian Wood', isbn: '9780099448570', pages: 296, price: 14.99, stock: 400, summary: 'A nostalgic coming-of-age story about a young man named Toru Watanabe as he navigates love, loss, and mental illness while attending university in Tokyo.' },
+  { title: 'Pride and Prejudice', isbn: '9781503290563', pages: 279, price: 10.99, stock: 600, summary: 'Elizabeth Bennet, a strong-willed woman, faces societal expectations, family drama, and romantic entanglements in 19th-century England as she navigates her feelings for the proud Mr. Darcy.' },
+  { title: 'The Fellowship of the Ring', isbn: '9780618574940', pages: 423, price: 25.00, stock: 450, summary: 'Frodo Baggins sets out on a perilous journey to destroy a powerful ring that could bring darkness to the world, accompanied by a group of diverse and brave companions.' },
+  { title: 'The Adventures of Huckleberry Finn', isbn: '9780451530912', pages: 366, price: 13.99, stock: 300, summary: 'Huck Finn, a young boy, runs away from home and embarks on an adventure down the Mississippi River with Jim, an escaped slave, facing moral dilemmas and societal expectations along the way.' },
+  { title: 'The Shining', isbn: '9780385121675', pages: 659, price: 21.99, stock: 500, summary: 'Jack Torrance takes a job as the winter caretaker of the Overlook Hotel, where his family becomes haunted by supernatural forces, leading to a terrifying descent into madness.' },
+  { title: 'Murder on the Orient Express', isbn: '9780062693662', pages: 256, price: 12.99, stock: 700, summary: 'Detective Hercule Poirot investigates a murder aboard the luxurious train, uncovering a web of secrets and lies among the passengers.' },
+  { title: 'I, Robot', isbn: '9780553382563', pages: 320, price: 16.99, stock: 350, summary: 'A collection of interconnected short stories that explore the relationship between humans and robots, touching on issues of artificial intelligence, ethics, and human nature.' },
+  { title: 'The Great Gatsby', isbn: '9780743273565', pages: 180, price: 10.50, stock: 450, summary: 'Nick Carraway recounts his experiences in 1920s New York, including his fascination with the mysterious and wealthy Jay Gatsby, whose tragic love for Daisy Buchanan defines the story.' },
+  { title: 'To Kill a Mockingbird', isbn: '9780061120084', pages: 281, price: 18.99, stock: 600, summary: 'Set in the racially segregated South, Scout Finch reflects on her childhood, witnessing her father, lawyer Atticus Finch, defend a black man unjustly accused of raping a white woman.' },
+  { title: 'The Catcher in the Rye', isbn: '9780316769488', pages: 277, price: 14.99, stock: 400, summary: 'Holden Caulfield, a disillusioned teenager, narrates his experiences in New York City after being expelled from an elite prep school, grappling with feelings of alienation and depression.' },
+  { title: 'The Hunger Games', isbn: '9780439023528', pages: 374, price: 14.99, stock: 550, summary: 'In a dystopian future, Katniss Everdeen volunteers to take her sister’s place in a deadly televised competition where 24 young tributes must fight for survival.' },
+  { title: 'The Road', isbn: '9780307387899', pages: 287, price: 16.99, stock: 300, summary: 'A father and son journey through a post-apocalyptic world, struggling to survive amidst the bleak and dangerous landscape, clinging to love and hope.' },
+  { title: 'Brave New World', isbn: '9780060850524', pages: 268, price: 13.99, stock: 450, summary: 'In a future society, human beings are artificially created and conditioned to live in a perfectly controlled world, but one man challenges this system and seeks individuality.' },
+  { title: 'The Hobbit', isbn: '9780618968633', pages: 310, price: 15.99, stock: 500, summary: 'Bilbo Baggins, a hobbit, is reluctantly drawn into an adventure to reclaim treasure guarded by the fearsome dragon Smaug, encountering trolls, elves, and dwarves along the way.' },
+  { title: 'Wuthering Heights', isbn: '9780141439556', pages: 416, price: 12.50, stock: 400, summary: 'The passionate and tragic tale of Heathcliff and Catherine Earnshaw, whose intense love leads to destructive consequences for themselves and their families.' },
+  { title: 'The Picture of Dorian Gray', isbn: '9780141439570', pages: 254, price: 10.99, stock: 300, summary: 'Dorian Gray, a handsome young man, makes a pact to remain youthful forever while a portrait of him ages and reflects the moral consequences of his actions.' },
+  { title: 'Frankenstein', isbn: '9780486282114', pages: 280, price: 9.99, stock: 350, summary: 'Victor Frankenstein creates a monster from body parts, but the creature becomes an outcast and seeks revenge on his creator, leading to a tragic series of events.' },
+  { title: 'Slaughterhouse-Five', isbn: '9780440180296', pages: 275, price: 12.99, stock: 450, summary: 'Billy Pilgrim becomes "unstuck in time" and witnesses various moments of his life, including his time as a soldier in World War II and his experiences being abducted by aliens.' },
+  { title: 'The Silent Patient', isbn: '9781250301697', pages: 325, price: 19.99, stock: 400, summary: 'A psychotherapist becomes obsessed with the case of Alicia Berenson, a famous artist who shot her husband and then stopped speaking, as he tries to uncover the truth behind her silence.' },
+  { title: 'Where the Crawdads Sing', isbn: '9780735219090', pages: 384, price: 16.99, stock: 450, summary: 'In the swamps of North Carolina, Kya Clark, the "Marsh Girl," is accused of murder, but her survival story unveils a deeper mystery tied to love, loneliness, and the natural world.' },
+  { title: 'Educated', isbn: '9780399590504', pages: 352, price: 18.00, stock: 350, summary: 'A memoir of Tara Westover, who grows up in a strict and abusive household in rural Idaho, and her journey of self-education and eventual escape to gain a formal education.' },
+  { title: 'Becoming', isbn: '9781524763138', pages: 448, price: 27.99, stock: 400, summary: 'Michelle Obama reflects on her life from childhood to the White House, sharing insights into her personal experiences, struggles, and triumphs as First Lady.' },
+  { title: 'The Goldfinch', isbn: '9780316055437', pages: 771, price: 24.99, stock: 500, summary: 'A young boy, Theo, survives a terrorist attack in a museum and becomes obsessed with a painting, leading to a life filled with crime, loss, and the search for meaning.' },
+  { title: 'Circe', isbn: '9780316556347', pages: 400, price: 17.99, stock: 450, summary: 'Circe, the daughter of the god Helios, is banished to a remote island where she discovers her powers as a witch, navigating the complexities of love, power, and transformation.' },
+  { title: 'A Little Life', isbn: '9780804172707', pages: 720, price: 19.99, stock: 300, summary: 'The story of four friends navigating life in New York City, focusing on Jude, whose traumatic past is slowly revealed as the novel explores themes of pain, friendship, and survival.' },
+  { title: 'Normal People', isbn: '9781984822178', pages: 269, price: 15.99, stock: 350, summary: 'The evolving relationship between Connell and Marianne, two high school classmates from a small Irish town, as they navigate love, class, and the intricacies of modern life.' },
+  { title: 'The Night Circus', isbn: '9780307744432', pages: 387, price: 22.00, stock: 400, summary: 'A magical and mysterious circus appears without warning, and two young illusionists, bound in a rivalry, must face off in a competition that could alter the course of their lives.' },
+  { title: 'Big Little Lies', isbn: '9780399587207', pages: 460, price: 15.99, stock: 450, summary: 'The intertwined lives of three women unravel in a small town, revealing dark secrets, lies, and the tragic events that unfold during a school trivia night.' }
 ]
 
 books.each do |book|
-  new_book = Book.create!(
-    title: book[:title],
-    isbn: book[:isbn],
-    pages: book[:pages],
-    price: book[:price],
-    stock: book[:stock],
-    active: true
-  )
+  Book.create!(book.merge!(active: true))
 end
 
 # Real Categories
@@ -161,7 +154,7 @@ categories = [
 ]
 
 categories.each do |category|
-  Category.create!(name: category[:name], description: category[:description], active: true)
+  Category.create!(category.merge!(active: true))
 end
 
 # Real Genres
@@ -197,7 +190,7 @@ genres = [
 ]
 
 genres.each do |genre|
-  Genre.create!(name: genre[:name], description: genre[:description], active: true)
+  Genre.create!(genre.merge!(active: true))
 end
 
 # Real Tags
@@ -220,7 +213,7 @@ tags = [
 ]
 
 tags.each do |tag|
-  Tag.create!(name: tag[:name], active: true)
+  Tag.create!(tag.merge!(active: true))
 end
 
 # Add Categories, Genres, and Tags to Books
@@ -231,7 +224,7 @@ Book.all.each do |book|
   book.authors = Author.reorder('random()').first(rand(1..3))
 end
 
-# Libraries
+# Real Libraries
 libraries = [
   { name: 'New York Public Library', address: '476 5th Ave, New York, NY 10018' },
   { name: 'Los Angeles Public Library', address: '630 W 5th St, Los Angeles, CA 90071' },
@@ -251,7 +244,7 @@ libraries = [
 ]
 
 libraries.each do |library|
-  Library.create!(name: library[:name], address: library[:address], active: true)
+  Library.create!(library.merge!(active: true))
 end
 
 # Create Members
@@ -269,15 +262,12 @@ end
 
 # Real Publishers
 publishers = [
-  { name: 'Penguin Random House', address: '1745 Broadway, Chicago, IL 10019', phone_number: '212-366-2000', email: 'contact@penguinrandomhouse.com', website: 'https://www.penguinrandomhouse.com', ceo_name: 'Markus Dohle', established_year: 1927 },
   { name: 'HarperCollins', address: '195 Broadway, Los Angeles, CA 10007', phone_number: '212-207-7000', email: 'contact@harpercollins.com', website: 'https://www.harpercollins.com', ceo_name: 'Brian Murray', established_year: 1817 },
   { name: 'Macmillan', address: '120 Broadway, Boston, MA 10271', phone_number: '212-674-5151', email: 'info@macmillan.com', website: 'https://www.macmillan.com', ceo_name: 'John Sargent', established_year: 1843 },
   { name: 'Bloomsbury', address: '50 Bedford Square, London, WC1B 3DP', phone_number: '020-7631-5600', email: 'info@bloomsbury.local', website: 'https://www.bloomsbury.com', ceo_name: 'Nigel Newton', established_year: 1986 },
   { name: 'Bantam Books', address: '1745 Broadway, Dallas, TX 10019', phone_number: '212-782-9000', email: 'bantam.books@test.sample', website: 'https://www.bantambooks.com', ceo_name: 'Suzanne Herz', established_year: 1945 },
   { name: 'Hachette', address: '1290 Avenue of the Americas, Miami, FL 10104', phone_number: '212-364-1100', email: 'contact@hachette.local', website: 'https://www.hachette.com', ceo_name: 'Arnaud Nourry', established_year: 1826 },
   { name: 'Penguin Random House', address: '1745 Broadway, Chicago, IL 10019', phone_number: '212-366-2000', email: 'contact@penguinrandomhouse.com', website: 'https://www.penguinrandomhouse.com', ceo_name: 'Markus Dohle', established_year: 1927 },
-  { name: 'HarperCollins', address: '195 Broadway, Los Angeles, CA 10007', phone_number: '212-207-7000', email: 'contact@harpercollins.com', website: 'https://www.harpercollins.com', ceo_name: 'Brian Murray', established_year: 1817 },
-  { name: 'Macmillan', address: '120 Broadway, Boston, MA 10271', phone_number: '212-674-5151', email: 'info@macmillan.com', website: 'https://www.macmillan.com', ceo_name: 'John Sargent', established_year: 1843 },
   { name: 'Simon & Schuster', address: '1230 Avenue of the Americas, San Francisco, CA 10020', phone_number: '212-698-7000', email: 'contact@simonandschuster.com', website: 'https://www.simonandschuster.com', ceo_name: 'Jonathan Karp', established_year: 1924 },
   { name: 'Scholastic', address: '557 Broadway, Seattle, WA 10012', phone_number: '212-343-6100', email: 'info@scholastic.com', website: 'https://www.scholastic.com', ceo_name: 'Richard Robinson', established_year: 1920 },
   { name: 'Random House', address: '1745 Broadway, Houston, TX 10019', phone_number: '212-782-9000', email: 'contact@randomhouse.com', website: 'https://www.randomhouse.com', ceo_name: 'Markus Dohle', established_year: 1927 },
@@ -289,20 +279,27 @@ publishers = [
   { name: 'Kodansha', address: '1-14-5, Kanda-Jimbocho, Chiyoda-ku, Tokyo 101-8050, Japan', phone_number: '+81 3-3230-6161', email: 'info@kodansha.com', website: 'https://www.kodansha.com', ceo_name: 'Nobuyuki Idei', established_year: 1909 },
   { name: 'Plaza & Janés', address: 'Carrer de Pau Claris, 163, 08037 Barcelona, Spain', phone_number: '+34 93 410 46 00', email: 'contacto@plazajanes.com', website: 'https://www.plazajanes.com', ceo_name: 'José Ortega', established_year: 1991 },
   { name: 'Headline Review', address: '75 Varley Street, London E3 2EN, UK', phone_number: '+44 20 7873 8000', email: 'contact@headline.co.uk', website: 'https://www.headline.co.uk', ceo_name: 'Ian Chapman', established_year: 1986 },
-  { name: 'Gnome Press', address: '16 East 52nd Street, Chicago, IL 10022', phone_number: '212-355-6600', email: 'info@gnomepress.com', website: 'https://www.gnomepress.com', ceo_name: 'Martin H. Greenberg', established_year: 1948 }
+  { name: 'Gnome Press', address: '16 East 52nd Street, Chicago, IL 10022', phone_number: '212-355-6600', email: 'info@gnomepress.com', website: 'https://www.gnomepress.com', ceo_name: 'Martin H. Greenberg', established_year: 1948 },
+  { name: 'Tor Books', address: '120 Broadway, New York, NY 10271', phone_number: '212-627-9000', email: 'info@tor.com', website: 'https://www.tor.com', ceo_name: 'Marissa L. Hilliard', established_year: 1980 },
+  { name: 'Wiley', address: '111 River Street, Hoboken, NJ 07030', phone_number: '201-748-6000', email: 'info@wiley.com', website: 'https://www.wiley.com', ceo_name: 'Brian A. Hollar', established_year: 1807 },
+  { name: 'Penguin Books', address: '80 Strand, London WC2R 0RL, UK', phone_number: '+44 20 7840 8400', email: 'info@penguin.com', website: 'https://www.penguin.com', ceo_name: 'Ann Godoff', established_year: 1935 },
+  { name: 'Rizzoli', address: '1745 Broadway, New York, NY 10019', phone_number: '212-307-8900', email: 'contact@rizzoliusa.com', website: 'https://www.rizzoliusa.com', ceo_name: 'Raul G. Castellanos', established_year: 1964 },
+  { name: 'St. Martin\'s Press', address: '175 5th Avenue, New York, NY 10010', phone_number: '212-675-2550', email: 'contact@stmartins.com', website: 'https://www.stmartins.com', ceo_name: 'Alison B. Rich', established_year: 1952 },
+  { name: 'Viking Press', address: '1745 Broadway, New York, NY 10019', phone_number: '212-366-2700', email: 'info@vikingpress.com', website: 'https://www.penguinrandomhouse.com/viking', ceo_name: 'Brian Tart', established_year: 1929 },
+  { name: 'University of Chicago Press', address: '1427 E 60th St, Chicago, IL 60637', phone_number: '773-702-7700', email: 'contact@press.uchicago.edu', website: 'https://www.press.uchicago.edu', ceo_name: 'Michele McKenzie', established_year: 1891 },
+  { name: 'Canongate Books', address: '14 High Street, Edinburgh, EH1 1TE, UK', phone_number: '+44 131 555 4200', email: 'info@canongate.co.uk', website: 'https://www.canongate.co.uk', ceo_name: 'Cheryl Mitchell', established_year: 1994 },
+  { name: 'Faber & Faber', address: '3 Queen Square, London WC1N 3AU, UK', phone_number: '+44 20 7927 3800', email: 'info@faber.co.uk', website: 'https://www.faber.co.uk', ceo_name: 'Stephen Page', established_year: 1929 },
+  { name: 'Oxford University Press', address: 'Great Clarendon Street, Oxford, OX2 6DP, UK', phone_number: '+44 1865 556767', email: 'contact@oup.com', website: 'https://www.oup.com', ceo_name: 'Nigel Portwood', established_year: 1586 },
+  { name: 'Harvill Secker', address: '20 Vauxhall Bridge Road, London SW1V 2SA, UK', phone_number: '+44 20 7598 7000', email: 'info@harvillsecker.co.uk', website: 'https://www.harvillsecker.co.uk', ceo_name: 'Francesca Main', established_year: 1999 },
+  { name: 'Pan Macmillan', address: 'Griffin House, 161-163 Euston Road, London NW1 2B', phone_number: '+44 20 3141 7460', email: 'info@panmacmillan.com', website: 'https://www.panmacmillan.com', ceo_name: 'Anthony Forbes Watson', established_year: 1988 },
+  { name: 'Scribe Publications', address: '1/45-47 The Avenue, Melbourne VIC 3181, Australia', phone_number: '+61 3 9457 1188', email: 'info@scribepub.com.au', website: 'https://www.scribepub.com.au', ceo_name: 'Henry Rosenbloom', established_year: 2007 },
+  { name: 'Granta', address: '12-14 Holywell Street, Cambridge, CB3 0BF, UK', phone_number: '+44 1223 307 940', email: 'info@granta.com', website: 'https://www.granta.com', ceo_name: 'Sigrid Rausing', established_year: 1979 },
+  { name: 'Quercus', address: '55-56 Eagle Street, London, WC1R 4AR, UK', phone_number: '+44 20 7863 5800', email: 'info@quercusbooks.co.uk', website: 'https://www.quercusbooks.co.uk', ceo_name: 'Mark Smith', established_year: 2004 },
+  { name: 'Hodder & Stoughton', address: '338 Euston Road, London NW1 3BH, UK', phone_number: '+44 20 7873 6000', email: 'info@hodder.co.uk', website: 'https://www.hodder.co.uk', ceo_name: 'Jamie Hodder-Williams', established_year: 1868 }
 ]
 
 publishers.each do |publisher|
-  Publisher.create!(
-    name: publisher[:name],
-    address: publisher[:address],
-    phone_number: publisher[:phone_number],
-    email: publisher[:email],
-    website: publisher[:website],
-    ceo_name: publisher[:ceo_name],
-    established_year: publisher[:established_year],
-    active: true
-  )
+  Publisher.create!(publisher.merge!(active: true))
 end
 
 book_editions = [
@@ -381,7 +378,11 @@ end
 # Create Book Loans
 Book.all.each do |book|
   Member.reorder('random()').first(rand(1..4)).each do |member|
-    BookLoan.find_or_create_by!(book: book, member: member, borrowed_on: Faker::Date.between(from: 2.months.ago, to: Date.today), status: BookLoan.statuses.keys.sample)
+    borrowed_on = Faker::Date.between(from: 2.months.ago, to: Date.today)
+    BookLoan.find_or_create_by!(book: book, member: member,
+    borrowed_on: borrowed_on,
+    returned_on: Faker::Date.between(from: borrowed_on, to: Date.today.since(2.months)),
+    status: BookLoan.statuses.keys.sample)
   end
 end
 
