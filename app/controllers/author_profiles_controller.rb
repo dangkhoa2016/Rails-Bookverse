@@ -3,7 +3,7 @@ class AuthorProfilesController < ApplicationController
 
   # GET /author_profiles or /author_profiles.json
   def index
-    @author_profiles = AuthorProfile.all
+    @author_profiles = AuthorProfile.includes(:author)
   end
 
   # GET /author_profiles/1 or /author_profiles/1.json
@@ -25,7 +25,7 @@ class AuthorProfilesController < ApplicationController
 
     respond_to do |format|
       if @author_profile.save
-        format.html { redirect_to @author_profile, notice: "Author profile was successfully created." }
+        format.html { redirect_to @author_profile, notice: "Profile for the author [#{@author_profile.author.full_name}] was successfully created." }
         format.json { render :show, status: :created, location: @author_profile }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class AuthorProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @author_profile.update(author_profile_params)
-        format.html { redirect_to @author_profile, notice: "Author profile was successfully updated." }
+        format.html { redirect_to @author_profile, notice: "Profile for the author [#{@author_profile.author.full_name}] was successfully updated." }
         format.json { render :show, status: :ok, location: @author_profile }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class AuthorProfilesController < ApplicationController
     @author_profile.destroy!
 
     respond_to do |format|
-      format.html { redirect_to author_profiles_path, status: :see_other, notice: "Author profile was successfully destroyed." }
+      format.html { redirect_to author_profiles_path, status: :see_other, notice: "Profile for the author [#{@author_profile.author.full_name}] was successfully destroyed." }
       format.json { head :no_content }
     end
   end
