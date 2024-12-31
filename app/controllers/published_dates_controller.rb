@@ -3,7 +3,7 @@ class PublishedDatesController < ApplicationController
 
   # GET /published_dates or /published_dates.json
   def index
-    @published_dates = PublishedDate.all
+    @published_dates = PublishedDate.includes(:book, :publisher)
   end
 
   # GET /published_dates/1 or /published_dates/1.json
@@ -25,7 +25,7 @@ class PublishedDatesController < ApplicationController
 
     respond_to do |format|
       if @published_date.save
-        format.html { redirect_to @published_date, notice: "Published date for book [#{@published_date.book.title}] was successfully created." }
+        format.html { redirect_to @published_date, notice: "Published date for the book [#{@published_date.book.title}] was successfully created." }
         format.json { render :show, status: :created, location: @published_date }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class PublishedDatesController < ApplicationController
   def update
     respond_to do |format|
       if @published_date.update(published_date_params)
-        format.html { redirect_to @published_date, notice: "Published date for book [#{@published_date.book.title}] was successfully updated." }
+        format.html { redirect_to @published_date, notice: "Published date for the book [#{@published_date.book.title}] was successfully updated." }
         format.json { render :show, status: :ok, location: @published_date }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class PublishedDatesController < ApplicationController
     @published_date.destroy!
 
     respond_to do |format|
-      format.html { redirect_to published_dates_path, status: :see_other, notice: "Published date for book [#{@published_date.book.title}] was successfully destroyed." }
+      format.html { redirect_to published_dates_path, status: :see_other, notice: "Published date for the book [#{@published_date.book.title}] was successfully destroyed." }
       format.json { head :no_content }
     end
   end
