@@ -13,6 +13,13 @@ class LibrariesController < ApplicationController
         raise e
       end
     end
+
+    if @libraries.present?
+      members_count = Member.count_by_library_ids(@libraries.pluck(:id))
+      @libraries.each do |library|
+        library.members_count = members_count[library.id] || 0
+      end
+    end
   end
 
   # GET /libraries/1 or /libraries/1.json

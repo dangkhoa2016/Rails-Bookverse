@@ -62,5 +62,10 @@ class BookLoan < ApplicationRecord
         super
       end
     end
+
+    def count_by_model_ids(model, ids)
+      column_name = "#{model}_id"
+      BookLoan.where(column_name => ids).group(column_name).count('id')
+    end
   end
 end

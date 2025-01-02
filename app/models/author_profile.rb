@@ -23,5 +23,10 @@ class AuthorProfile < ApplicationRecord
       ]
     end
 
+    def count_by_author_ids(ids)
+      model = 'author'
+      column_name = "#{model}_id"
+      AuthorProfile.where(column_name => ids).group(column_name).count
+    end
   end
 end
