@@ -13,6 +13,13 @@ class TagsController < ApplicationController
         raise e
       end
     end
+
+    if @tags.present?
+      books_count = Book.count_by_model_ids(:tag, @tags.pluck(:id))
+      @tags.each do |tag|
+        tag.books_count = books_count[tag.id] || 0
+      end
+    end
   end
 
   # GET /tags/1 or /tags/1.json

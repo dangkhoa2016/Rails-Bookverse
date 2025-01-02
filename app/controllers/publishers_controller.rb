@@ -13,6 +13,13 @@ class PublishersController < ApplicationController
         raise e
       end
     end
+
+    if @publishers.present?
+      published_dates_count = PublishedDate.count_by_model_ids(:publisher, @publishers.pluck(:id))
+      @publishers.each do |publisher|
+        publisher.published_dates_count = published_dates_count[publisher.id] || 0
+      end
+    end
   end
 
   # GET /publishers/1 or /publishers/1.json

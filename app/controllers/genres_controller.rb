@@ -13,6 +13,13 @@ class GenresController < ApplicationController
         raise e
       end
     end
+
+    if @genres.present?
+      books_count = Book.count_by_model_ids(:genre, @genres.pluck(:id))
+      @genres.each do |genre|
+        genre.books_count = books_count[genre.id] || 0
+      end
+    end
   end
 
   # GET /genres/1 or /genres/1.json

@@ -13,6 +13,13 @@ class CategoriesController < ApplicationController
         raise e
       end
     end
+
+    if @categories.present?
+      books_count = Book.count_by_model_ids(:category, @categories.pluck(:id))
+      @categories.each do |category|
+        category.books_count = books_count[category.id] || 0
+      end
+    end
   end
 
   # GET /categories/1 or /categories/1.json
