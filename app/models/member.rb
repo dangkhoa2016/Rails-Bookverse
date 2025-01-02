@@ -37,5 +37,11 @@ class Member < ApplicationRecord
         'active', 'created_at', 'updated_at',
       ]
     end
+
+    def count_by_library_ids(ids)
+      model = 'library'
+      column_name = "#{model}_id"
+      Member.where(column_name => ids).group(column_name).count('id')
+    end
   end
 end
