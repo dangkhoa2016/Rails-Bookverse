@@ -32,9 +32,9 @@ en:
           renewed: Renewed
           cancelled: Cancelled
           expired: Expired
-        book_id: Book Id
+        book_id: Book
         book: Book
-        member_id: Member Id
+        member_id: Member
         member: Member
         borrowed_on: Borrowed On
         returned_on: Returned On
@@ -77,7 +77,7 @@ en:
       review:
         content: Content
         rating: Number Of Stars
-        book_id: Book Id
+        book_id: Book
         book: Book
         star:
           one: 1 Star
@@ -85,8 +85,8 @@ en:
         no_rating: Not rating yet
       
       published_date:
-        book_id: Book Id
-        publisher_id: Publisher Id
+        book_id: Book
+        publisher_id: Publisher
         published_date: Published Date
         edition: Edition
         publisher: Publisher
@@ -99,11 +99,11 @@ en:
         first_name: First Name
         last_name: Last Name
         email: Email
-        library_id: Library Id
+        library_id: Library
         library: Library
       
       author_profile:
-        author_id: Author Id
+        author_id: Author
         author: Author
         bio: Bio
         social_facebook: Social Facebook
