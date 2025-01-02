@@ -52,6 +52,7 @@ en:
     show: Show
     back: Back
     back_to_list: Back to %{model}
+    new_model: New %{model}
     cancel: Cancel
     save: Save
     submit: Submit

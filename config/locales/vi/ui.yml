@@ -21,6 +21,10 @@ vi:
     list_of: Danh sách
     home: Trang chủ
     scroll_to_top: Lên đầu trang
+    view_as_list: Xem dạng danh sách
+    view_as_card: Xem dạng thẻ
+    view_as_table: Xem dạng bảng
+
 
     notifications:
       title: Thông Báo
