@@ -7,6 +7,7 @@ one:
   price: 19.99
   stock: 500
   active: true
+  summary: "A young wizard, Harry Potter, discovers his magical heritage and attends Hogwarts School of Witchcraft and Wizardry."
 
 two:
   title: 1984
@@ -15,6 +16,7 @@ two:
   price: 15.99
   stock: 350
   active: true
+  summary: "A dystopian novel by George Orwell that explores the dangers of totalitarianism and extreme political ideology."
 
 three:
   title: Norwegian Wood
@@ -23,6 +25,7 @@ three:
   price: 14.99
   stock: 400
   active: true
+  summary: "A nostalgic story of love and loss, set in 1960s Japan, written by Haruki Murakami."
 
 four:
   title: Pride and Prejudice
@@ -31,6 +34,7 @@ four:
   price: 10.99
   stock: 600
   active: true
+  summary: "A classic romance novel by Jane Austen that explores themes of love, class, and societal expectations."
 
 five:
   title: The Fellowship of the Ring
@@ -39,3 +43,4 @@ five:
   price: 25.00
   stock: 450
   active: true
+  summary: "The first part of J.R.R. Tolkien's epic fantasy trilogy, The Lord of the Rings, following Frodo Baggins on his quest to destroy the One Ring."
