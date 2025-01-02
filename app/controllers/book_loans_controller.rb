@@ -3,7 +3,16 @@ class BookLoansController < ApplicationController
 
   # GET /book_loans or /book_loans.json
   def index
-    @book_loans = BookLoan.includes(:book, :member)
+    begin
+      @pagy, @book_loans = pagy(BookLoan.includes(:book, :member))
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @book_loans = BookLoan.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /book_loans/1 or /book_loans/1.json

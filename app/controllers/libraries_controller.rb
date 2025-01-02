@@ -3,7 +3,16 @@ class LibrariesController < ApplicationController
 
   # GET /libraries or /libraries.json
   def index
-    @libraries = Library.all
+    begin
+      @pagy, @libraries = pagy(Library)
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @libraries = Library.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /libraries/1 or /libraries/1.json

@@ -3,7 +3,16 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.all
+    begin
+      @pagy, @categories = pagy(Category)
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @categories = Category.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /categories/1 or /categories/1.json
