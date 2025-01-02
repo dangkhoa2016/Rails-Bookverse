@@ -31,5 +31,14 @@ class Publisher < ApplicationRecord
         'active', 'created_at', 'updated_at',
       ]
     end
+
+    def count_by_book_ids(ids)
+      model = 'book'
+      column_name = "#{model}_id"
+      join_table_name = model.to_s.pluralize
+      Publisher.joins(join_table_name.to_sym).
+        where(%Q{ published_dates.#{column_name} in (?) }, ids).
+        group(column_name).count('distinct publishers.id')
+    end
   end
 end

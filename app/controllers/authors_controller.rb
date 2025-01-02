@@ -13,6 +13,15 @@ class AuthorsController < ApplicationController
         raise e
       end
     end
+
+    if @authors.present?
+      author_profiles_count = AuthorProfile.count_by_author_ids(@authors.pluck(:id))
+      books_count = Book.count_by_model_ids(:author, @authors.pluck(:id))
+      @authors.each do |author|
+        author.author_profiles_count = author_profiles_count[author.id] || 0
+        author.books_count = books_count[author.id] || 0
+      end
+    end
   end
 
   # GET /authors/1 or /authors/1.json
