@@ -50,6 +50,7 @@ vi:
     show: Xem
     back: Quay Lại
     back_to_list: Quay Lại danh sách %{model}
+    new_model: Tạo mới %{model}
     cancel: Hủy
     save: Lưu
     submit: Gửi

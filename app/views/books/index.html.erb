@@ -1,9 +1,8 @@
 <%= render 'shared/result_messages', record: @book %>
-
-<h1>Books</h1>
+<%= render 'shared/index_header' %>
 
 <div id='books' class='my-3'>
-  <%= render 'shared/render_list' %>
+  <%= render 'shared/base_render' %>
 </div>
 
-<%= link_to 'New book', new_book_path %>
+<%= link_to translate('actions.new_model', model: Book.model_name.human), new_book_path %>

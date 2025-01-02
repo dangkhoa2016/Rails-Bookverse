@@ -22,6 +22,9 @@ en:
     list_of: List of
     home: Home
     scroll_to_top: Scroll to Top
+    view_as_list: View as List
+    view_as_card: View as Card
+    view_as_table: View as Table
 
     notifications:
       title: Notifications

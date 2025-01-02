@@ -1,0 +1,7 @@
+<% if view_type == 'list' %>
+  <%= render 'shared/render_list' %>
+<% elsif view_type == 'table' %>
+  <%= render 'shared/render_table' %>
+<% else %>
+  <%= render 'shared/render_cards' %>
+<% end %>

@@ -1,10 +1,8 @@
-
 <%= render 'shared/result_messages', record: @tag %>
-
-<h1>Tags</h1>
+<%= render 'shared/index_header' %>
 
 <div id='tags' class='my-3'>
-  <%= render 'shared/render_list' %>
+  <%= render 'shared/base_render' %>
 </div>
 
-<%= link_to 'New tag', new_tag_path %>
+<%= link_to translate('actions.new_model', model: Tag.model_name.human), new_tag_path %>
