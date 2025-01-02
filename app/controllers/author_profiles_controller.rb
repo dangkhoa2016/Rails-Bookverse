@@ -3,7 +3,16 @@ class AuthorProfilesController < ApplicationController
 
   # GET /author_profiles or /author_profiles.json
   def index
-    @author_profiles = AuthorProfile.includes(:author)
+    begin
+      @pagy, @author_profiles = pagy(AuthorProfile.includes(:author))
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @author_profiles = AuthorProfile.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /author_profiles/1 or /author_profiles/1.json

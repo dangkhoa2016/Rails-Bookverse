@@ -3,7 +3,16 @@ class ReviewsController < ApplicationController
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.includes(:book)
+    begin
+      @pagy, @reviews = pagy(Review.includes(:book))
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @reviews = Review.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /reviews/1 or /reviews/1.json
