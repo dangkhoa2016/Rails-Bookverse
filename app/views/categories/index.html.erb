@@ -1,9 +1,8 @@
 <%= render 'shared/result_messages', record: @category %>
-
-<h1>Categories</h1>
+<%= render 'shared/index_header' %>
 
 <div id='categories' class='my-3'>
-  <%= render 'shared/render_list' %>
+  <%= render 'shared/base_render' %>
 </div>
 
-<%= link_to 'New category', new_category_path %>
+<%= link_to translate('actions.new_model', model: Category.model_name.human), new_category_path %>

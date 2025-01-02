@@ -1,9 +1,8 @@
 <%= render 'shared/result_messages', record: @member %>
-
-<h1>Members</h1>
+<%= render 'shared/index_header' %>
 
 <div id='members' class='my-3'>
-  <%= render 'shared/render_list' %>
+  <%= render 'shared/base_render' %>
 </div>
 
-<%= link_to 'New member', new_member_path %>
+<%= link_to translate('actions.new_model', model: Member.model_name.human), new_member_path %>
