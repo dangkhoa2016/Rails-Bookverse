@@ -32,9 +32,9 @@ vi:
           renewed: Đã gia hạn
           cancelled: Đã hủy
           expired: Hết hạn
-        book_id: Mã Số Sách
+        book_id: Sách
         book: Sách
-        member_id: Mã Số Thành Viên
+        member_id: Thành Viên
         member: Thành Viên
         borrowed_on: Ngày Mượn
         returned_on: Ngày Trả
@@ -76,14 +76,14 @@ vi:
       review:
         content: Nội Dung
         rating: Số Sao
-        book_id: Mã Số Sách
+        book_id: Sách
         book: Sách
         star: "%{count} Sao"
         no_rating: Chưa có đánh giá
 
       published_date:
-        book_id: Mã Số Sách
-        publisher_id: Mã Số Nhà Xuất Bản
+        book_id: Sách
+        publisher_id: Nhà Xuất Bản
         published_date: Ngày Xuất Bản
         edition: Phiên Bản
         publisher: Nhà Xuất Bản
@@ -96,11 +96,11 @@ vi:
         first_name: Tên
         last_name: Họ
         email: Email
-        library_id: Mã Số Thư Viện
+        library_id: Thư Viện
         library: Thư Viện
 
       author_profile:
-        author_id: Mã Số Tác Giả
+        author_id: Tác Giả
         author: Tác Giả
         bio: Tiểu Sử
         social_facebook: Facebook
