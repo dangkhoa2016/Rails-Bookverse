@@ -1,24 +1,3 @@
-<div id='<%= dom_id published_date %>' class='card mt-3'>
-  <div class='card-header border-secondary border-top border-bottom-0 border-4'>
-    <h4 class='mb-0'><%= published_date.book&.title %></h4>
-  </div>
-
-  <div class='card-body'>
-    <p>
-      <strong>Publisher:</strong>
-      <%= published_date.publisher_id %>
-    </p>
-
-    <p>
-      <strong>Published date:</strong>
-      <%= published_date.published_date %>
-    </p>
-
-    <p>
-      <strong>Edition:</strong>
-      <%= published_date.edition %>
-    </p>
-  </div>
-</div>
-
-<%= render 'shared/footer_actions', record: published_date %>
+<%= render 'shared/display_record', record: published_date do %>
+  <%= render_columns(published_date) %>
+<% end %>
