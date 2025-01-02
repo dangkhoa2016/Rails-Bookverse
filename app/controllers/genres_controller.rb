@@ -3,7 +3,16 @@ class GenresController < ApplicationController
 
   # GET /genres or /genres.json
   def index
-    @genres = Genre.all
+    begin
+      @pagy, @genres = pagy(Genre)
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @genres = Genre.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /genres/1 or /genres/1.json
