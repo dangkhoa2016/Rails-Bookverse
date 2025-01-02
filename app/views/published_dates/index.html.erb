@@ -1,9 +1,8 @@
 <%= render 'shared/result_messages', record: @published_date %>
-
-<h1>Published dates</h1>
+<%= render 'shared/index_header' %>
 
 <div id='published_dates' class='my-3'>
-  <%= render 'shared/render_list' %>
+  <%= render 'shared/base_render' %>
 </div>
 
-<%= link_to 'New published date', new_published_date_path %>
+<%= link_to translate('actions.new_model', model: PublishedDate.model_name.human), new_published_date_path %>

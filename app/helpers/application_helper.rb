@@ -16,6 +16,17 @@ module ApplicationHelper
     { id: 14, name: "settings", path: :settings, icon: "cil-settings", group: "settings" }
   ]
 
+  VIEW_TYPES = [ {
+    name: "list",
+    icon: "cil-list"
+  }, {
+    name: "table",
+    icon: "cil-description"
+  }, {
+    name: "card",
+    icon: "cil-grid"
+  } ]
+
   HOME_MENU_NAME = "home"
   SETTINGS_MENU_NAME = "settings"
   DONT_ALLOW_REMOVE = [ HOME_MENU_NAME, SETTINGS_MENU_NAME ]
@@ -88,5 +99,9 @@ module ApplicationHelper
       action = "edit"
     end
     url_for(locale: locale, action: action)
+  end
+
+  def view_type
+    @view_type ||= (cookies[:view_type] || "list")
   end
 end

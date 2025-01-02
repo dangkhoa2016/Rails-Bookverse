@@ -1,0 +1,20 @@
+<div class='d-flex align-items-center'>
+  <h2 class='mb-0'><%= translate('ui.list_of') %> <%= translate("ui.sidebar_menu.#{controller_name}") %></h2>
+  <%= link_to translate('actions.new'), new_polymorphic_path(controller_name.singularize),
+    class: 'btn btn-primary btn-sm ms-auto' %>
+  <div class='btn-group'>
+    <% ApplicationHelper::VIEW_TYPES.each_with_index do |render_view, indx| %>
+      <% render_view_class = render_view[:name] == view_type ? 'btn-success' : 'btn-secondary' %>
+      <%= link_to({ controller: controller_name, action: :index, view: render_view[:name] },
+        class: "btn btn-sm#{indx == 0 ? ' ms-2' : nil} #{render_view_class}") do %>
+        <svg class='icon'>
+          <% if false %>
+            <use xlink:href='<%= asset_path("coreui-free.svg") %>#<%= render_view[:icon] %>'></use>
+          <% end %>
+  
+          <use data-icon='--coreui-free-icons' xlink:href='#<%= render_view[:icon] %>'></use>
+        </svg> <%= translate("ui.view_as_#{render_view[:name]}") %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

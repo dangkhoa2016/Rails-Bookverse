@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   around_action :set_locale
+  before_action :set_view_type
 
   private
 
@@ -12,5 +13,20 @@ class ApplicationController < ActionController::Base
 
   def extract_locale_from_accept_language_header
     request.env["HTTP_ACCEPT_LANGUAGE"]&.scan(/^[a-z]{2}/)&.first
+  end
+
+  def set_view_type
+    if params[:view].blank? || action_name != "index"
+      return
+    end
+
+    view_type = params[:view]
+    view_type = if view_type && %w[table list card].include?(view_type&.downcase)
+      view_type
+    else
+      cookies[:view_type].presence || "list"
+    end
+
+    cookies[:view_type] = { value: view_type, expires: 1.year.from_now }
   end
 end
