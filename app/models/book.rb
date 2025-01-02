@@ -58,5 +58,16 @@ class Book < ApplicationRecord
         "active", "created_at", "updated_at"
       ]
     end
+
+    def count_by_model_ids(model, ids)
+      column_name = "#{model}_id".to_sym
+      join_table_name = model.to_s.pluralize
+      Book.joins(join_table_name.to_sym).
+        # where(%Q{ books_#{join_table_name}.#{column_name} in (?) }, ids).
+        where({
+          "books_#{join_table_name}.#{column_name}".to_sym => ids
+        }).
+        group(column_name).count(column_name)
+    end
   end
 end

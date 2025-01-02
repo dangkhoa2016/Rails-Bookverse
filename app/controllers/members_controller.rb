@@ -13,6 +13,13 @@ class MembersController < ApplicationController
         raise e
       end
     end
+
+    if @members.present?
+      book_loans_count = BookLoan.count_by_model_ids(:member, @members.pluck(:id))
+      @members.each do |member|
+        member.book_loans_count = book_loans_count[member.id] || 0
+      end
+    end
   end
 
   # GET /members/1 or /members/1.json

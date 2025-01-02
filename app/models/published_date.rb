@@ -28,5 +28,10 @@ class PublishedDate < ApplicationRecord
         "active", "created_at", "updated_at"
       ]
     end
+
+    def count_by_model_ids(model, ids)
+      column_name = "#{model}_id".to_sym
+      PublishedDate.where(column_name => ids).group(column_name).count("id")
+    end
   end
 end

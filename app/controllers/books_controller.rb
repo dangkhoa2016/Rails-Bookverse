@@ -13,6 +13,21 @@ class BooksController < ApplicationController
         raise e
       end
     end
+
+    if @books.present?
+      book_loans_count = BookLoan.count_by_model_ids(:book, @books.pluck(:id))
+      authors_count = Author.count_by_book_ids(@books.pluck(:id))
+      publishers_count = Publisher.count_by_book_ids(@books.pluck(:id))
+      published_dates_count = PublishedDate.count_by_model_ids(:book, @books.pluck(:id))
+      reviews_count = Review.count_by_book_ids(@books.pluck(:id))
+      @books.each do |book|
+        book.book_loans_count = book_loans_count[book.id] || 0
+        book.authors_count = authors_count[book.id] || 0
+        book.publishers_count = publishers_count[book.id] || 0
+        book.published_dates_count = published_dates_count[book.id] || 0
+        book.reviews_count = reviews_count[book.id] || 0
+      end
+    end
   end
 
   # GET /books/1 or /books/1.json
