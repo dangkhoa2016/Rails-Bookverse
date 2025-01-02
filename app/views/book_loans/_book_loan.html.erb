@@ -1,34 +1,3 @@
-<div id='<%= dom_id book_loan %>' class='card mt-3'>
-  <div class='card-header border-warning border-top border-bottom-0 border-4'>
-    <h4 class='mb-0'><%= book_loan.book&.title %></h4>
-  </div>
-
-  <div class='card-body'>
-    <p>
-      <strong>Member:</strong>
-      <%= book_loan.member_id %>
-    </p>
-
-    <p>
-      <strong>Borrowed on:</strong>
-      <%= book_loan.borrowed_on %>
-    </p>
-
-    <p>
-      <strong>Returned on:</strong>
-      <%= book_loan.returned_on %>
-    </p>
-
-    <p>
-      <strong>Status:</strong>
-      <%= book_loan.status %>
-    </p>
-
-    <p>
-      <strong>Active:</strong>
-      <%= book_loan.active %>
-    </p>
-  </div>
-</div>
-
-<%= render 'shared/footer_actions', record: book_loan %>
+<%= render 'shared/display_record', record: book_loan do %>
+  <%= render_columns(book_loan) %>
+<% end %>
