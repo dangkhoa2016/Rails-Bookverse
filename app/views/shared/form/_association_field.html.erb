@@ -1,0 +1,22 @@
+<%
+  model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil)
+  model_column = defined?(locals) ? locals[:column] : (defined?(column) ? column : nil)
+  multiple_choices = defined?(locals) ? locals[:multiple] : (defined?(multiple) ? multiple : false)
+  if model_record
+    value = model_record.send(model_column)
+    klass = model_record.class
+    select_name = "#{klass.model_name.element}[#{model_column}_id]"
+  end
+%>
+
+<% if klass.present? && model_column.present? %>
+  <% 
+    options_method = "#{model_column.to_s.pluralize}_options_for_select"
+    select_options = respond_to?(options_method) ? send(options_method) : [[value.to_s, value&.id]]
+  %>
+  <div class=''>
+    <%= select_tag select_name, options_for_select(select_options, value&.id),
+      class: 'form-select', multiple: multiple_choices, include_blank: translate('helpers.select.prompt')
+    %>
+  </div>
+<% end %>
