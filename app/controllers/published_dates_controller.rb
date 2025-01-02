@@ -3,7 +3,16 @@ class PublishedDatesController < ApplicationController
 
   # GET /published_dates or /published_dates.json
   def index
-    @published_dates = PublishedDate.includes(:book, :publisher)
+    begin
+      @pagy, @published_dates = pagy(PublishedDate.includes(:book, :publisher))
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @published_dates = PublishedDate.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /published_dates/1 or /published_dates/1.json

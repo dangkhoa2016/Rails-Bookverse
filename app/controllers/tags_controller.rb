@@ -3,7 +3,16 @@ class TagsController < ApplicationController
 
   # GET /tags or /tags.json
   def index
-    @tags = Tag.all
+    begin
+      @pagy, @tags = pagy(Tag)
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @tags = Tag.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /tags/1 or /tags/1.json

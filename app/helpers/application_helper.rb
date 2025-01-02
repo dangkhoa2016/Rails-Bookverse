@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   NAV_MENUS = [
     { id: 1, name: 'home', path: :root, icon: 'cil-home' },
     { id: 2, name: 'authors', path: :authors, group: 'authors', icon: 'cil-user' },

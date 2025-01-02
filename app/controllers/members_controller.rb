@@ -3,7 +3,16 @@ class MembersController < ApplicationController
 
   # GET /members or /members.json
   def index
-    @members = Member.includes(:library)
+    begin
+      @pagy, @members = pagy(Member.includes(:library))
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @members = Member.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /members/1 or /members/1.json
