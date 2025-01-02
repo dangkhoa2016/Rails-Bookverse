@@ -1,29 +1,3 @@
-<div id='<%= dom_id member %>' class='card mt-3'>
-  <div class='card-header border-warning border-top border-bottom-0 border-4'>
-    <h4 class='mb-0'><%= member.full_name %></h4>
-  </div>
-
-  <div class='card-body'>
-    <p>
-      <strong>Last name:</strong>
-      <%= member.last_name %>
-    </p>
-
-    <p>
-      <strong>Email:</strong>
-      <%= member.email %>
-    </p>
-
-    <p>
-      <strong>Library:</strong>
-      <%= member.library_id %>
-    </p>
-
-    <p>
-      <strong>Active:</strong>
-      <%= member.active %>
-    </p>
-  </div>
-</div>
-
-<%= render 'shared/footer_actions', record: member %>
+<%= render 'shared/display_record', record: member do %>
+  <%= render_columns(member) %>
+<% end %>

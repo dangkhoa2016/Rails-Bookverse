@@ -17,14 +17,12 @@ en:
     attributes:
       book_loan:
         status: Status
-        id: Id
-        book_id: Book
+        book_id: Book Id
+        book: Book
         member_id: Member Id
+        member: Member
         borrowed_on: Borrowed On
         returned_on: Returned On
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
         member_name: Member Name
 
       book_loan/status:
@@ -44,28 +42,20 @@ en:
         expired: Expired
 
       author:
-        id: Id
         first_name: First Name
         last_name: Last Name
         email: Email
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
       
       book:
-        id: Id
         title: Title
         summary: Summary
         isbn: Isbn
         pages: Pages
         price: Price
         stock: In Stock
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
-      
+        display_book_loans_count: Borrowed Count
+
       publisher:
-        id: Id
         name: Name
         address: Address
         phone_number: Phone Number
@@ -73,81 +63,66 @@ en:
         established_year: Established Year
         website: Website
         ceo_name: Ceo Name
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
       
       tag:
-        id: Id
         name: Name
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
       
       category:
-        id: Id
         name: Name
         description: Description
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
       
       genre:
-        id: Id
         name: Name
         description: Description
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
       
       review:
-        id: Id
         content: Content
         rating: Number Of Stars
-        book_id: Book
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
+        book_id: Book Id
+        book: Book
+        star:
+          one: 1 Star
+          other: "%{count} Stars"
+        no_rating: Not rating yet
       
       published_date:
-        id: Id
-        book_id: Book
+        book_id: Book Id
         publisher_id: Publisher Id
         published_date: Published Date
         edition: Edition
-        created_at: Created At
-        updated_at: Updated At
-        active: Active
-        publisher_name: Publisher Name
+        publisher: Publisher
       
       library:
-        id: Id
         name: Name
         address: Address
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
 
       member:
-        id: Id
         first_name: First Name
         last_name: Last Name
         email: Email
         library_id: Library Id
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
-        library_name: Library Name
+        library: Library
       
       author_profile:
-        id: Id
         author_id: Author Id
+        author: Author
         bio: Bio
         social_facebook: Social Facebook
         social_twitter: Social Twitter
         social_instagram: Social Instagram
         social_linkedin: Social Linkedin
         social_youtube: Social Youtube
-        active: Active
-        created_at: Created At
-        updated_at: Updated At
+
+  attributes:
+    id: Id
+    active: Active
+    created_at: Created At
+    updated_at: Updated At
+    display_published_dates_count: Published Dates Count
+    display_publishers_count: Publishers Count
+    display_book_loans_count: Book Loans Count
+    display_reviews_count: Reviews Count
+    display_authors_count: Authors Count
+    display_books_count: Books Count
+    display_author_profiles_count: Author Profiles Count
+    display_members_count: Members Count

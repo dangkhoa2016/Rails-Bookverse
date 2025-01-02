@@ -16,16 +16,13 @@ vi:
 
     attributes:
       book_loan:
-        status: Trạng thái
-        id: Mã Số
-        book_id: Sách
-        member_id: Mã Thành Viên
+        status: Trạng Thái
+        book_id: Mã Số Sách
+        book: Sách
+        member_id: Mã Số Thành Viên
+        member: Thành Viên
         borrowed_on: Ngày Mượn
         returned_on: Ngày Trả
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
-        member_name: Tên Thành Viên
 
       book_loan/status:
         borrowed: Đã mượn
@@ -44,28 +41,20 @@ vi:
         expired: Hết hạn
 
       author:
-        id: Mã Số
         first_name: Tên
         last_name: Họ
         email: Email
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
 
       book:
-        id: Mã Số
         title: Tựa Đề
         summary: Tóm Tắt
         isbn: Isbn
         pages: Số Trang
         price: Giá
         stock: Trong Kho
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
+        display_book_loans_count: Số Lần Được Mượn
 
       publisher:
-        id: Mã Số
         name: Tên
         address: Địa Chỉ
         phone_number: Số Điện Thoại
@@ -73,82 +62,64 @@ vi:
         established_year: Năm Thành Lập
         website: Website
         ceo_name: Giám Đốc Điều Hành
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
 
       tag:
-        id: Mã Số
         name: Tên
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
 
       category:
-        id: Mã Số
         name: Tên
         description: Mô Tả
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
 
       genre:
-        id: Mã Số
         name: Tên
         description: Mô Tả
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
 
       review:
-        id: Mã Số
         content: Nội Dung
         rating: Số Sao
-        book_id: Sách
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
+        book_id: Mã Số Sách
+        book: Sách
+        star: "%{count} Sao"
+        no_rating: Chưa có đánh giá
 
       published_date:
-        id: Mã Số
         book_id: Mã Số Sách
-        publisher_id: Mã Nhà Xuất Bản
+        publisher_id: Mã Số Nhà Xuất Bản
         published_date: Ngày Xuất Bản
         edition: Phiên Bản
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
-        active: Kích Hoạt
-        publisher_name: Tên Nhà Xuất Bản
+        publisher: Nhà Xuất Bản
 
       library:
-        id: Mã Số
         name: Tên
         address: Địa Chỉ
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
 
       member:
-        id: Mã Số
         first_name: Tên
         last_name: Họ
         email: Email
-        library_id: Mã Thư Viện
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
-        library_name: Tên Thư Viện
+        library_id: Mã Số Thư Viện
+        library: Thư Viện
 
       author_profile:
-        id: Mã Số
-        author_id: Mã Tác Giả
-        # author: Mã Tác Giả
+        author_id: Mã Số Tác Giả
+        author: Tác Giả
         bio: Tiểu Sử
         social_facebook: Facebook
         social_twitter: Twitter
         social_instagram: Instagram
         social_linkedin: LinkedIn
         social_youtube: YouTube
-        active: Kích Hoạt
-        created_at: Ngày Tạo
-        updated_at: Ngày Cập Nhật
+
+  attributes:
+    id: Mã Số
+    active: Kích Hoạt
+    created_at: Ngày Tạo
+    updated_at: Ngày Cập Nhật
+    display_published_dates_count: Số Lượng Ngày Xuất Bản
+    display_publishers_count: Số Lượng Nhà Xuất Bản
+    display_book_loans_count: Số Lần Mượn Sách
+    display_reviews_count: Số Lượng Đánh Giá
+    display_authors_count: Số Lượng Tác Giả
+    display_books_count: Số Lượng Sách
+    display_author_profiles_count: Số Lượng Hồ Sơ Tác Giả
+    display_members_count: Số Lượng Thành Viên
