@@ -3,7 +3,16 @@ class PublishersController < ApplicationController
 
   # GET /publishers or /publishers.json
   def index
-    @publishers = Publisher.all
+    begin
+      @pagy, @publishers = pagy(Publisher)
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @publishers = Publisher.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /publishers/1 or /publishers/1.json

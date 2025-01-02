@@ -69,3 +69,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# The Best Pagination Ruby Gem [https://github.com/ddnexus/pagy]
+gem "pagy", "~> 9.3"

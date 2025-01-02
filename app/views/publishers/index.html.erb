@@ -5,4 +5,8 @@
   <%= render 'shared/base_render' %>
 </div>
 
+<div class='pagination'>
+  <%== pagy_bootstrap_nav(@pagy) %>
+</div>
+
 <%= link_to translate('actions.new_model', model: Publisher.model_name.human), new_publisher_path %>

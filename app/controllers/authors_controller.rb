@@ -3,7 +3,16 @@ class AuthorsController < ApplicationController
 
   # GET /authors or /authors.json
   def index
-    @authors = Author.all
+    begin
+      @pagy, @authors = pagy(Author)
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        @pagy = Pagy.new(count: 0)
+        @authors = Author.none
+      else
+        raise e
+      end
+    end
   end
 
   # GET /authors/1 or /authors/1.json
