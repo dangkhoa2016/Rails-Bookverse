@@ -6,9 +6,13 @@ class Book < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :book_loans, dependent: :destroy
   has_many :members, through: :book_loans
-
   has_many :published_dates, dependent: :destroy
   has_many :publishers, through: :published_dates
+
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(:title) }
+  # default_scope { active }
 
   validates :title, :summary, :isbn, :pages, presence: true
 
@@ -53,8 +57,24 @@ class Book < ApplicationRecord
         },
         'summary', 'isbn', 'pages',
         'price', 'stock',
-        'display_published_dates_count', 'display_publishers_count',
-        'display_book_loans_count', 'display_reviews_count', 'display_authors_count',
+        'display_published_dates_count',
+        'display_book_loans_count', 'display_reviews_count',
+        {
+          field: 'display_authors_count',
+          only_in_index: true,
+        },
+        {
+          field: 'display_publishers_count',
+          only_in_index: true,
+        },
+        {
+          field: 'authors',
+          only_in_show: true,
+        },
+        {
+          field: 'publishers',
+          only_in_show: true,
+        },
         'active', 'created_at', 'updated_at',
       ]
     end

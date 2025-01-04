@@ -2,6 +2,11 @@ class Publisher < ApplicationRecord
   has_many :published_dates, dependent: :destroy
   has_many :books, through: :published_dates
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(:name) }
+  # default_scope { active }
+
   validates :name, presence: true, uniqueness: true
 
   attr_accessor :published_dates_count

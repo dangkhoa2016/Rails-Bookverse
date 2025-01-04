@@ -2,6 +2,11 @@ class PublishedDate < ApplicationRecord
   belongs_to :book
   belongs_to :publisher
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(:published_date, :edition) }
+  # default_scope { active }
+
   validates :published_date, :edition, presence: true
 
   def to_s
