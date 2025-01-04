@@ -1,6 +1,6 @@
 module GenresHelper
   def genres_options_for_select
-    Genre.all.map do |genre|
+    Genre.active.map do |genre|
       [genre.name, genre.id]
     end
   end
