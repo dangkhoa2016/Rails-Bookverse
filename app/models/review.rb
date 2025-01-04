@@ -2,6 +2,12 @@ class Review < ApplicationRecord
   belongs_to :book
 
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(created_at: :desc) }
+  # default_scope { active }
+
+
   validates :rating, :content, presence: true
 
 

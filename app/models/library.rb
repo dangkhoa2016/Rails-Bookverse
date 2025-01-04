@@ -3,6 +3,11 @@ class Library < ApplicationRecord
   has_many :book_loans, through: :members
 
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(:name) }
+  # default_scope { active }
+
   validates :name, presence: true, uniqueness: true
 
 

@@ -1,1 +1,52 @@
-<%= render 'shared/record_form', record: book %>
+<%= render 'shared/record_form', record: book do |f| %>
+
+ <h3 class='mt-4 mb-2'>Categories</h3>
+  <div class='row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4'>
+    <%= f.collection_check_boxes :category_ids, Category.active, :id, :name do |b| %>
+      <div class='col'>
+        <div class='form-check form-switch'>
+          <%= b.check_box(class: 'form-check-input', role: 'switch') %>
+          <%= b.label(class: 'form-check-label', role: 'button') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h3 class='mt-4 mb-2'>Tags</h3>
+  <div class='row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4'>
+    <%= f.collection_check_boxes :tag_ids, Tag.active, :id, :name do |b| %>
+      <div class='col'>
+        <div class='form-check form-switch'>
+          <%= b.check_box(class: 'form-check-input', role: 'switch') %>
+          <%= b.label(class: 'form-check-label', role: 'button') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h3 class='mt-4 mb-2'>Genres</h3>
+  <div class='row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4'>
+    <%= f.collection_check_boxes :genre_ids, Genre.active, :id, :name do |b| %>
+      <div class='col'>
+        <div class='form-check form-switch'>
+          <%= b.check_box(class: 'form-check-input', role: 'switch') %>
+          <%= b.label(class: 'form-check-label', role: 'button') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <h3 class='mt-4 mb-2'>Authors</h3>
+  <div class='row g-3 row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4'>
+    <%= f.collection_check_boxes :author_ids, Author.active, :id, :full_name do |b| %>
+      <div class='col'>
+        <div class='form-check form-switch'>
+          <%= b.check_box(class: 'form-check-input', role: 'switch') %>
+          <%= b.label(class: 'form-check-label', role: 'button') %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<% end %>
+

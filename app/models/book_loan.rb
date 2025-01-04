@@ -3,6 +3,12 @@ class BookLoan < ApplicationRecord
   belongs_to :member
 
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(created_at: :desc) }
+  # default_scope { active }
+
+
   enum status: {
     borrowed: "borrowed",
     returned: "returned",

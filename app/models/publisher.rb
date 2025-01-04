@@ -3,6 +3,12 @@ class Publisher < ApplicationRecord
   has_many :books, through: :published_dates
 
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(:name) }
+  # default_scope { active }
+
+
   validates :name, presence: true, uniqueness: true
 
 
