@@ -7,7 +7,7 @@
   <%= render 'shared/error_messages', record: record %>
 
   <div class='row g-3 row-cols-1 row-cols-md-2'>
-    <% klass.display_columns.each do |column| %>
+    <% editable_fields(record).each do |column| %>
       <%
         is_association = false
         unless column.is_a?(String)
@@ -27,14 +27,18 @@
             <%= form_field_for(form: form, record: record, column: column) %>
           <% else %>
             <span class='form-label d-block'><%= klass.human_attribute_name(column) %></span>
-            <span class='form-control d-block bg-light'><%= record.send(column) %></span>
+            <span class='form-control d-block bg-light'><%= render_field(column, record) %></span>
           <% end %>
         <% end %>
       </div>
     <% end %>
   </div>
 
-  <div class='row my-4 g-3 row-cols-1 row-cols-md-2 row-cols-xxl-3'>
+  <% if block_given? %>
+    <%= yield form %>
+  <% end %>
+
+  <div class='row my-4 g-3 row-cols-1 row-cols-md-2'>
     <% ['created_at', 'updated_at'].each do |column| %>
       <div class='col'>
         <span class='form-label'><%= klass.human_attribute_name(column) %></span>

@@ -4,6 +4,12 @@ class Member < ApplicationRecord
   has_many :books, through: :book_loans
 
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(:first_name, :last_name) }
+  # default_scope { active }
+
+
   validates :first_name, :email, presence: true
 
 

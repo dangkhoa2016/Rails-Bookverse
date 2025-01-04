@@ -54,6 +54,8 @@ en:
         price: Price
         stock: In Stock
         display_book_loans_count: Borrowed Count
+        no_authors: No Authors
+        no_publishers: No Publishers
 
       publisher:
         name: Name

@@ -3,6 +3,12 @@ class Author < ApplicationRecord
   has_many :author_profiles, dependent: :destroy
 
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(:first_name, :last_name) }
+  # default_scope { active }
+
+
   validates :first_name, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }, allow_blank: true
 

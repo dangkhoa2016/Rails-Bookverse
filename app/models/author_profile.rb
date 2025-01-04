@@ -2,6 +2,12 @@ class AuthorProfile < ApplicationRecord
   belongs_to :author
 
 
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
+  scope :sorted, -> { order(created_at: :desc) }
+  # default_scope { active }
+
+
   validates :bio, presence: true
 
 
