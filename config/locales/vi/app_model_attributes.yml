@@ -52,6 +52,8 @@ vi:
         price: Giá
         stock: Trong Kho
         display_book_loans_count: Số Lần Được Mượn
+        no_authors: Chưa có tác giả
+        no_publishers: Chưa có nhà xuất bản
 
       publisher:
         name: Tên

@@ -33,12 +33,22 @@ module FormHelper
       data = { controller: 'form-switch', true_text: translate('boolean.on'), false_text: translate('boolean.off') }
       checkbox_html = content_tag(:div, class: 'form-check form-switch', data: data) do
         form.check_box(column, class: 'form-check-input', role: 'switch') +
-          form.label(column, class: 'form-check-label')
+          form.label(column, class: 'form-check-label', role: 'button')
       end
 
       content << checkbox_html
     end
 
     content.join.html_safe
+  end
+
+  def editable_fields(record)
+    get_display_columns(record).select do |column|
+      if column[:only_in_form]
+        true
+      else
+        !column[:only_in_show] && !column[:only_in_index]
+      end
+    end
   end
 end
