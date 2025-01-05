@@ -37,8 +37,11 @@ class Member < ApplicationRecord
         {
           field: 'library',
           type: 'association',
+          display_by_actions: ['show', 'index', 'by_book', 'edit', 'update', 'new', 'create'],
         },
-        'display_book_loans_count',
+        {
+          field: 'display_book_loans_count',
+        },
         'active', 'created_at', 'updated_at',
       ]
     end

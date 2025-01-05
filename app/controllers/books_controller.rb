@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   # GET /books or /books.json
   def index
     begin
-      @pagy, @books = pagy(Book)
+      @pagy, @books = pagy(model_query)
     rescue => e
       if e.is_a?(Pagy::OverflowError)
         @pagy = Pagy.new(count: 0)
@@ -28,6 +28,54 @@ class BooksController < ApplicationController
         book.reviews_count = reviews_count[book.id] || 0
       end
     end
+  end
+
+  def by_author
+    # if params[:author_id].blank?
+    #   raise ActionController::ParameterMissing.new('[author_id]')
+    # end
+
+    # Author.find(params[:author_id]) # check if the author is exists
+
+    index
+
+    render partial: 'shared/records_list'
+  end
+
+  def by_category
+    # if params[:category_id].blank?
+    #   raise ActionController::ParameterMissing.new('[category_id]')
+    # end
+
+    # Category.find(params[:category_id]) # check if the category is exists
+
+    index
+
+    render partial: 'shared/records_list'
+  end
+
+  def by_genre
+    # if params[:genre_id].blank?
+    #   raise ActionController::ParameterMissing.new('[genre_id]')
+    # end
+
+    # Genre.find(params[:genre_id]) # check if the genre is exists
+
+    index
+
+    render partial: 'shared/records_list'
+  end
+
+  def by_tag
+    # if params[:tag_id].blank?
+    #   raise ActionController::ParameterMissing.new('[tag_id]')
+    # end
+
+    # Tag.find(params[:tag_id]) # check if the tag is exists
+
+    index
+
+    render partial: 'shared/records_list'
   end
 
   # GET /books/1 or /books/1.json
@@ -91,5 +139,24 @@ class BooksController < ApplicationController
     def book_params
       params.require(:book).permit(:title, :summary, :isbn, :pages, :price, :stock, :active,
         category_ids: [], author_ids: [], tag_ids: [], genre_ids: [])
+    end
+
+    def model_query
+      query = Book.includes(:reviews)
+      if action_name == 'index'
+        return query
+      end
+
+      if params[:author_id].present?
+        query.joins(:authors).where(authors: { id: params[:author_id] })
+      elsif params[:category_id].present?
+        query.joins(:categories).where(categories: { id: params[:category_id] })
+      elsif params[:tag_id].present?
+        query.joins(:tags).where(tags: { id: params[:tag_id] })
+      elsif params[:genre_id].present?
+        query.joins(:genres).where(genres: { id: params[:genre_id] })
+      else
+        query
+      end
     end
 end

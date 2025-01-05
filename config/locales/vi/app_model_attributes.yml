@@ -38,11 +38,14 @@ vi:
         member: Thành Viên
         borrowed_on: Ngày Mượn
         returned_on: Ngày Trả
+        header_title: Hồ sơ thuê sách [%{book}]
 
       author:
         first_name: Tên
         last_name: Họ
         email: Email
+        author_profiles: Hồ Sơ Tác Giả
+        books: Sách
 
       book:
         title: Tựa Đề
@@ -54,6 +57,11 @@ vi:
         display_book_loans_count: Số Lần Được Mượn
         no_authors: Chưa có tác giả
         no_publishers: Chưa có nhà xuất bản
+        no_reviews: Chưa có đánh giá
+        total_reviews: "Tổng số đánh giá: %{count}"
+        book_loans: Mượn Sách
+        reviews: Đánh Giá
+        published_dates: Ngày Xuất Bản
 
       publisher:
         name: Tên
@@ -63,17 +71,21 @@ vi:
         established_year: Năm Thành Lập
         website: Website
         ceo_name: Giám Đốc Điều Hành
+        published_dates: Ấn Phẩm Sách
 
       tag:
         name: Tên
+        books: Sách
 
       category:
         name: Tên
         description: Mô Tả
+        books: Sách
 
       genre:
         name: Tên
         description: Mô Tả
+        books: Sách
 
       review:
         content: Nội Dung
@@ -89,10 +101,12 @@ vi:
         published_date: Ngày Xuất Bản
         edition: Phiên Bản
         publisher: Nhà Xuất Bản
+        header_title: Ngày xuất bản của [%{book}]
 
       library:
         name: Tên
         address: Địa Chỉ
+        members: Thành Viên
 
       member:
         first_name: Tên

@@ -27,9 +27,11 @@ class Genre < ApplicationRecord
         'id',
         {
           field: 'name',
-          only_in_form: true,
+          display_by_actions: ['edit', 'update', 'new', 'create'],
         },
-        'display_books_count',
+        {
+          field: 'display_books_count',
+        },
         'active', 'created_at', 'updated_at',
       ]
     end

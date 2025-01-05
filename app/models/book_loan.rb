@@ -46,10 +46,12 @@ class BookLoan < ApplicationRecord
         {
           field: 'book',
           type: 'association',
+          display_by_actions: ['show', 'index', 'by_member', 'edit', 'update', 'new', 'create'],
         },
         {
           field: 'member',
           type: 'association',
+          display_by_actions: ['show', 'index', 'by_book', 'edit', 'update', 'new', 'create'],
         },
         'status',
         'borrowed_on', 'returned_on',

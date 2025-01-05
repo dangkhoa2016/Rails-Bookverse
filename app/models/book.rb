@@ -53,27 +53,42 @@ class Book < ApplicationRecord
         'id',
         {
           field: 'title',
-          only_in_form: true,
+          display_by_actions: ['edit', 'update', 'new', 'create'],
         },
         'summary', 'isbn', 'pages',
         'price', 'stock',
-        'display_published_dates_count',
-        'display_book_loans_count', 'display_reviews_count',
+
         {
-          field: 'display_authors_count',
-          only_in_index: true,
+          field: 'reviews',
+          display_by_actions: ['show', 'index', 'by_category', 'by_author', 'by_genre', 'by_tag', 'edit', 'update', 'new', 'create'],
         },
         {
-          field: 'display_publishers_count',
-          only_in_index: true,
+          field: 'display_reviews_count',
+          display_by_actions: ['show', 'by_category', 'by_author', 'by_genre', 'by_tag', 'edit', 'update', 'new', 'create'],
+        },
+        {
+          field: 'display_published_dates_count',
+          display_by_actions: ['show', 'edit', 'update', 'new', 'create'],
+        },
+        {
+          field: 'display_book_loans_count',
+          display_by_actions: ['show', 'edit', 'update', 'new', 'create'],
         },
         {
           field: 'authors',
-          only_in_show: true,
+          display_by_actions: ['show', 'edit', 'update', 'new', 'create'],
+        },
+        {
+          field: 'display_authors_count',
+          display_by_actions: ['show', 'edit', 'update', 'new', 'create'],
         },
         {
           field: 'publishers',
-          only_in_show: true,
+          display_by_actions: ['show', 'edit', 'update', 'new', 'create'],
+        },
+        {
+          field: 'display_publishers_count',
+          display_by_actions: ['show', 'edit', 'update', 'new', 'create'],
         },
         'active', 'created_at', 'updated_at',
       ]

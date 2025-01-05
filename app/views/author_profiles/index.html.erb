@@ -1,12 +1,5 @@
 <%= render 'shared/result_messages', record: @author_profile %>
-<%= render 'shared/index_header' %>
 
-<div id='author_profiles' class='my-3'>
-  <%= render 'shared/base_render' %>
-</div>
-
-<div class='pagination'>
-  <%== pagy_bootstrap_nav(@pagy) %>
-</div>
+<%= render 'shared/records_list' %>
 
 <%= link_to translate('actions.new_model', model: AuthorProfile.model_name.human), new_author_profile_path %>

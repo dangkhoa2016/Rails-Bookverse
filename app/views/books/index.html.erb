@@ -1,12 +1,5 @@
 <%= render 'shared/result_messages', record: @book %>
-<%= render 'shared/index_header' %>
 
-<div id='books' class='my-3'>
-  <%= render 'shared/base_render' %>
-</div>
-
-<div class='pagination'>
-  <%== pagy_bootstrap_nav(@pagy) %>
-</div>
+<%= render 'shared/records_list' %>
 
 <%= link_to translate('actions.new_model', model: Book.model_name.human), new_book_path %>
