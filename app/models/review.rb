@@ -21,6 +21,7 @@ class Review < ApplicationRecord
         {
           field: 'book',
           type: 'association',
+          display_by_actions: ['index', 'show', 'edit', 'update', 'new', 'create'],
         },
         'rating',
         'content',

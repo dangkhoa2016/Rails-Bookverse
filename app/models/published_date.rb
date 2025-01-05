@@ -9,6 +9,7 @@ class PublishedDate < ApplicationRecord
 
   validates :published_date, :edition, presence: true
 
+
   def to_s
     book&.title
   end
@@ -22,10 +23,12 @@ class PublishedDate < ApplicationRecord
         {
           field: 'book',
           type: 'association',
+          display_by_actions: ['show', 'index', 'by_publisher', 'edit', 'update', 'new', 'create'],
         },
         {
           field: 'publisher',
           type: 'association',
+          display_by_actions: ['show', 'index', 'by_book', 'edit', 'update', 'new', 'create'],
         },
         'published_date',
         'edition',

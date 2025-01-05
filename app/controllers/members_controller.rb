@@ -4,7 +4,7 @@ class MembersController < ApplicationController
   # GET /members or /members.json
   def index
     begin
-      @pagy, @members = pagy(Member.includes(:library))
+      @pagy, @members = pagy(model_query)
     rescue => e
       if e.is_a?(Pagy::OverflowError)
         @pagy = Pagy.new(count: 0)
@@ -20,6 +20,18 @@ class MembersController < ApplicationController
         member.book_loans_count = book_loans_count[member.id] || 0
       end
     end
+  end
+
+  def by_library
+    # if params[:library_id].blank?
+    #   raise ActionController::ParameterMissing.new('[library_id]')
+    # end
+
+    # Library.find(params[:library_id]) # check if the library is exists
+
+    index
+
+    render partial: 'shared/records_list'
   end
 
   # GET /members/1 or /members/1.json
@@ -82,5 +94,18 @@ class MembersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def member_params
       params.require(:member).permit(:first_name, :last_name, :email, :library_id, :active)
+    end
+
+    def model_query
+      query = Member.includes(:library)
+      if action_name == 'index'
+        return query
+      end
+
+      if params[:library_id].present?
+        query.where(library_id: params[:library_id])
+      else
+        query
+      end
     end
 end

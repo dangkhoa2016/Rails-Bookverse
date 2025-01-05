@@ -26,8 +26,9 @@ window.onscroll = function () {
   }
 };
 
-const setSvgIconPath = () => {
-  const useElements = document.querySelectorAll('use[data-icon]');
+const setSvgIconPath = (useElements = null) => {
+  if (!useElements)
+    useElements = document.querySelectorAll('use[data-icon]');
   useElements.forEach((use) => {
     const iconVariable = use.getAttribute('data-icon');
     if (!iconVariable) return;
@@ -81,3 +82,7 @@ addEventListener('turbo:click', () => {
     divError.remove();
   }
 });
+
+export {
+  setSvgIconPath
+};

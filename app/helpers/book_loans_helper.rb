@@ -1,9 +1,13 @@
 module BookLoansHelper
-  def render_status_value(value)
+  def book_loan_render_status_value(value)
     BookLoan.human_attribute_name("status.#{value}")
   end
 
-  def render_status_form_field(form)
+  def book_loan_render_status_form_field(form)
     form.select(:status, BookLoan.status_collection_for_select, {}, class: 'form-select')
+  end
+
+  def book_loan_header_title(record)
+    BookLoan.human_attribute_name('header_title', book: record.to_s)
   end
 end

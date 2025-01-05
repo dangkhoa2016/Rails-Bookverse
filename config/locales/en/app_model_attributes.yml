@@ -39,11 +39,14 @@ en:
         borrowed_on: Borrowed On
         returned_on: Returned On
         member_name: Member Name
+        header_title: Book loan for [%{book}]
 
       author:
         first_name: First Name
         last_name: Last Name
         email: Email
+        author_profiles: Author Profiles
+        books: Books
       
       book:
         title: Title
@@ -55,6 +58,11 @@ en:
         display_book_loans_count: Borrowed Count
         no_authors: No Authors
         no_publishers: No Publishers
+        no_reviews: No Reviews
+        total_reviews: "Total Reviews: %{count}"
+        book_loans: Book Loans
+        reviews: Reviews
+        published_dates: Published Dates
 
       publisher:
         name: Name
@@ -64,17 +72,22 @@ en:
         established_year: Established Year
         website: Website
         ceo_name: Ceo Name
+        published_dates: Book Publications
+        display_published_dates_count: Book Publications Count
       
       tag:
         name: Name
+        books: Books
       
       category:
         name: Name
         description: Description
+        books: Books
       
       genre:
         name: Name
         description: Description
+        books: Books
       
       review:
         content: Content
@@ -92,10 +105,12 @@ en:
         published_date: Published Date
         edition: Edition
         publisher: Publisher
-      
+        header_title: Published date for [%{book}]
+
       library:
         name: Name
         address: Address
+        members: Members
 
       member:
         first_name: First Name

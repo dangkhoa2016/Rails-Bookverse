@@ -4,7 +4,7 @@ class PublishedDatesController < ApplicationController
   # GET /published_dates or /published_dates.json
   def index
     begin
-      @pagy, @published_dates = pagy(PublishedDate.includes(:book, :publisher))
+      @pagy, @published_dates = pagy(model_query)
     rescue => e
       if e.is_a?(Pagy::OverflowError)
         @pagy = Pagy.new(count: 0)
@@ -13,6 +13,30 @@ class PublishedDatesController < ApplicationController
         raise e
       end
     end
+  end
+
+  def by_book
+    # if params[:book_id].blank?
+    #   raise ActionController::ParameterMissing.new('[book_id]')
+    # end
+
+    # Book.find(params[:book_id]) # check if the book is exists
+
+    index
+
+    render partial: 'shared/records_list'
+  end
+
+  def by_publisher
+    # if params[:publisher_id].blank?
+    #   raise ActionController::ParameterMissing.new('[publisher_id]')
+    # end
+
+    # Publisher.find(params[:publisher_id]) # check if the publisher is exists
+
+    index
+
+    render partial: 'shared/records_list'
   end
 
   # GET /published_dates/1 or /published_dates/1.json
@@ -75,5 +99,20 @@ class PublishedDatesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def published_date_params
       params.require(:published_date).permit(:book_id, :publisher_id, :published_date, :edition)
+    end
+
+    def model_query
+      query = PublishedDate.includes(:book, :publisher)
+      if action_name == 'index'
+        return query
+      end
+
+      if params[:book_id].present?
+        query.where(book_id: params[:book_id])
+      elsif params[:publisher_id].present?
+        query.where(publisher_id: params[:publisher_id])
+      else
+        query
+      end
     end
 end

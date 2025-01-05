@@ -7,8 +7,8 @@ module FormHelper
     content = []
     content << form.label(column, class: 'form-label')
 
-    if respond_to?("render_#{column}_form_field")
-      content << send("render_#{column}_form_field", form)
+    if respond_to?("#{record.class.model_name.element}_render_#{column}_form_field")
+      content << send("#{record.class.model_name.element}_render_#{column}_form_field", form)
       return content.join.html_safe
     end
 
@@ -44,10 +44,11 @@ module FormHelper
 
   def editable_fields(record)
     get_display_columns(record).select do |column|
-      if column[:only_in_form]
+      display_by_actions = column[:display_by_actions] || []
+      if display_by_actions.empty?
         true
       else
-        !column[:only_in_show] && !column[:only_in_index]
+        display_by_actions.include?(action_name)
       end
     end
   end

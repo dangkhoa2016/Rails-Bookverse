@@ -4,7 +4,7 @@ class BookLoansController < ApplicationController
   # GET /book_loans or /book_loans.json
   def index
     begin
-      @pagy, @book_loans = pagy(BookLoan.includes(:book, :member))
+      @pagy, @book_loans = pagy(model_query)
     rescue => e
       if e.is_a?(Pagy::OverflowError)
         @pagy = Pagy.new(count: 0)
@@ -13,6 +13,30 @@ class BookLoansController < ApplicationController
         raise e
       end
     end
+  end
+
+  def by_book
+    # if params[:book_id].blank?
+    #   raise ActionController::ParameterMissing.new('[book_id]')
+    # end
+
+    # Book.find(params[:book_id]) # check if the book is exists
+
+    index
+
+    render partial: 'shared/records_list'
+  end
+
+  def by_member
+    # if params[:member_id].blank?
+    #   raise ActionController::ParameterMissing.new('[member_id]')
+    # end
+
+    # Member.find(params[:member_id]) # check if the member is exists
+
+    index
+
+    render partial: 'shared/records_list'
   end
 
   # GET /book_loans/1 or /book_loans/1.json
@@ -75,5 +99,20 @@ class BookLoansController < ApplicationController
     # Only allow a list of trusted parameters through.
     def book_loan_params
       params.require(:book_loan).permit(:book_id, :member_id, :borrowed_on, :returned_on, :status, :active)
+    end
+
+    def model_query
+      query = BookLoan.includes(:book, :member)
+      if action_name == 'index'
+        return query
+      end
+
+      if params[:book_id].present?
+        query.where(book_id: params[:book_id])
+      elsif params[:member_id].present?
+        query.where(member_id: params[:member_id])
+      else
+        query
+      end
     end
 end

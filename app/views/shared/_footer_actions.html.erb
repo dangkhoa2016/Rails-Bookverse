@@ -11,8 +11,8 @@ data_attributes = {
   footer_class = 'card-footer'
   actions = []
 
-  if action_name.in?(%w[index show])
-    if action_name == 'index'
+  if is_index_action? || action_name.in?(%w[show])
+    if is_index_action?
       actions << link_to(translate('actions.view'), model_record)
     end
     actions << link_to(translate('actions.edit'), edit_polymorphic_path(model_record))
@@ -21,7 +21,7 @@ data_attributes = {
     actions << link_to(translate('actions.view'), model_record)
   end
 
-  if action_name != 'index'
+  if !is_index_action?
     actions << link_to(translate('actions.back_to_list', model: model_record.class.model_name.human.pluralize(I18n.locale)), polymorphic_path(model_record.class))
     footer_class = 'mt-4' if action_name != 'show'
   end

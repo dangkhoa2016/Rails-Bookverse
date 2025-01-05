@@ -1,17 +1,59 @@
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :author_profiles
-  resources :authors
-  resources :book_loans
-  resources :books
+  resources :author_profiles do
+    collection do
+      get :by_author
+    end
+  end
+
+  resources :authors do
+    collection do
+      get :by_book
+    end
+  end
+
+  resources :book_loans do
+    collection do
+      get :by_book
+      get :by_member
+    end
+  end
+
+  resources :books do
+    collection do
+      get :by_author
+      get :by_category
+      get :by_genre
+      get :by_tag
+    end
+  end
+
   resources :categories
   resources :genres
   resources :libraries
-  resources :members
-  resources :published_dates
+
+  resources :members do
+    collection do
+      get :by_library
+    end
+  end
+
+  resources :published_dates do
+    collection do
+      get :by_book
+      get :by_publisher
+    end
+  end
+
   resources :publishers
-  resources :reviews
+
+  resources :reviews do
+    collection do
+      get :by_book
+    end
+  end
+
   resources :tags
 
   resources :settings, only: %i[index] do
