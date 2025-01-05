@@ -1,12 +1,5 @@
 <%= render 'shared/result_messages', record: @tag %>
-<%= render 'shared/index_header' %>
 
-<div id='tags' class='my-3'>
-  <%= render 'shared/base_render' %>
-</div>
-
-<div class='pagination'>
-  <%== pagy_bootstrap_nav(@pagy) %>
-</div>
+<%= render 'shared/records_list' %>
 
 <%= link_to translate('actions.new_model', model: Tag.model_name.human), new_tag_path %>

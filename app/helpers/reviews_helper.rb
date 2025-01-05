@@ -1,5 +1,5 @@
 module ReviewsHelper
-  def render_rating_value(value)
+  def review_render_rating_value(value)
     one_star = raw(
       <<-SVG
       <svg class='icon text-warning'>

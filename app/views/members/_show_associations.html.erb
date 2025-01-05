@@ -1,0 +1,22 @@
+<hr class='mt-4'>
+<h3 class='clearfix'><%= translate('ui.associations') %></h3>
+<div class='clearfix'></div>
+<div data-controller='tabs' class='mt-3'>
+  <ul class='nav nav-pills'>
+    <li class='nav-item'>
+      <a class='nav-link active'
+        data-coreui-target='#book-loans-tab-pane'
+        data-url='<%= by_member_book_loans_path(member_id: record.id) %>'
+        type='button' role='tab'
+        aria-controls='book-loans-tab-pane'
+        aria-selected='true'>
+        <%= record.class.human_attribute_name(:book_loans) %>
+      </a>
+    </li>
+  </ul>
+
+  <div class='tab-content mt-3' id='member-tab-content'>
+    <div class='tab-pane fade show active' id='book-loans-tab-pane'
+      role='tabpanel' aria-labelledby='book-loans-tab' tabindex='0'></div>
+  </div>
+</div>

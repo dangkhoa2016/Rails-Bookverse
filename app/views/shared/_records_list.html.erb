@@ -1,0 +1,15 @@
+<%= render 'shared/index_header' %>
+
+<% if instance_variable_get("@#{controller_name}").present? %>
+  <div id='<%= controller_name %>' class='my-3'>
+    <%= render 'shared/base_render' %>
+  </div>
+
+  <div class='pagination'>
+    <%== pagy_bootstrap_nav(@pagy) %>
+  </div>
+<% else %>
+  <div class='mt-4 alert alert-info' role='alert'>
+    <%= translate('ui.no_records_found') %>
+  </div>
+<% end %>

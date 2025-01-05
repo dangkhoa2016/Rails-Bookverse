@@ -24,7 +24,8 @@ vi:
     view_as_list: Xem dạng danh sách
     view_as_card: Xem dạng thẻ
     view_as_table: Xem dạng bảng
-
+    associations: Các liên kết và quan hệ
+    no_records_found: Không tìm thấy bản ghi nào
 
     notifications:
       title: Thông Báo

@@ -4,7 +4,7 @@ class AuthorsController < ApplicationController
   # GET /authors or /authors.json
   def index
     begin
-      @pagy, @authors = pagy(Author)
+      @pagy, @authors = pagy(model_query)
     rescue => e
       if e.is_a?(Pagy::OverflowError)
         @pagy = Pagy.new(count: 0)
@@ -22,6 +22,18 @@ class AuthorsController < ApplicationController
         author.books_count = books_count[author.id] || 0
       end
     end
+  end
+
+  def by_book
+    # if params[:book_id].blank?
+    #   raise ActionController::ParameterMissing.new('[book_id]')
+    # end
+
+    # Book.find(params[:book_id]) # check if the book is exists
+
+    index
+
+    render partial: "shared/records_list"
   end
 
   # GET /authors/1 or /authors/1.json
@@ -84,5 +96,18 @@ class AuthorsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def author_params
       params.require(:author).permit(:first_name, :last_name, :email, :active)
+    end
+
+    def model_query
+      query = Author
+      if action_name == "index"
+        return query
+      end
+
+      if params[:book_id].present?
+        query.joins(:books).where(books: { id: params[:book_id] })
+      else
+        query
+      end
     end
 end
