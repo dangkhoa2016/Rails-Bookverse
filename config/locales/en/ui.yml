@@ -25,6 +25,8 @@ en:
     view_as_list: View as List
     view_as_card: View as Card
     view_as_table: View as Table
+    associations: Associations and Relationships
+    no_records_found: No records found
 
     notifications:
       title: Notifications

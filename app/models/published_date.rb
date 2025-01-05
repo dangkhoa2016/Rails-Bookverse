@@ -23,11 +23,13 @@ class PublishedDate < ApplicationRecord
         "id",
         {
           field: "book",
-          type: "association"
+          type: "association",
+          display_by_actions: [ "show", "index", "by_publisher", "edit", "update", "new", "create" ]
         },
         {
           field: "publisher",
-          type: "association"
+          type: "association",
+          display_by_actions: [ "show", "index", "by_book", "edit", "update", "new", "create" ]
         },
         "published_date",
         "edition",

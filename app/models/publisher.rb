@@ -30,11 +30,13 @@ class Publisher < ApplicationRecord
         "id",
         {
           field: "name",
-          only_in_form: true
+          display_by_actions: [ "edit", "update", "new", "create" ]
         },
         "address", "phone_number", "email",
         "website", "established_year", "ceo_name",
-        "display_published_dates_count",
+        {
+          field: "display_published_dates_count"
+        },
         "active", "created_at", "updated_at"
       ]
     end

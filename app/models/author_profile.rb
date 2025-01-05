@@ -30,7 +30,8 @@ class AuthorProfile < ApplicationRecord
         "id",
         {
           field: "author",
-          type: "association"
+          type: "association",
+          display_by_actions: [ "index", "show", "edit", "update", "new", "create" ]
         },
         "bio",
         "social_facebook", "social_twitter", "social_instagram", "social_linkedin", "social_youtube",

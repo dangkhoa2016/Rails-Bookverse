@@ -21,32 +21,34 @@ module DisplayHelper
     BORDER_COLORS[model.to_s.underscore.singularize.downcase] || "border-dark"
   end
 
-  def render_columns(record)
-    is_show_action = action_name == "show"
-    is_index_action = action_name == "index"
-    columns = get_display_columns(record).select do |column|
-      if column[:only_in_form] == true
-        false
+  def is_index_action?
+    action_name == "index" || action_name.start_with?("by_")
+  end
+
+  def showable_fields(record)
+    get_display_columns(record).select do |column|
+      display_by_actions = column[:display_by_actions] || []
+      if display_by_actions.empty?
+        true
       else
-        if is_index_action
-          column[:only_in_index] == true || column[:only_in_index].nil?
-        elsif is_show_action
-          !column[:only_in_index] && (column[:only_in_show] == true || column[:only_in_show].nil?)
-        else
-          true
-        end
+        display_by_actions.include?(action_name)
       end
     end
+  end
 
-    columns.map do |column|
-      value = record.send(column[:field])
+  def render_columns(record)
+    is_show_action = action_name == "show"
+
+    showable_fields(record).map do |column|
       render_wrapper do
         if block_given?
+          value = record.send(column[:field])
+
           capture(column, value) do
             yield(column, value)
           end
         else
-          render_default(column, value, record)
+          render_default(column, record)
         end
       end
     end.join.html_safe
@@ -86,11 +88,19 @@ module DisplayHelper
     end
   end
 
-  def render_default(column, value, record)
+  def render_default(column, record)
     column = { field: column } if column.is_a?(String)
     klass = get_model_class(record)
+
     content_tag(:strong, get_label(column[:field], klass)) + ": " +
-      render_value(column, value, klass.columns_hash[column[:field].to_s]&.type)
+      render_value(column, record, klass ? klass.columns_hash[column[:field].to_s]&.type : nil)
+  end
+
+  def render_field(column, record)
+    column = { field: column } if column.is_a?(String)
+    klass = get_model_class(record)
+
+    render_value(column, record, klass ? klass.columns_hash[column[:field].to_s]&.type : nil)
   end
 
   def render_wrapper(&block)
@@ -101,11 +111,12 @@ module DisplayHelper
     end
   end
 
-  def render_value(column, value, type = nil)
+  def render_value(column, record, type = nil)
     column = { field: column } if column.is_a?(String)
+    value = record.send(column[:field]) if value.nil?
 
-    if respond_to?("render_#{column[:field]}_value")
-      return send("render_#{column[:field]}_value", value)
+    if respond_to?("#{record.class.model_name.element}_render_#{column[:field]}_value")
+      return send("#{record.class.model_name.element}_render_#{column[:field]}_value", value)
     end
 
     if column[:type] == "association"
@@ -120,14 +131,6 @@ module DisplayHelper
     else
       value.to_s
     end
-  end
-
-  def render_field(column, record)
-    column = { field: column } if column.is_a?(String)
-    klass = get_model_class(record)
-    return if klass.nil?
-    type = klass.columns_hash[column[:field].to_s]&.type
-    render_value(column, record.send(column[:field]), type)
   end
 
   def render_decimal_value(value)

@@ -104,6 +104,13 @@ module ApplicationHelper
   end
 
   def view_type
-    @view_type ||= (cookies[:view_type] || "list")
+    @view_type ||= begin
+      default_view_type = cookies[:view_type].presence || "list"
+      if action_name == "index"
+        default_view_type
+      else
+        request.query_parameters[:view].presence || default_view_type
+      end
+    end
   end
 end
