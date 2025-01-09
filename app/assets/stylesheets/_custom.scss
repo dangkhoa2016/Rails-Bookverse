@@ -13,3 +13,13 @@
   }
 }
 
+[data-controller="tabs"] {
+  .loading-wrapper {
+    background: rgb(207 207 207 / 50%);
+  }
+
+  .tab-content > .tab-pane {
+    position: relative;
+    min-height: 130px;
+  }
+}
