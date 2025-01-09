@@ -125,6 +125,9 @@ vi:
         social_instagram: Instagram
         social_linkedin: LinkedIn
         social_youtube: YouTube
+        social_network_title: Bấm vào biểu tượng để truy cập vào trang cá nhân của tác giả trên %{network}
+        social_networks: Liên Kết Mạng Xã Hội
+        no_social_networks: Chưa có liên kết mạng xã hội
 
   attributes:
     id: Mã Số

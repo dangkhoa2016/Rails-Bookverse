@@ -23,3 +23,19 @@
     min-height: 130px;
   }
 }
+
+// Mixin for hover text color
+@mixin hover-text-color($color) {
+  &:hover {
+    color: $color !important;
+  }
+}
+
+// Apply the mixin for all color variations
+.hover-text-info { @include hover-text-color($info); }
+.hover-text-danger { @include hover-text-color($danger); }
+.hover-text-warning { @include hover-text-color($warning); }
+.hover-text-success { @include hover-text-color($success); }
+.hover-text-primary { @include hover-text-color($primary); }
+.hover-text-secondary { @include hover-text-color($secondary); }
+.hover-text-dark { @include hover-text-color($dark); }
