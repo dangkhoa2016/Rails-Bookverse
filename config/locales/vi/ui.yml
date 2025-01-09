@@ -27,6 +27,7 @@ vi:
     associations: Các liên kết và quan hệ
     no_records_found: Không tìm thấy bản ghi nào
     loading: Đang tải...
+    actions: Hành động
 
     notifications:
       title: Thông Báo
