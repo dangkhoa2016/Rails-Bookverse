@@ -28,6 +28,7 @@ en:
     associations: Associations and Relationships
     no_records_found: No records found
     loading: Loading...
+    actions: Actions
 
     notifications:
       title: Notifications
