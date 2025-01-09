@@ -32,13 +32,15 @@ export default class extends Controller {
     });
   }
 
-  handleNewTabContent() {
-    if (!this.currentTabPane)
+  handleNewTabContent(tab) {
+    if (!tab)
+      tab = this.currentTabPane;
+    if (!tab)
       return;
 
-    setSvgIconPath(this.currentTabPane.querySelectorAll('use[data-icon]'));
+    setSvgIconPath(tab.querySelectorAll('use[data-icon]'));
 
-    const elements = this.currentTabPane.querySelectorAll('.switch-display a[data-url]');
+    const elements = tab.querySelectorAll('.switch-display a[data-url]');
     if (!elements)
       return;
 
@@ -47,20 +49,51 @@ export default class extends Controller {
     });
   }
 
-  loadDisplayView(event) {
-    event.preventDefault();
+  createLoadingElement() {
+    const div = document.createElement('div');
+    div.setAttribute('class', 'loading-wrapper py-5 rounded text-center position-absolute start-0 end-0 bottom-0 top-0');
+    const loadingElement = document.querySelector('#loading');
+    let spinner = null;
+    if (!loadingElement) {
+      spinner = document.createElement('div');
+      spinner.classList.add('spinner-border', 'text-primary');
+    } else {
+      spinner = loadingElement.cloneNode(true);
+      spinner.classList.remove('d-none');
+    }
+
+    div.appendChild(spinner);
+    return div;
+  }
+
+  loadDisplayView(event, tab) {
+    if (event.preventDefault)
+      event.preventDefault();
+
+    if (!tab)
+      tab = this.currentTabPane;
+    if (!tab)
+      return;
 
     const url = event.currentTarget.getAttribute('data-url');
     if (!url)
       return;
 
+    if (tab.classList.contains('loading'))
+      return;
+
+    tab.classList.add('loading');
+    tab.appendChild(this.createLoadingElement());
+
     fetch(url)
       .then(response => response.text())
       .then(html => {
-        this.currentTabPane.innerHTML = html;
+        tab.innerHTML = html;
+        tab.classList.remove('loading');
 
-        this.handleNewTabContent();
+        this.handleNewTabContent(tab);
       }).catch(error => {
+        tab.classList.remove('loading');
         console.log('loadDisplayView failed to load view:', error);
       });
   }
@@ -71,18 +104,6 @@ export default class extends Controller {
     if (!tabContentElement || tabContentElement.childNodes.length > 0)
       return;
 
-    const url = event.currentTarget.getAttribute('data-url');
-    if (!url)
-      return;
-
-    fetch(url)
-      .then(response => response.text())
-      .then(html => {
-        tabContentElement.innerHTML = html;
-
-        this.handleNewTabContent();
-      }).catch(error => {
-        console.log('loadRemoteContent failed to load content:', error);
-      });
+    this.loadDisplayView(event, tabContentElement);
   }
 }

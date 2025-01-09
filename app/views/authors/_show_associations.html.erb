@@ -1,28 +1,31 @@
 <hr class='mt-4'>
-<h3 class='clearfix'><%= translate('ui.associations') %></h3>
-<div class='clearfix'></div>
+
 <div data-controller='tabs' class='mt-3'>
-  <ul class='nav nav-pills'>
-    <li class='nav-item'>
-      <a class='nav-link active'
-        data-coreui-target='#author-profiles-tab-pane'
-        type='button' role='tab'
-        data-url='<%= by_author_author_profiles_path(author_id: record.id) %>'
-        aria-controls='author-profiles-tab-pane'
-        aria-selected='true'>
-        <%= record.class.human_attribute_name(:author_profiles) %>
-      </a>
-    </li>
-    <li class='nav-item'>
-      <a class='nav-link'
-        data-coreui-target='#books-tab-pane'
-        data-url='<%= by_author_books_path(author_id: record.id) %>'
-        type='button' role='tab'
-        aria-controls='books-tab-pane'>
-        <%= record.class.human_attribute_name(:books) %>
-      </a>
-    </li>
-  </ul>
+  <div class='border border-primary p-2 rounded'>
+    <h3 class='mb-3'><%= translate('ui.associations') %></h3>
+
+    <ul class='nav nav-pills'>
+      <li class='nav-item'>
+        <a class='nav-link active'
+          data-coreui-target='#author-profiles-tab-pane'
+          type='button' role='tab'
+          data-url='<%= by_author_author_profiles_path(author_id: record.id) %>'
+          aria-controls='author-profiles-tab-pane'
+          aria-selected='true'>
+          <%= record.class.human_attribute_name(:author_profiles) %>
+        </a>
+      </li>
+      <li class='nav-item'>
+        <a class='nav-link'
+          data-coreui-target='#books-tab-pane'
+          data-url='<%= by_author_books_path(author_id: record.id) %>'
+          type='button' role='tab'
+          aria-controls='books-tab-pane'>
+          <%= record.class.human_attribute_name(:books) %>
+        </a>
+      </li>
+    </ul>
+  </div>
 
   <div class='tab-content mt-3' id='author-tab-content'>
     <div class='tab-pane fade show active' id='author-profiles-tab-pane'

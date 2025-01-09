@@ -27,6 +27,7 @@ en:
     view_as_table: View as Table
     associations: Associations and Relationships
     no_records_found: No records found
+    loading: Loading...
 
     notifications:
       title: Notifications
