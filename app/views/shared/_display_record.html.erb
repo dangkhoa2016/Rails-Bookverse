@@ -2,10 +2,15 @@
   header_title = record.to_s rescue nil
   header_title = "() - Id: #{record.id}" if header_title.blank?
   column_class = is_index_action? ? '' : ' row-cols-md-2 row-cols-xxl-3'
+
+  data_attributes = {
+    turbo_method: 'delete',
+    turbo_confirm: translate('actions.confirm_destroy', model: record.class.model_name.human, count: 1),
+  }
 %>
 
 <div id='<%= dom_id(record) %>' class='card p-0'>
-  <div class='card-header <%= get_border_color(record.class.name) %> border-top border-bottom-0 border-4'>
+  <div class='d-flex justify-content-between card-header <%= get_border_color(record.class.name) %> border-top border-bottom-0 border-4'>
     <% if is_index_action? %>
       <%= link_to header_title, record %>
     <% elsif respond_to?("#{record.class.model_name.element}_display_card_header_title") %>
@@ -13,6 +18,39 @@
     <% else %>
       <%= "#{record.class.model_name.human}: #{header_title}" %>
     <% end %>
+
+    <div class='dropdown'>
+      <a class='btn btn-transparent p-0' href='#' title='<%= translate("ui.actions") %>'
+        role='button' data-coreui-toggle='dropdown' aria-expanded='false'>
+        <svg class='icon'>
+          <% if false %>
+            <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-options'></use>
+          <% end %>
+          <use data-icon='--coreui-free-icons' xlink:href='#cil-options'></use>
+        </svg>
+      </a>
+
+      <ul class='dropdown-menu'>
+        <li>
+          <%= link_to translate('actions.edit'), edit_polymorphic_path(record), class: 'dropdown-item' %>
+        </li>
+        <% if is_index_action? %>
+          <li>
+            <%= link_to translate('actions.show'), record, class: 'dropdown-item' %>
+          </li>
+        <% end %>
+        <li>
+          <%= link_to translate('actions.destroy'), record,
+            method: :delete, data: data_attributes, class: 'dropdown-item' %>
+        </li>
+        <% if !is_index_action? %>
+          <% text = translate('actions.back_to_list', model: record.class.model_name.human.pluralize(I18n.locale)) %>
+          <li>
+            <%= link_to text, polymorphic_path(controller_name), class: 'dropdown-item' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 
   <div class='card-body'>
