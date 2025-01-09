@@ -113,7 +113,7 @@ module DisplayHelper
 
   def render_value(column, record, type = nil)
     column = { field: column } if column.is_a?(String)
-    value = record.send(column[:field]) if value.nil?
+    value = record.send(column[:field])
 
     if respond_to?("#{record.class.model_name.element}_render_#{column[:field]}_value")
       return send("#{record.class.model_name.element}_render_#{column[:field]}_value", value)

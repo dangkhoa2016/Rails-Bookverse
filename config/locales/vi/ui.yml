@@ -26,6 +26,7 @@ vi:
     view_as_table: Xem dạng bảng
     associations: Các liên kết và quan hệ
     no_records_found: Không tìm thấy bản ghi nào
+    loading: Đang tải...
 
     notifications:
       title: Thông Báo
