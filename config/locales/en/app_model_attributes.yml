@@ -129,6 +129,9 @@ en:
         social_instagram: Social Instagram
         social_linkedin: Social Linkedin
         social_youtube: Social Youtube
+        social_network_title: Click on the icons to visit the author profile on %{network}
+        social_networks: Social Networks
+        no_social_networks: No Social Networks
 
   attributes:
     id: Id
