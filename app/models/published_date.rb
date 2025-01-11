@@ -14,6 +14,10 @@ class PublishedDate < ApplicationRecord
     book&.title
   end
 
+  def header_title
+    self.class.human_attribute_name('header_title', book: self.to_s)
+  end
+
 
   class << self
 

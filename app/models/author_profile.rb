@@ -12,6 +12,10 @@ class AuthorProfile < ApplicationRecord
     author&.full_name
   end
 
+  def header_title
+    self.class.human_attribute_name('header_title', author: self.to_s)
+  end
+
   def social_networks
     attributes.slice('social_facebook', 'social_twitter', 'social_instagram', 'social_linkedin', 'social_youtube')
   end

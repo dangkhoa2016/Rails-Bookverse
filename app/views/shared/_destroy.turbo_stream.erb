@@ -1,0 +1,64 @@
+<%
+	modal_frame = request.headers['Turbo-Frame']
+	record = instance_variable_get("@#{controller_name.singularize}")
+	klass = record.class
+	time_to_close = 6
+
+	if @success_message
+		alert_class = 'alert-success'
+		icon = 'cil-check-circle'
+		title = translate('ui.success')
+	else
+		alert_class = 'alert-danger'
+		icon = 'cil-warning'
+		title = translate('ui.error')
+	end
+%>
+
+<%= turbo_stream.update modal_frame do %>
+	<div class='alert <%= alert_class %> mb-0' role='alert'>
+		<h2 class='d-flex align-items-center'>
+			<svg class='icon icon-3xl me-2'>
+				<use xlink:href='<%= asset_path("coreui-free.svg") %>#<%= icon %>'></use>
+			</svg>
+			<%= title %>
+		</h2>
+		<p><%= @success_message || @error_message %></p>
+		<p class='text-secondary mb-0' id='delete-result-message'>
+			<%= translate('ui.this_message_will_close_in_x_seconds', seconds: time_to_close).html_safe %>
+		</p>
+	</div>
+
+	<script>
+		var controller = getOpenedModal();
+		if (controller) {
+			var destroyedMessage = document.querySelector('#delete-result-message > span');
+			if (destroyedMessage) {
+				var time = parseInt(destroyedMessage.innerHTML, 10) || 1;
+				var intervalClose = setInterval(() => {
+					time--;
+					destroyedMessage.innerHTML = time;
+					if (time <= 0) {
+						clearInterval(intervalClose);
+					}
+				}, 1000);
+
+				var timeoutClose = setTimeout(() => {
+					controller.closeModal();
+
+					const willRedirect = destroyedMessage.closest('.alert').classList.contains('alert-success');
+					if (willRedirect) {
+						setTimeout(() => {
+							Turbo.visit('<%= polymorphic_path(controller_name) %>');
+						}, 500);
+					}
+				}, time * 1000);
+
+				controller.element.addEventListener('modals-controller:before-close', () => {
+					clearInterval(intervalClose);
+					clearTimeout(timeoutClose);
+				});
+			}
+		}
+	</script>
+<% end %>

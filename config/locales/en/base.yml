@@ -68,6 +68,7 @@ en:
     next: Next
     previous: Previous
     close: Close
+    retry: Retry
     sign_in: Sign In
     sign_out: Sign Out
     sign_up: Sign Up

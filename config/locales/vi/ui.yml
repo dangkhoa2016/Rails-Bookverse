@@ -28,6 +28,12 @@ vi:
     no_records_found: Không tìm thấy bản ghi nào
     loading: Đang tải...
     actions: Hành động
+    record_not_found: "%{model} với Id [%{id}] không tồn tại"
+    record_destroyed: "%{model} với Id [%{id}] đã bị xóa"
+    success: Thành công
+    error: Lỗi
+    this_message_will_close_in_x_seconds: "Thông báo này sẽ tự đóng trong <span>%{seconds}</span> giây."
+    modal_title: Thông Báo
 
     notifications:
       title: Thông Báo

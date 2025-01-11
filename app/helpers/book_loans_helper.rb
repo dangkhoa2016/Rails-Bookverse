@@ -8,6 +8,6 @@ module BookLoansHelper
   end
 
   def book_loan_header_title(record)
-    BookLoan.human_attribute_name('header_title', book: record.to_s)
+    record.header_title
   end
 end
