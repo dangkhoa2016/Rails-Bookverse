@@ -1,0 +1,65 @@
+<!-- Main modal -->
+<div class='modal fade modal_frame' tabindex='-1'
+  data-controller='modals' data-modals-backdrop-zindex-value='1055'
+  aria-labelledby='mainModalLabel'>
+  <div class='modal-dialog modal-lg'>
+    <!-- Modal content -->
+    <div class='modal-content'>
+      <!-- Modal header -->
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='mainModalLabel'><%= translate('ui.modal_title') %></h1>
+        <button type='button' class='btn-close' data-coreui-dismiss='modal' aria-label='<%= translate("actions.close") %>'></button>
+      </div>
+      <!-- Modal body -->
+      <div class='modal-body'>
+        <%= turbo_frame_tag 'modal_frame', data: { 'modals-target': 'turboFrame' } do %>
+          <div class='loading'><%= translate('ui.loading') %></div>
+        <% end %>
+        <div class='d-none text-center mt-2' data-modals-target='errorContainer'>
+          <button class='btn btn-primary retry-button'><%= translate('actions.retry') %></button>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class='modal-footer'>
+        <button type='button' class='d-none btn btn-primary' data-confirm-yes='<%= translate("boolean.yes") %>'><%= translate('boolean.yes') %></button>
+        <button type='button' class='btn btn-secondary' data-coreui-dismiss='modal'><%= translate('actions.close') %></button>
+        <div data-modals-target='errorContainer'>
+          <button type='button' class='btn btn-dark retry-button'><%= translate('actions.retry') %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sub modal -->
+<div class='modal fade sub_modal_frame' tabindex='-1'
+  data-controller='modals' data-modals-backdrop-zindex-value='1056'
+  aria-labelledby='subModalLabel'>
+  <div class='modal-dialog modal-lg'>
+    <!-- Modal content -->
+    <div class='modal-content'>
+      <!-- Modal header -->
+      <div class='modal-header'>
+        <h1 class='modal-title fs-5' id='subModalLabel'><%= translate('ui.modal_title') %></h1>
+        <button type='button' class='btn-close' data-coreui-dismiss='modal' aria-label='<%= translate("actions.close") %>'></button>
+      </div>
+      <!-- Modal body -->
+      <div class='modal-body'>
+        <%= turbo_frame_tag 'sub_modal_frame', data: { 'modals-target': 'turboFrame' } do %>
+          <div class='loading'><%= translate('ui.loading') %></div>
+        <% end %>
+        <div class='d-none text-center mt-2' data-modals-target='errorContainer'>
+          <button class='btn btn-primary retry-button'><%= translate('actions.retry') %></button>
+        </div>
+      </div>
+      <!-- Modal footer -->
+      <div class='modal-footer'>
+        <button type='button' class='d-none btn btn-warning' data-confirm-yes='<%= translate("boolean.yes") %>'><%= translate('boolean.yes') %></button>
+        <button type='button' class='btn btn-secondary' data-coreui-dismiss='modal'><%= translate('actions.close') %></button>
+        <div data-modals-target='errorContainer'>
+          <button type='button' class='btn btn-danger retry-button'><%= translate('actions.retry') %></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

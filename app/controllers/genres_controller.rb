@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  include DeleteConcern
   before_action :set_genre, only: %i[ show edit update destroy ]
 
   # GET /genres or /genres.json
@@ -60,16 +61,6 @@ class GenresController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @genre.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /genres/1 or /genres/1.json
-  def destroy
-    @genre.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to genres_path, status: :see_other, notice: "Genre [#{@genre.name}] was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

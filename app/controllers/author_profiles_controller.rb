@@ -1,4 +1,5 @@
 class AuthorProfilesController < ApplicationController
+  include DeleteConcern
   before_action :set_author_profile, only: %i[ show edit update destroy ]
 
   # GET /author_profiles or /author_profiles.json
@@ -68,20 +69,14 @@ class AuthorProfilesController < ApplicationController
     end
   end
 
-  # DELETE /author_profiles/1 or /author_profiles/1.json
-  def destroy
-    @author_profile.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to author_profiles_path, status: :see_other, notice: "Profile for the author [#{@author_profile.author.full_name}] was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author_profile
-      @author_profile = AuthorProfile.find(params[:id])
+      begin
+        @author_profile = AuthorProfile.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        flash.now[:alert] = "Author profile with ID [#{params[:id]}] not found."
+      end
     end
 
     # Only allow a list of trusted parameters through.

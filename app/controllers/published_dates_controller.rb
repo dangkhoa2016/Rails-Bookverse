@@ -1,4 +1,5 @@
 class PublishedDatesController < ApplicationController
+  include DeleteConcern
   before_action :set_published_date, only: %i[ show edit update destroy ]
 
   # GET /published_dates or /published_dates.json
@@ -77,16 +78,6 @@ class PublishedDatesController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @published_date.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /published_dates/1 or /published_dates/1.json
-  def destroy
-    @published_date.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to published_dates_path, status: :see_other, notice: "Published date for the book [#{@published_date.book.title}] was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

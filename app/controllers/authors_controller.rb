@@ -1,4 +1,5 @@
 class AuthorsController < ApplicationController
+  include DeleteConcern
   before_action :set_author, only: %i[ show edit update destroy ]
 
   # GET /authors or /authors.json
@@ -38,6 +39,10 @@ class AuthorsController < ApplicationController
 
   # GET /authors/1 or /authors/1.json
   def show
+    # puts "show: #{params[:id]}, #{params[:format]}, #{request.format}, #{request.variant}"
+    # puts "request.headers['Turbo-Frame']: #{request.headers['Turbo-Frame']}"
+    # puts "request.headers['Turbo-Frame-Request']: #{request.headers['Turbo-Frame-Request']}"
+    # puts "turbo_frame_request: #{turbo_frame_request?}"
   end
 
   # GET /authors/new
@@ -77,20 +82,14 @@ class AuthorsController < ApplicationController
     end
   end
 
-  # DELETE /authors/1 or /authors/1.json
-  def destroy
-    @author.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to authors_path, status: :see_other, notice: "Author [#{@author.full_name}] was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_author
-      @author = Author.find(params[:id])
+      begin
+        @author = Author.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        flash.now[:alert] = "Author with ID [#{params[:id]}] not found."
+      end
     end
 
     # Only allow a list of trusted parameters through.

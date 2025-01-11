@@ -1,4 +1,5 @@
 class TagsController < ApplicationController
+  include DeleteConcern
   before_action :set_tag, only: %i[ show edit update destroy ]
 
   # GET /tags or /tags.json
@@ -60,16 +61,6 @@ class TagsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @tag.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /tags/1 or /tags/1.json
-  def destroy
-    @tag.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to tags_path, status: :see_other, notice: "Tag [#{@tag.name}] was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
