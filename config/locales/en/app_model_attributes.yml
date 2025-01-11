@@ -24,7 +24,7 @@ en:
         borrowed_on: Borrowed On
         returned_on: Returned On
         member_name: Member Name
-        header_title: Book loan for the book [%{book}]
+        header_title: Loan for the book [%{book}]
 
       book_loan/status:
         borrowed: Borrowed
@@ -99,6 +99,7 @@ en:
           one: 1 Star
           other: "%{count} Stars"
         no_rating: Not rating yet
+        header_title: Review for the book [%{book}]
       
       published_date:
         book_id: Book
@@ -132,6 +133,7 @@ en:
         social_network_title: Click on the icons to visit the author profile on %{network}
         social_networks: Social Networks
         no_social_networks: No Social Networks
+        header_title: Profile for the author [%{author}]
 
   attributes:
     id: Id

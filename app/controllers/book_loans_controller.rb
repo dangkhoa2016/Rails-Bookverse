@@ -1,4 +1,5 @@
 class BookLoansController < ApplicationController
+  include DeleteConcern
   before_action :set_book_loan, only: %i[ show edit update destroy ]
 
   # GET /book_loans or /book_loans.json
@@ -77,16 +78,6 @@ class BookLoansController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @book_loan.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /book_loans/1 or /book_loans/1.json
-  def destroy
-    @book_loan.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to book_loans_path, status: :see_other, notice: "Book loan for the book [#{@book_loan.book.title}] was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

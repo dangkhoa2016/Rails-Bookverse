@@ -4,4 +4,13 @@
   <div id='<%= controller_name.singularize %>-result' class='result-messages alert alert-success'>
     <%= notice %>
   </div>
+<% elsif alert %>
+  <div id='<%= controller_name.singularize %>-result' class='result-messages alert alert-danger'>
+    <%= alert %>
+  </div>
+
+  <% if action_name.in?(%w[edit update create new show]) %>
+    <% klass = controller_name.classify.constantize rescue nil %>
+    <%= link_to(translate('actions.back_to_list', model: klass&.model_name&.human&.pluralize(I18n.locale)), polymorphic_path(klass)) %>
+  <% end %>
 <% end %>

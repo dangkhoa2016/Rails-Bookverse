@@ -95,6 +95,7 @@ vi:
         book: Sách
         star: "%{count} Sao"
         no_rating: Chưa có đánh giá
+        header_title: Đánh giá cho sách [%{book}]
 
       published_date:
         book_id: Sách
@@ -128,6 +129,7 @@ vi:
         social_network_title: Bấm vào biểu tượng để truy cập vào trang cá nhân của tác giả trên %{network}
         social_networks: Liên Kết Mạng Xã Hội
         no_social_networks: Chưa có liên kết mạng xã hội
+        header_title: Hồ sơ của tác giả [%{author}]
 
   attributes:
     id: Mã Số

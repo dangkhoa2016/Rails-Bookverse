@@ -1,4 +1,5 @@
 class LibrariesController < ApplicationController
+  include DeleteConcern
   before_action :set_library, only: %i[ show edit update destroy ]
 
   # GET /libraries or /libraries.json
@@ -60,16 +61,6 @@ class LibrariesController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @library.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /libraries/1 or /libraries/1.json
-  def destroy
-    @library.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to libraries_path, status: :see_other, notice: "Library [#{@library.name}] was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

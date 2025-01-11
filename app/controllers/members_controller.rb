@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  include DeleteConcern
   before_action :set_member, only: %i[ show edit update destroy ]
 
   # GET /members or /members.json
@@ -72,16 +73,6 @@ class MembersController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @member.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /members/1 or /members/1.json
-  def destroy
-    @member.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to members_path, status: :see_other, notice: "Member [#{@member.full_name}] was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

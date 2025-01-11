@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  include DeleteConcern
   before_action :set_review, only: %i[ show edit update destroy ]
 
   # GET /reviews or /reviews.json
@@ -65,16 +66,6 @@ class ReviewsController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /reviews/1 or /reviews/1.json
-  def destroy
-    @review.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to reviews_path, status: :see_other, notice: "Review for the book [#{@review.book.title}] was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

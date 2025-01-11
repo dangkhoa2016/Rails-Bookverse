@@ -32,6 +32,11 @@ class Author < ApplicationRecord
     full_name
   end
 
+  # def destroy
+  #   books_authors.destroy_all
+  #   super
+  # end
+
 
   class << self
     def display_columns

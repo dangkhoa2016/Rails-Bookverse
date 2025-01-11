@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  include DeleteConcern
   before_action :set_book, only: %i[ show edit update destroy ]
 
   # GET /books or /books.json
@@ -119,20 +120,14 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1 or /books/1.json
-  def destroy
-    @book.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to books_path, status: :see_other, notice: "Book [#{@book.title}] was successfully destroyed." }
-      format.json { head :no_content }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find(params[:id])
+      begin
+        @book = Book.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        flash.now[:alert] = "Book with ID [#{params[:id]}] not found."
+      end
     end
 
     # Only allow a list of trusted parameters through.

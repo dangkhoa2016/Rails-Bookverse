@@ -16,4 +16,8 @@ module ReviewsHelper
       Review.human_attribute_name("no_rating")
     end
   end
+
+  def review_header_title(record)
+    record.header_title
+  end
 end

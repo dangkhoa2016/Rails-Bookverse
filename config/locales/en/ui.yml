@@ -29,6 +29,12 @@ en:
     no_records_found: No records found
     loading: Loading...
     actions: Actions
+    record_not_found: "%{model} with Id [%{id}] not found"
+    record_destroyed: "%{model} with Id [%{id}] has been destroyed"
+    success: Success
+    error: Error
+    this_message_will_close_in_x_seconds: "This message will close in <span>%{seconds}</span> seconds."
+    modal_title: Notification
 
     notifications:
       title: Notifications
