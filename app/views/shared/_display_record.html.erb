@@ -6,6 +6,8 @@
   data_attributes = {
     turbo_method: 'delete',
     turbo_confirm: translate('actions.confirm_destroy', model: record.class.model_name.human, count: 1),
+    turbo_frame: 'modal_frame', closable: false, remote: true,
+    confirm_yes: translate('boolean.yes')
   }
 %>
 

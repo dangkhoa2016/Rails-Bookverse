@@ -1,4 +1,5 @@
 class PublishersController < ApplicationController
+  include DeleteConcern
   before_action :set_publisher, only: %i[ show edit update destroy ]
 
   # GET /publishers or /publishers.json
@@ -60,16 +61,6 @@ class PublishersController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @publisher.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /publishers/1 or /publishers/1.json
-  def destroy
-    @publisher.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to publishers_path, status: :see_other, notice: "Publisher [#{@publisher.name}] was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
