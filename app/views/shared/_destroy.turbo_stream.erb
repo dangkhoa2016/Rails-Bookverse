@@ -1,6 +1,6 @@
 <%
 	modal_frame = request.headers['Turbo-Frame']
-	record = instance_variable_get("@#{controller_name.singularize}")
+	record = instance_variable_get("@#{model_name}")
 	klass = record.class
 	time_to_close = 6
 

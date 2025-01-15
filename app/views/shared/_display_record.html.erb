@@ -5,7 +5,7 @@
 
   data_attributes = {
     turbo_method: 'delete',
-    turbo_confirm: translate('actions.confirm_destroy', model: record.class.model_name.human, count: 1),
+    turbo_confirm: translate('actions.confirm_destroy', model: translated_model_name(record), count: 1),
     turbo_frame: 'modal_frame', closable: false, remote: true,
     confirm_yes: translate('boolean.yes')
   }
@@ -18,7 +18,7 @@
     <% elsif respond_to?("#{record.class.model_name.element}_display_card_header_title") %>
       <%= send "#{record.class.model_name.element}_display_card_header_title", record %>
     <% else %>
-      <%= "#{record.class.model_name.human}: #{header_title}" %>
+      <%= "#{translated_model_name(record)}: #{header_title}" %>
     <% end %>
 
     <div class='dropdown'>
@@ -46,7 +46,7 @@
             method: :delete, data: data_attributes, class: 'dropdown-item' %>
         </li>
         <% if !is_index_action? %>
-          <% text = translate('actions.back_to_list', model: record.class.model_name.human.pluralize(I18n.locale)) %>
+          <% text = translate('actions.back_to_list', model: translated_model_name(record).pluralize(I18n.locale)) %>
           <li>
             <%= link_to text, polymorphic_path(controller_name), class: 'dropdown-item' %>
           </li>

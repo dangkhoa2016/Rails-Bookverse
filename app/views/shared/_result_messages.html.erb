@@ -1,11 +1,11 @@
 <% if notice %>
   <% model_record = defined?(locals) ? locals[:record] : (defined?(record) ? record : nil) %>
 
-  <div id='<%= controller_name.singularize %>-result' class='result-messages alert alert-success'>
+  <div id='<%= model_name %>-result' class='result-messages alert alert-success'>
     <%= notice %>
   </div>
 <% elsif alert %>
-  <div id='<%= controller_name.singularize %>-result' class='result-messages alert alert-danger'>
+  <div id='<%= model_name %>-result' class='result-messages alert alert-danger'>
     <%= alert %>
   </div>
 

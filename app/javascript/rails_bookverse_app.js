@@ -1,8 +1,8 @@
 import initTheme from './color_modes';
+import './modal_helper'
 
 let scrollToTopBtn = null;
 let header = null;
-let previousEvent = null;
 
 const scrollToTop = function() {
   window.scrollTo({
@@ -42,12 +42,8 @@ const setSvgIconPath = (useElements = null) => {
   });
 };
 
-const app = (currentEvent) => {
-  if (previousEvent && previousEvent !== currentEvent) {
-    return;
-  }
-
-  console.log('Rails BookVerse is running at', new Date().toLocaleTimeString(), previousEvent, currentEvent);
+const app = () => {
+  console.log('Rails BookVerse is running at', new Date().toLocaleTimeString());
 
   initTheme();
 
@@ -58,21 +54,10 @@ const app = (currentEvent) => {
     scrollToTopBtn.addEventListener('click', scrollToTop);
 
   header = document.querySelector('header.header');
-
-  setTimeout(() => {
-    previousEvent = null;
-    currentEvent = null;
-  }, 1000);
-
-  previousEvent = currentEvent;
 };
 
 addEventListener('turbo:load', () => {
-  app('turbo:load');
-});
-
-addEventListener('turbo:render', () => {
-  app('turbo:render');
+  app();
 });
 
 addEventListener('turbo:click', () => {
@@ -86,28 +71,3 @@ addEventListener('turbo:click', () => {
 export {
   setSvgIconPath
 }
-
-window.getOpenedModal = function (modalId) {
-  let modalElememt = null;
-  if (modalId) {
-    frame = document.querySelector(`turbo-frame#${modalId}`);
-    if (frame) {
-      modalElememt = frame.closest('.modal');
-      if (modalElememt && !modalElememt.classList.contains('show'))
-        modalElememt = null;
-    }
-  } else
-    modalElememt = document.querySelector(`[data-controller="modals"].modal.show`);
-
-  if (!modalElememt)
-    return;
-
-  return Stimulus.getControllerForElementAndIdentifier(modalElememt, 'modals');
-};
-
-window.closeModal = function(modalId) {
-  const controller = getOpenedModal(modalId);
-
-  if (controller)
-    controller.closeModal();
-};

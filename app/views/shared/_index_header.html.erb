@@ -7,7 +7,7 @@
   <% end %>
 
   <div class='ms-auto'>
-    <%= link_to(translate('actions.new'), new_polymorphic_path(controller_name.singularize),
+    <%= link_to(translate('actions.new'), new_polymorphic_path(model_name),
       class: 'btn btn-primary btn-sm') if action_name == 'index' %>
 
     <div class='btn-group switch-display'>
