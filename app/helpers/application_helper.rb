@@ -113,4 +113,8 @@ module ApplicationHelper
       end
     end
   end
+
+  def translated_model_name(record)
+    record.class.model_name.human
+  end
 end

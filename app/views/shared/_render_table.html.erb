@@ -1,6 +1,6 @@
 <%
   records = instance_variable_get("@#{controller_name}")
-  model = controller_name.singularize.classify.constantize rescue nil
+  model = model_name.classify.constantize rescue nil
   data_attributes = {
     turbo_method: 'delete',
     turbo_confirm: translate('actions.confirm_destroy',
