@@ -34,4 +34,8 @@ class ApplicationController < ActionController::Base
 
     cookies[:view_type] = { value: view_type, expires: 1.year.from_now }
   end
+
+  helper_method def model_name
+    controller_name.singularize
+  end
 end

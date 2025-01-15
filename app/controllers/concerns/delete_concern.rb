@@ -3,7 +3,6 @@ module DeleteConcern
 
   # DELETE /[model]/1 or /[model]/1.json
   def destroy
-    model_name = controller_name.singularize
     record = instance_variable_get("@#{model_name}")
     klass = model_name.classify.constantize
 
