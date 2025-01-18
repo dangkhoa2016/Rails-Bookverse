@@ -13,4 +13,6 @@ pin '@coreui/utils', to: 'coreui_utils.js', preload: false
 pin 'home', to: 'home.js', preload: false
 # only use for home page
 
+pin 'choices.js', to: 'https://cdn.jsdelivr.net/npm/choices.js@11.0.2/+esm'
+
 pin_all_from 'app/javascript/controllers', under: 'controllers'
