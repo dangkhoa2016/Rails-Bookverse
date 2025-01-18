@@ -27,6 +27,19 @@ class PublishersController < ApplicationController
   def show
   end
 
+  def options_for_select
+    begin
+      _, publishers = pagy(Publisher.active.where("name like ?", "%#{params[:keyword]}%"))
+      render json: publishers.map { |publisher| { value: publisher.id, label: publisher.name } }
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        render json: []
+      else
+        raise e
+      end
+    end
+  end
+
   # GET /publishers/new
   def new
     @publisher = Publisher.new

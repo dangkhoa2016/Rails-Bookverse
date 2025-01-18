@@ -27,6 +27,19 @@ class CategoriesController < ApplicationController
   def show
   end
 
+  def options_for_select
+    begin
+      _, categories = pagy(Category.active.where("name like ?", "%#{params[:keyword]}%"))
+      render json: categories.map { |category| { value: category.id, label: category.name } }
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        render json: []
+      else
+        raise e
+      end
+    end
+  end
+
   # GET /categories/new
   def new
     @category = Category.new

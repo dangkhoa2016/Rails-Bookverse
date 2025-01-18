@@ -27,6 +27,19 @@ class LibrariesController < ApplicationController
   def show
   end
 
+  def options_for_select
+    begin
+      _, libraries = pagy(Library.active.where("name like ?", "%#{params[:keyword]}%"))
+      render json: libraries.map { |library| { value: library.id, label: library.name } }
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        render json: []
+      else
+        raise e
+      end
+    end
+  end
+
   # GET /libraries/new
   def new
     @library = Library.new
