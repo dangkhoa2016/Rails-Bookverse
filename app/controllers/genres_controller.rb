@@ -27,6 +27,19 @@ class GenresController < ApplicationController
   def show
   end
 
+  def options_for_select
+    begin
+      _, genres = pagy(Genre.active.where('name like ?', "%#{params[:keyword]}%"))
+      render json: genres.map { |genre| { value: genre.id, label: genre.name } }
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        render json: []
+      else
+        raise e
+      end
+    end
+  end
+
   # GET /genres/new
   def new
     @genre = Genre.new

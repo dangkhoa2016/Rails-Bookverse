@@ -39,6 +39,19 @@ class MembersController < ApplicationController
   def show
   end
 
+  def options_for_select
+    begin
+      _, members = pagy(Member.active.where('first_name or last_name or email like ?', "%#{params[:keyword]}%"))
+      render json: members.map { |member| { value: member.id, label: member.full_name } }
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        render json: []
+      else
+        raise e
+      end
+    end
+  end
+
   # GET /members/new
   def new
     @member = Member.new

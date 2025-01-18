@@ -83,6 +83,19 @@ class BooksController < ApplicationController
   def show
   end
 
+  def options_for_select
+    begin
+      _, books = pagy(Book.active.where('title like ?', "%#{params[:keyword]}%"))
+      render json: books.map { |book| { value: book.id, label: book.title } }
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        render json: []
+      else
+        raise e
+      end
+    end
+  end
+
   # GET /books/new
   def new
     @book = Book.new

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :authors do
     collection do
       get :by_book
+      get :options_for_select
     end
   end
 
@@ -26,16 +27,32 @@ Rails.application.routes.draw do
       get :by_category
       get :by_genre
       get :by_tag
+      get :options_for_select
     end
   end
 
-  resources :categories
-  resources :genres
-  resources :libraries
+  resources :categories do
+    collection do
+      get :options_for_select
+    end
+  end
+
+  resources :genres do
+    collection do
+      get :options_for_select
+    end
+  end
+
+  resources :libraries do
+    collection do
+      get :options_for_select
+    end
+  end
 
   resources :members do
     collection do
       get :by_library
+      get :options_for_select
     end
   end
 
@@ -46,7 +63,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :publishers
+  resources :publishers do
+    collection do
+      get :options_for_select
+    end
+  end
 
   resources :reviews do
     collection do
@@ -54,7 +75,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tags
+  resources :tags do
+    collection do
+      get :options_for_select
+    end
+  end
 
   resources :settings, only: %i[index] do
     collection do
@@ -64,8 +89,8 @@ Rails.application.routes.draw do
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
+  get 'up' => 'rails/health#show', as: :rails_health_check
 
-  # Defines the root path route ("/")
-  root "home#index"
+  # Defines the root path route ('/')
+  root 'home#index'
 end
