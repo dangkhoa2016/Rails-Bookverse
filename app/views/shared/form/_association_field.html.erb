@@ -5,18 +5,27 @@
   if model_record
     value = model_record.send(model_column)
     klass = model_record.class
-    select_name = "#{klass.model_name.element}[#{model_column}_id]"
   end
 %>
 
 <% if klass.present? && model_column.present? %>
   <% 
-    options_method = "#{model_column.to_s.pluralize}_options_for_select"
-    select_options = respond_to?(options_method) ? send(options_method) : [[value.to_s, value&.id]]
+    if multiple_choices
+      select_options = value&.map { |v| [v.to_s, v.id] }
+      list = options_for_select(select_options, value&.map(&:id))
+      select_name = "#{klass.model_name.element}[#{model_column.to_s.singularize}_ids][]"
+    else
+      select_options = [[value.to_s, value&.id]]
+      list = options_for_select(select_options, value&.id)
+      select_name = "#{klass.model_name.element}[#{model_column}_id]"
+    end
   %>
-  <div class=''>
-    <%= select_tag select_name, options_for_select(select_options, value&.id),
-      class: 'form-select', multiple: multiple_choices, include_blank: translate('helpers.select.prompt')
+  <div class='' data-controller='choices-remote-data'
+    data-choices-remote-data-load-data-on-start-value='false'
+    data-choices-remote-data-fetch-url-value='<%= url_for(controller: model_column.to_s.pluralize, action: :options_for_select, format: :json) %>'>
+    <%= select_tag select_name, list,
+      data: { choices_remote_data_target: 'select', placeholder: translate('helpers.select.prompt') },
+      class: 'form-select', multiple: multiple_choices
     %>
   </div>
 <% end %>

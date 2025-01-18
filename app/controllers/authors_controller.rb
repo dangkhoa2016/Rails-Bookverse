@@ -45,6 +45,19 @@ class AuthorsController < ApplicationController
     # puts "turbo_frame_request: #{turbo_frame_request?}"
   end
 
+  def options_for_select
+    begin
+      _, authors = pagy(Author.active.where("first_name or last_name or email like ?", "%#{params[:keyword]}%"))
+      render json: authors.map { |author| { value: author.id, label: author.full_name } }
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        render json: []
+      else
+        raise e
+      end
+    end
+  end
+
   # GET /authors/new
   def new
     @author = Author.new

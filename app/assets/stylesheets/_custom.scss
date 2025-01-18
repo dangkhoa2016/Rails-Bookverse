@@ -39,3 +39,7 @@
 .hover-text-primary { @include hover-text-color($primary); }
 .hover-text-secondary { @include hover-text-color($secondary); }
 .hover-text-dark { @include hover-text-color($dark); }
+
+[data-label-class='search-hint'] {
+  display: none;
+}

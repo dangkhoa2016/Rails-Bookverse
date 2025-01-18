@@ -27,6 +27,19 @@ class TagsController < ApplicationController
   def show
   end
 
+  def options_for_select
+    begin
+      _, tags = pagy(Tag.active.where("name like ?", "%#{params[:keyword]}%"))
+      render json: tags.map { |tag| { value: tag.id, label: tag.name } }
+    rescue => e
+      if e.is_a?(Pagy::OverflowError)
+        render json: []
+      else
+        raise e
+      end
+    end
+  end
+
   # GET /tags/new
   def new
     @tag = Tag.new

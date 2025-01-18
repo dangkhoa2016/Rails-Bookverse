@@ -4,7 +4,10 @@ module BookLoansHelper
   end
 
   def book_loan_render_status_form_field(form)
-    form.select(:status, BookLoan.status_collection_for_select, {}, class: "form-select")
+    content_tag :div, data: { controller: "choices" } do
+      form.select(:status, BookLoan.status_collection_for_select, {}, class: "form-select",
+        data: { choices_target: "select", placeholder: translate("helpers.select.prompt") })
+    end
   end
 
   def book_loan_display_card_header_title(record)
