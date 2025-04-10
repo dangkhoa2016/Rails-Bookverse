@@ -18,13 +18,7 @@ module AuthorProfilesHelper
       network = network.to_s.gsub("social_", "")
 
       link_to(url, target: "_blank", class: "text-primary hover-text-warning text-decoration-none mx-1", title: AuthorProfile.human_attribute_name("social_network_title", network: network.titleize)) do
-        raw(
-          <<-SVG
-          <svg class='icon'>
-            <use xlink:href="#{asset_path('coreui-brand.svg')}#cib-#{network}"></use>
-          </svg>
-          SVG
-        )
+        raw(svg_icon("cib-#{network}", "coreui-brand.svg").html_safe)
       end
     end
 
