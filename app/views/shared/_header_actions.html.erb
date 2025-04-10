@@ -9,12 +9,7 @@
     <% end %>
 
     <%= link_to({ controller: controller_name }, data: { turbo_frame: '_top' }, class: 'btn btn-secondary') do %>
-      <svg class='icon'>
-        <% if false %>
-          <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-backspace'></use>
-        <% end %>
-        <use data-icon='--coreui-free-icons' xlink:href='#cil-backspace'></use>
-      </svg> <%= translate('actions.back') %>
+      <%= svg_icon('cil-backspace') %> <%= translate('actions.back') %>
     <% end %>
   </div>
 </div>

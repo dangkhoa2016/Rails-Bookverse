@@ -19,13 +19,7 @@
         <%= link_to(action_name == 'index' ? url : '#',
           data: action_name == 'index' ? nil : { url: url },
           class: "btn btn-sm#{indx == 0 ? ' ms-2' : nil} #{render_view_class}") do %>
-          <svg class='icon'>
-            <% if false %>
-              <use xlink:href='<%= asset_path("coreui-free.svg") %>#<%= render_view[:icon] %>'></use>
-            <% end %>
-    
-            <use data-icon='--coreui-free-icons' xlink:href='#<%= render_view[:icon] %>'></use>
-          </svg> <%= translate("ui.view_as_#{render_view[:name]}") %>
+            <%= svg_icon(render_view[:icon]) %> <%= translate("ui.view_as_#{render_view[:name]}") %>
         <% end %>
       <% end %>
     </div>

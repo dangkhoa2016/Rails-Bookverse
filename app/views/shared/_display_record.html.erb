@@ -24,12 +24,7 @@
     <div class='dropdown'>
       <a class='btn btn-transparent p-0' href='#' title='<%= translate("ui.actions") %>'
         role='button' data-coreui-toggle='dropdown' aria-expanded='false'>
-        <svg class='icon'>
-          <% if false %>
-            <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-options'></use>
-          <% end %>
-          <use data-icon='--coreui-free-icons' xlink:href='#cil-options'></use>
-        </svg>
+        <%= svg_icon('cil-options') %>
       </a>
 
       <ul class='dropdown-menu'>
