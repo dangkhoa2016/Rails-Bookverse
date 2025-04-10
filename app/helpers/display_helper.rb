@@ -17,6 +17,12 @@ module DisplayHelper
     'published_date' => 'border-secondary',
   }
 
+  ICON_SVG_FILE_MAPPING = {
+    'coreui-brand.svg' => '--coreui-brand-icons',
+    'coreui-flag.svg' => '--coreui-flag-icons',
+    'coreui-free.svg' => '--coreui-free-icons',
+  }
+
   def get_border_color(model)
     BORDER_COLORS[model.to_s.underscore.singularize.downcase] || 'border-dark'
   end
@@ -142,6 +148,20 @@ module DisplayHelper
       "No association"
     else
       link_to(record)
+    end
+  end
+
+  def svg_icon(icon, file_name = "coreui-free.svg")
+    # <svg class='icon'>
+    #   <% if false %>
+    #     <use xlink:href='<%= asset_path("coreui-free.svg") %>#cil-arrow-bottom'></use>
+    #   <% else %>
+    #     <use data-icon='--coreui-free-icons' xlink:href='#cil-arrow-bottom'></use>
+    #   <% end %>
+    # </svg>
+    content_tag(:svg, class: "icon") do
+      # content_tag(:use, nil, "xlink:href": "#{asset_path([file_name])}##{icon}")
+      content_tag(:use, nil, data: { icon: ICON_SVG_FILE_MAPPING[file_name] }, "xlink:href": "##{icon}")
     end
   end
 end
