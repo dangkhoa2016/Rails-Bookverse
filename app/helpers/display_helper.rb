@@ -129,11 +129,19 @@ module DisplayHelper
       return render_association(value)
     end
 
+    render_value_by_type(type, value)
+  end
+
+  def render_value_by_type(type = nil, value = nil)
     case type
     when :decimal
       render_decimal_value(value)
     when :boolean
       value ? translate("boolean.on") : translate("boolean.off")
+    when :date
+      render_date_field(value)
+    when :datetime
+      render_datetime_field(value)
     else
       value.to_s
     end
@@ -141,6 +149,16 @@ module DisplayHelper
 
   def render_decimal_value(value)
     number_to_currency(value, locale: "en")
+  end
+
+  def render_date_field(value)
+    return value if value.nil?
+    I18n.localize value, format: :long
+  end
+
+  def render_datetime_field(value)
+    return value if value.nil?
+    I18n.localize value, format: :long
   end
 
   def render_association(record)
