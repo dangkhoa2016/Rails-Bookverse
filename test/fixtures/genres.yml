@@ -1,11 +1,26 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  description: MyText
-  active: false
+  name: Space Fantasy
+  description: A blend of fantasy elements and space exploration, often set in distant galaxies.
+  active: true
 
 two:
-  name: MyString
-  description: MyText
-  active: false
+  name: Apocalyptic
+  description: Books set in a post-apocalyptic world, often dealing with survival and the collapse of society.
+  active: true
+
+three:
+  name: Contemporary Fiction
+  description: Books set in modern-day settings, often focusing on relationships and personal struggles.
+  active: true
+
+four:
+  name: Historical Adventure
+  description: Books set in a historical period, focused on action-packed adventures and explorations.
+  active: true
+
+five:
+  name: Satire
+  description: Books that use humor, irony, or ridicule to criticize or mock human vice and folly.
+  active: true

@@ -1,21 +1,41 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  address: MyString
-  phone_number: MyString
-  email: MyString
-  established_year: 1
-  website: MyString
-  ceo_name: MyString
-  active: false
+  name: Penguin Random House
+  address: 1745 Broadway, New York, NY 10019
+  phone_number: 212-366-2000
+  email: contact@test.sample3
+  website: https://www.penguin-random-house.local
+  active: true
 
 two:
-  name: MyString
-  address: MyString
-  phone_number: MyString
-  email: MyString
-  established_year: 1
-  website: MyString
-  ceo_name: MyString
-  active: false
+  name: HarperCollins
+  address: 195 Broadway, New York, NY 10007
+  phone_number: 212-207-7000
+  email: contact@local2.test
+  website: https://www.harper_collins.test2
+  active: true
+
+three:
+  name: Macmillan
+  address: 120 Broadway, New York, NY 10271
+  phone_number: 212-674-5151
+  email: info@macmillan.test.local
+  website: https://www.mac.millan.local2
+  active: true
+
+four:
+  name: Bloomsbury
+  address: 50 Bedford Square, London, WC1B 3DP
+  phone_number: 020-7631-5600
+  email: info@bloomsbury.com.local.test
+  website: https://www.bloom-sbury.test.local2
+  active: true
+
+five:
+  name: Simon & Schuster
+  address: 1230 Avenue of the Americas, New York, NY 10020
+  phone_number: 212-698-7000
+  email: contact@sample.test2
+  website: https://www.simon-andschuster.test.local3
+  active: true

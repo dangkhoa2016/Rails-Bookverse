@@ -1,11 +1,26 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  address: MyText
-  active: false
+  name: New York Public Library
+  address: 476 5th Ave, New York, NY 10018
+  active: true
 
 two:
-  name: MyString
-  address: MyText
-  active: false
+  name: Los Angeles Public Library
+  address: 630 W 5th St, Los Angeles, CA 90071
+  active: true
+
+three:
+  name: Chicago Public Library
+  address: 400 S State St, Chicago, IL 60605
+  active: true
+
+four:
+  name: San Francisco Public Library
+  address: 100 Larkin St, San Francisco, CA 94102
+  active: true
+
+five:
+  name: Boston Public Library
+  address: 700 Boylston St, Boston, MA 02116
+  active: true
