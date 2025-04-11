@@ -1,19 +1,41 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  summary: MyText
-  isbn: MyString
-  pages: 1
-  price: 9.99
-  stock: 1
-  active: false
+  title: Harry Potter and the Sorcerer's Stone
+  isbn: 9780747532743
+  pages: 309
+  price: 19.99
+  stock: 500
+  active: true
 
 two:
-  title: MyString
-  summary: MyText
-  isbn: MyString
-  pages: 1
-  price: 9.99
-  stock: 1
-  active: false
+  title: 1984
+  isbn: 9780451524935
+  pages: 328
+  price: 15.99
+  stock: 350
+  active: true
+
+three:
+  title: Norwegian Wood
+  isbn: 9780099448570
+  pages: 296
+  price: 14.99
+  stock: 400
+  active: true
+
+four:
+  title: Pride and Prejudice
+  isbn: 9781503290563
+  pages: 279
+  price: 10.99
+  stock: 600
+  active: true
+
+five:
+  title: The Fellowship of the Ring
+  isbn: 9780618574940
+  pages: 423
+  price: 25.00
+  stock: 450
+  active: true

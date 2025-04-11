@@ -22,7 +22,7 @@ authors = [
   {
     first_name: 'George', last_name: 'Orwell',
     email: 'george.orwell@bigbrother.com',
-    bio: 'Author of 1984, a dystopian novel that explores the dangers of totalitarianism.',
+    bio: 'Author of 1984, a dystopian novel that explores the dangers of totalitarianism.'
   },
   {
     first_name: 'Haruki', last_name: 'Murakami',
@@ -68,7 +68,7 @@ authors = [
 
 authors.each do |author|
   new_author = Author.create!(first_name: author[:first_name], last_name: author[:last_name], email: author[:email])
-  
+
   # Author Profiles
   AuthorProfile.create!(
     author_id: new_author.id,
@@ -216,7 +216,7 @@ tags = [
   { name: 'Young Adult' },
   { name: 'Drama' },
   { name: 'Horror' },
-  { name: 'Comedy' },
+  { name: 'Comedy' }
 ]
 
 tags.each do |tag|
@@ -259,7 +259,7 @@ end
   library = Library.order("RANDOM()").first
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  email = Faker::Internet.email(name: "#{first_name} #{last_name}", separators: ['.', '_', '-'].sample)
+  email = Faker::Internet.email(name: "#{first_name} #{last_name}", separators: [ '.', '_', '-' ].sample)
   Member.find_or_create_by!(email: email) do |m|
     m.first_name = first_name
     m.last_name = last_name
@@ -326,7 +326,7 @@ book_editions = [
   'advance reader\'s copy (ARC)',
   'library edition',
   'digital edition'
-];
+]
 
 # Published Dates for Books
 book_editions.each do |edition|

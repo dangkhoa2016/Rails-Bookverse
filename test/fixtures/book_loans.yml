@@ -2,16 +2,33 @@
 
 one:
   book: one
-  member: one
-  borrowed_on: 2024-12-04
-  returned_on: 2024-12-04
-  status: MyString
-  active: false
+  member: five
+  borrowed_on: 2025-01-15
+  returned_on: 2025-02-10
+  status: returned
 
 two:
   book: two
+  member: three
+  borrowed_on: 2025-02-01
+  status: borrowed
+
+three:
+  book: four
   member: two
-  borrowed_on: 2024-12-04
-  returned_on: 2024-12-04
-  status: MyString
-  active: false
+  borrowed_on: 2025-01-20
+  returned_on: 2025-02-18
+  status: returned
+
+four:
+  book: three
+  member: four
+  borrowed_on: 2025-02-05
+  status: borrowed
+
+five:
+  book: five
+  member: one
+  borrowed_on: 2025-01-25
+  returned_on: 2025-02-22
+  status: returned

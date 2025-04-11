@@ -1,13 +1,31 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  book: one
+  book: two
   publisher: one
-  published_date: 2024-12-04
-  edition: MyString
+  published_date: 1997-06-26
+  edition: First Edition
 
 two:
-  book: two
+  book: four
   publisher: two
-  published_date: 2024-12-04
-  edition: MyString
+  published_date: 1949-06-08
+  edition: First Edition
+
+three:
+  book: three
+  publisher: three
+  published_date: 1987-09-04
+  edition: First Edition
+
+four:
+  book: five
+  publisher: four
+  published_date: 1813-01-28
+  edition: First Edition
+
+five:
+  book: one
+  publisher: five
+  published_date: 1954-07-29
+  edition: First Edition

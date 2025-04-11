@@ -2,20 +2,20 @@
 
 one:
   author: one
-  bio: MyText
-  social_facebook: MyString
-  social_twitter: MyString
-  social_instagram: MyString
-  social_linkedin: MyString
-  social_youtube: MyString
-  active: false
+  bio: "British author, best known for the Harry Potter series."
+  social_facebook: "https://www.facebook.com/JKRowling"
+  social_twitter: "https://twitter.com/jk_rowling"
+  social_instagram: "https://www.instagram.com/jkrowling_official"
+  social_linkedin: "https://www.linkedin.com/in/jkrowling"
+  social_youtube: "https://www.youtube.com/user/jkrowling"
+  active: true
 
 two:
   author: two
-  bio: MyText
-  social_facebook: MyString
-  social_twitter: MyString
-  social_instagram: MyString
-  social_linkedin: MyString
-  social_youtube: MyString
-  active: false
+  bio: "American novelist and short story writer, known for A Song of Ice and Fire."
+  social_facebook: "https://www.facebook.com/GeorgeRRMartin"
+  social_twitter: "https://twitter.com/GRRMspeaking"
+  social_instagram: "https://www.instagram.com/georgerrmartin_official"
+  social_linkedin: "https://www.linkedin.com/in/georgerrmartin"
+  social_youtube: "https://www.youtube.com/user/georgerrmartin"
+  active: true

@@ -1,13 +1,31 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
-  rating: 1
-  book: one
-  active: false
+  content: "This is an amazing book. I couldn't put it down!"
+  rating: 9
+  book: five
+  active: true
 
 two:
-  content: MyText
-  rating: 1
+  content: "A thrilling read from start to finish. Highly recommend!"
+  rating: 10
   book: two
-  active: false
+  active: true
+
+three:
+  content: "It's a masterpiece! The writing is beautiful, and the story is so captivating."
+  rating: 10
+  book: three
+  active: true
+
+four:
+  content: "I enjoyed it, but some parts felt a bit slow. Still worth reading."
+  rating: 7
+  book: two
+  active: true
+
+five:
+  content: "An absolute page-turner! I finished it in one sitting."
+  rating: 9
+  book: one
+  active: true
