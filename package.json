@@ -6,13 +6,13 @@
     "@coreui/coreui": "^5.2.0",
     "@coreui/icons": "^3.0.1",
     "@coreui/utils": "^2.0.2",
-    "chart.js": "^4.4.6",
-    "simplebar": "^6.2.7",
     "autoprefixer": "^10.4.20",
+    "chart.js": "^4.4.6",
     "nodemon": "^3.1.7",
     "postcss": "^8.4.47",
     "postcss-cli": "^11.0.0",
-    "sass": "1.77.6"
+    "sass": "1.77.6",
+    "simplebar": "^6.2.7"
   },
   "scripts": {
     "build:css:compile": "sass ./app/assets/stylesheets/rails.scss:./app/assets/builds/application.css --no-source-map --load-path=node_modules",
