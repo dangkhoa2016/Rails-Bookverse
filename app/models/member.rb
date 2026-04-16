@@ -25,7 +25,8 @@ class Member < ApplicationRecord
   end
 
   def display_book_loans_count
-    book_loans_count || book_loans.count
+    # BOLT OPTIMIZATION: Use .size to leverage preloaded associations or counter cache.
+    book_loans_count || book_loans.size
   end
 
 

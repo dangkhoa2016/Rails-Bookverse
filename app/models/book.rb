@@ -27,23 +27,24 @@ class Book < ApplicationRecord
   end
 
   def display_published_dates_count
-    published_dates_count || published_dates.count
+    # BOLT OPTIMIZATION: Use .size to leverage preloaded associations or counter cache.
+    published_dates_count || published_dates.size
   end
 
   def display_publishers_count
-    publishers_count || publishers.count
+    publishers_count || publishers.size
   end
 
   def display_book_loans_count
-    book_loans_count || book_loans.count
+    book_loans_count || book_loans.size
   end
 
   def display_reviews_count
-    reviews_count || reviews.count
+    reviews_count || reviews.size
   end
 
   def display_authors_count
-    authors_count || authors.count
+    authors_count || authors.size
   end
 
 
