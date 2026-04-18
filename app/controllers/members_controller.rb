@@ -16,7 +16,9 @@ class MembersController < ApplicationController
     end
 
     if @members.present?
-      book_loans_count = BookLoan.count_by_model_ids(:member, @members.pluck(:id))
+      # Optimization: Extract IDs once to avoid multiple SELECT id queries
+      member_ids = @members.to_a.map(&:id)
+      book_loans_count = BookLoan.count_by_model_ids(:member, member_ids)
       @members.each do |member|
         member.book_loans_count = book_loans_count[member.id] || 0
       end

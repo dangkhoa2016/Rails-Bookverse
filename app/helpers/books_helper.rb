@@ -21,7 +21,8 @@ module BooksHelper
 
   def book_render_reviews_value(value)
     return Book.human_attribute_name("no_reviews") if value.blank?
-    result = value.pluck(:rating).sum / value.size.to_f
+    # Optimization: Use map instead of pluck to leverage preloaded reviews and avoid N+1 queries
+    result = value.map(&:rating).compact.sum / value.size.to_f
     content_tag(:span, result, class: "badge bg-primary",
       title: Book.human_attribute_name("total_reviews", count: value.size))
   end

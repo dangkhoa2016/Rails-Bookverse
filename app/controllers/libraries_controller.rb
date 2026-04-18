@@ -16,7 +16,9 @@ class LibrariesController < ApplicationController
     end
 
     if @libraries.present?
-      members_count = Member.count_by_library_ids(@libraries.pluck(:id))
+      # Optimization: Extract IDs once to avoid multiple SELECT id queries
+      library_ids = @libraries.to_a.map(&:id)
+      members_count = Member.count_by_library_ids(library_ids)
       @libraries.each do |library|
         library.members_count = members_count[library.id] || 0
       end
