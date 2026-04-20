@@ -15,9 +15,11 @@ class AuthorsController < ApplicationController
       end
     end
 
+    @authors.load
     if @authors.present?
-      author_profiles_count = AuthorProfile.count_by_author_ids(@authors.pluck(:id))
-      books_count = Book.count_by_model_ids(:author, @authors.pluck(:id))
+      author_ids = @authors.map(&:id)
+      author_profiles_count = AuthorProfile.count_by_author_ids(author_ids)
+      books_count = Book.count_by_model_ids(:author, author_ids)
       @authors.each do |author|
         author.author_profiles_count = author_profiles_count[author.id] || 0
         author.books_count = books_count[author.id] || 0

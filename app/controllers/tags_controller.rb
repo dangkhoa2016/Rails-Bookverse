@@ -15,8 +15,9 @@ class TagsController < ApplicationController
       end
     end
 
+    @tags.load
     if @tags.present?
-      books_count = Book.count_by_model_ids(:tag, @tags.pluck(:id))
+      books_count = Book.count_by_model_ids(:tag, @tags.map(&:id))
       @tags.each do |tag|
         tag.books_count = books_count[tag.id] || 0
       end

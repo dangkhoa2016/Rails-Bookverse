@@ -15,8 +15,9 @@ class PublishersController < ApplicationController
       end
     end
 
+    @publishers.load
     if @publishers.present?
-      published_dates_count = PublishedDate.count_by_model_ids(:publisher, @publishers.pluck(:id))
+      published_dates_count = PublishedDate.count_by_model_ids(:publisher, @publishers.map(&:id))
       @publishers.each do |publisher|
         publisher.published_dates_count = published_dates_count[publisher.id] || 0
       end

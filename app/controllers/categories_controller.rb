@@ -15,8 +15,9 @@ class CategoriesController < ApplicationController
       end
     end
 
+    @categories.load
     if @categories.present?
-      books_count = Book.count_by_model_ids(:category, @categories.pluck(:id))
+      books_count = Book.count_by_model_ids(:category, @categories.map(&:id))
       @categories.each do |category|
         category.books_count = books_count[category.id] || 0
       end
