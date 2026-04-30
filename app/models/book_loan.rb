@@ -9,7 +9,7 @@ class BookLoan < ApplicationRecord
   # default_scope { active }
 
 
-  enum status: {
+  enum :status, {
     borrowed: "borrowed",
     returned: "returned",
     overdue: "overdue",
