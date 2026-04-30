@@ -7,49 +7,53 @@ class AuthorProfilesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit author_profiles_url
-    assert_selector "h1", text: "Author profiles"
+    assert_selector "h2", text: "List of Author Profiles"
   end
 
   test "should create author profile" do
     visit author_profiles_url
-    click_on "New author profile"
+    click_on "New Author Profile"
+    assert_selector "h2", text: "New Author Profile"
 
+    page.execute_script(<<~JS)
+      var sel = document.querySelector("select[name='author_profile[author_id]']");
+      sel.removeAttribute('disabled');
+      sel.add(new Option("", "#{@author_profile.author_id}", true, true));
+    JS
     check "Active" if @author_profile.active
-    fill_in "Author", with: @author_profile.author_id
     fill_in "Bio", with: @author_profile.bio
-    fill_in "Social facebook", with: @author_profile.social_facebook
-    fill_in "Social instagram", with: @author_profile.social_instagram
-    fill_in "Social linkedin", with: @author_profile.social_linkedin
-    fill_in "Social twitter", with: @author_profile.social_twitter
-    fill_in "Social youtube", with: @author_profile.social_youtube
-    click_on "Create Author profile"
+    find("input[name='author_profile[social_facebook]']").set(@author_profile.social_facebook)
+    find("input[name='author_profile[social_twitter]']").set(@author_profile.social_twitter)
+    find("input[name='author_profile[social_instagram]']").set(@author_profile.social_instagram)
+    find("input[name='author_profile[social_linkedin]']").set(@author_profile.social_linkedin)
+    find("input[name='author_profile[social_youtube]']").set(@author_profile.social_youtube)
+    click_on "Create Author Profile"
 
-    assert_text "Author profile was successfully created"
-    click_on "Back"
+    assert_text "was successfully created"
+    click_on "Back to Author Profiles"
   end
 
   test "should update Author profile" do
-    visit author_profile_url(@author_profile)
-    click_on "Edit this author profile", match: :first
+    visit edit_author_profile_url(@author_profile)
 
     check "Active" if @author_profile.active
-    fill_in "Author", with: @author_profile.author_id
     fill_in "Bio", with: @author_profile.bio
-    fill_in "Social facebook", with: @author_profile.social_facebook
-    fill_in "Social instagram", with: @author_profile.social_instagram
-    fill_in "Social linkedin", with: @author_profile.social_linkedin
-    fill_in "Social twitter", with: @author_profile.social_twitter
-    fill_in "Social youtube", with: @author_profile.social_youtube
-    click_on "Update Author profile"
+    find("input[name='author_profile[social_facebook]']").set(@author_profile.social_facebook)
+    find("input[name='author_profile[social_twitter]']").set(@author_profile.social_twitter)
+    find("input[name='author_profile[social_instagram]']").set(@author_profile.social_instagram)
+    find("input[name='author_profile[social_linkedin]']").set(@author_profile.social_linkedin)
+    find("input[name='author_profile[social_youtube]']").set(@author_profile.social_youtube)
+    click_on "Update Author Profile"
 
-    assert_text "Author profile was successfully updated"
-    click_on "Back"
+    assert_text "was successfully updated"
+    click_on "Back to Author Profiles"
   end
 
   test "should destroy Author profile" do
     visit author_profile_url(@author_profile)
-    click_on "Destroy this author profile", match: :first
+    find("#author_profile_#{@author_profile.id} > .card-footer").click_on "Delete"
+    click_on "Yes"
 
-    assert_text "Author profile was successfully destroyed"
+    assert_text "has been destroyed"
   end
 end

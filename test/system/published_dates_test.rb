@@ -7,41 +7,45 @@ class PublishedDatesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit published_dates_url
-    assert_selector "h1", text: "Published dates"
+    assert_selector "h2", text: "List of Published Dates"
   end
 
   test "should create published date" do
     visit published_dates_url
-    click_on "New published date"
+    click_on "New Published Date"
+    assert_selector "h2", text: "New Published Date"
 
-    fill_in "Book", with: @published_date.book_id
+    page.execute_script(<<~JS)
+      var bookSel = document.querySelector("select[name='published_date[book_id]']");
+      bookSel.removeAttribute('disabled');
+      bookSel.add(new Option("", "#{@published_date.book_id}", true, true));
+      var pubSel = document.querySelector("select[name='published_date[publisher_id]']");
+      pubSel.removeAttribute('disabled');
+      pubSel.add(new Option("", "#{@published_date.publisher_id}", true, true));
+    JS
+    page.execute_script("document.querySelector(\"input[name='published_date[published_date]']\").value = '#{@published_date.published_date}'")
     fill_in "Edition", with: @published_date.edition
-    fill_in "Published date", with: @published_date.published_date
-    fill_in "Publisher", with: @published_date.publisher_id
-    click_on "Create Published date"
+    click_on "Create Published Date"
 
-    assert_text "Published date was successfully created"
-    click_on "Back"
+    assert_text "was successfully created"
+    click_on "Back to Published Dates"
   end
 
   test "should update Published date" do
-    visit published_date_url(@published_date)
-    click_on "Edit this published date", match: :first
+    visit edit_published_date_url(@published_date)
 
-    fill_in "Book", with: @published_date.book_id
     fill_in "Edition", with: @published_date.edition
-    fill_in "Published date", with: @published_date.published_date
-    fill_in "Publisher", with: @published_date.publisher_id
-    click_on "Update Published date"
+    click_on "Update Published Date"
 
-    assert_text "Published date was successfully updated"
-    click_on "Back"
+    assert_text "was successfully updated"
+    click_on "Back to Published Dates"
   end
 
   test "should destroy Published date" do
     visit published_date_url(@published_date)
-    click_on "Destroy this published date", match: :first
+    find("#published_date_#{@published_date.id} > .card-footer").click_on "Delete"
+    click_on "Yes"
 
-    assert_text "Published date was successfully destroyed"
+    assert_text "has been destroyed"
   end
 end

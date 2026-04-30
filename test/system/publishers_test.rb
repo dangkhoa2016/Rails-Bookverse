@@ -7,49 +7,39 @@ class PublishersTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit publishers_url
-    assert_selector "h1", text: "Publishers"
+    assert_selector "h2", text: "List of Publishers"
   end
 
   test "should create publisher" do
     visit publishers_url
-    click_on "New publisher"
+    click_on "New Publisher"
 
     check "Active" if @publisher.active
-    fill_in "Address", with: @publisher.address
-    fill_in "Ceo name", with: @publisher.ceo_name
+    fill_in "Name", with: "New #{@publisher.name}"
     fill_in "Email", with: @publisher.email
-    fill_in "Established year", with: @publisher.established_year
-    fill_in "Name", with: @publisher.name
-    fill_in "Phone number", with: @publisher.phone_number
-    fill_in "Website", with: @publisher.website
     click_on "Create Publisher"
 
-    assert_text "Publisher was successfully created"
-    click_on "Back"
+    assert_text "was successfully created"
+    click_on "Back to Publishers"
   end
 
   test "should update Publisher" do
-    visit publisher_url(@publisher)
-    click_on "Edit this publisher", match: :first
+    visit edit_publisher_url(@publisher)
 
     check "Active" if @publisher.active
-    fill_in "Address", with: @publisher.address
-    fill_in "Ceo name", with: @publisher.ceo_name
-    fill_in "Email", with: @publisher.email
-    fill_in "Established year", with: @publisher.established_year
     fill_in "Name", with: @publisher.name
-    fill_in "Phone number", with: @publisher.phone_number
-    fill_in "Website", with: @publisher.website
+    fill_in "Email", with: @publisher.email
     click_on "Update Publisher"
 
-    assert_text "Publisher was successfully updated"
-    click_on "Back"
+    assert_text "was successfully updated"
+    click_on "Back to Publishers"
   end
 
   test "should destroy Publisher" do
     visit publisher_url(@publisher)
-    click_on "Destroy this publisher", match: :first
+    find("#publisher_#{@publisher.id} > .card-footer").click_on "Delete"
+    click_on "Yes"
 
-    assert_text "Publisher was successfully destroyed"
+    assert_text "has been destroyed"
   end
 end

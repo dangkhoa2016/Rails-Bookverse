@@ -7,37 +7,37 @@ class TagsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit tags_url
-    assert_selector "h1", text: "Tags"
+    assert_selector "h2", text: "List of Tags"
   end
 
   test "should create tag" do
     visit tags_url
-    click_on "New tag"
+    click_on "New Tag"
 
     check "Active" if @tag.active
-    fill_in "Name", with: @tag.name
+    fill_in "Name", with: "New #{@tag.name}"
     click_on "Create Tag"
 
-    assert_text "Tag was successfully created"
-    click_on "Back"
+    assert_text "was successfully created"
+    click_on "Back to Tags"
   end
 
   test "should update Tag" do
-    visit tag_url(@tag)
-    click_on "Edit this tag", match: :first
+    visit edit_tag_url(@tag)
 
     check "Active" if @tag.active
     fill_in "Name", with: @tag.name
     click_on "Update Tag"
 
-    assert_text "Tag was successfully updated"
-    click_on "Back"
+    assert_text "was successfully updated"
+    click_on "Back to Tags"
   end
 
   test "should destroy Tag" do
     visit tag_url(@tag)
-    click_on "Destroy this tag", match: :first
+    find("#tag_#{@tag.id} > .card-footer").click_on "Delete"
+    click_on "Yes"
 
-    assert_text "Tag was successfully destroyed"
+    assert_text "has been destroyed"
   end
 end

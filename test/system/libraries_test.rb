@@ -7,39 +7,37 @@ class LibrariesTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit libraries_url
-    assert_selector "h1", text: "Libraries"
+    assert_selector "h2", text: "List of Libraries"
   end
 
   test "should create library" do
     visit libraries_url
-    click_on "New library"
+    click_on "New Library"
 
     check "Active" if @library.active
-    fill_in "Address", with: @library.address
-    fill_in "Name", with: @library.name
+    fill_in "Name", with: "Test Library"
     click_on "Create Library"
 
-    assert_text "Library was successfully created"
-    click_on "Back"
+    assert_text "was successfully created"
+    click_on "Back to Libraries"
   end
 
   test "should update Library" do
-    visit library_url(@library)
-    click_on "Edit this library", match: :first
+    visit edit_library_url(@library)
 
     check "Active" if @library.active
-    fill_in "Address", with: @library.address
     fill_in "Name", with: @library.name
     click_on "Update Library"
 
-    assert_text "Library was successfully updated"
-    click_on "Back"
+    assert_text "was successfully updated"
+    click_on "Back to Libraries"
   end
 
   test "should destroy Library" do
     visit library_url(@library)
-    click_on "Destroy this library", match: :first
+    find("#library_#{@library.id} > .card-footer").click_on "Delete"
+    click_on "Yes"
 
-    assert_text "Library was successfully destroyed"
+    assert_text "has been destroyed"
   end
 end

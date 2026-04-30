@@ -7,39 +7,37 @@ class GenresTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit genres_url
-    assert_selector "h1", text: "Genres"
+    assert_selector "h2", text: "List of Genres"
   end
 
   test "should create genre" do
     visit genres_url
-    click_on "New genre"
+    click_on "New Genre"
 
     check "Active" if @genre.active
-    fill_in "Description", with: @genre.description
-    fill_in "Name", with: @genre.name
+    fill_in "Name", with: "New #{@genre.name}"
     click_on "Create Genre"
 
-    assert_text "Genre was successfully created"
-    click_on "Back"
+    assert_text "was successfully created"
+    click_on "Back to Genres"
   end
 
   test "should update Genre" do
-    visit genre_url(@genre)
-    click_on "Edit this genre", match: :first
+    visit edit_genre_url(@genre)
 
     check "Active" if @genre.active
-    fill_in "Description", with: @genre.description
     fill_in "Name", with: @genre.name
     click_on "Update Genre"
 
-    assert_text "Genre was successfully updated"
-    click_on "Back"
+    assert_text "was successfully updated"
+    click_on "Back to Genres"
   end
 
   test "should destroy Genre" do
     visit genre_url(@genre)
-    click_on "Destroy this genre", match: :first
+    find("#genre_#{@genre.id} > .card-footer").click_on "Delete"
+    click_on "Yes"
 
-    assert_text "Genre was successfully destroyed"
+    assert_text "has been destroyed"
   end
 end

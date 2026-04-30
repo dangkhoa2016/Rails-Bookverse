@@ -7,41 +7,42 @@ class AuthorsTest < ApplicationSystemTestCase
 
   test "visiting the index" do
     visit authors_url
-    assert_selector "h1", text: "Authors"
+    assert_selector "h2", text: "List of Authors"
   end
 
   test "should create author" do
     visit authors_url
-    click_on "New author"
+    click_on "New"
 
     check "Active" if @author.active
-    fill_in "Email", with: @author.email
-    fill_in "First name", with: @author.first_name
-    fill_in "Last name", with: @author.last_name
+    fill_in "author_email", with: @author.email
+    fill_in "author_first_name", with: @author.first_name
+    fill_in "author_last_name", with: @author.last_name
     click_on "Create Author"
 
-    assert_text "Author was successfully created"
-    click_on "Back"
+    assert_text "Author [#{@author.full_name}] was successfully created."
+    click_on "Back to Authors"
   end
 
   test "should update Author" do
     visit author_url(@author)
-    click_on "Edit this author", match: :first
+    find("#author_#{@author.id} > .card-footer").click_on "Edit"
 
     check "Active" if @author.active
-    fill_in "Email", with: @author.email
-    fill_in "First name", with: @author.first_name
-    fill_in "Last name", with: @author.last_name
+    fill_in "author_email", with: @author.email
+    fill_in "author_first_name", with: @author.first_name
+    fill_in "author_last_name", with: @author.last_name
     click_on "Update Author"
 
-    assert_text "Author was successfully updated"
-    click_on "Back"
+    assert_text "Author [#{@author.full_name}] was successfully updated."
+    click_on "Back to Authors"
   end
 
   test "should destroy Author" do
     visit author_url(@author)
-    click_on "Destroy this author", match: :first
+    find("#author_#{@author.id} > .card-footer").click_on "Delete"
+    click_on "Yes"
 
-    assert_text "Author was successfully destroyed"
+    assert_text "has been destroyed"
   end
 end
