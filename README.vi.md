@@ -109,6 +109,12 @@ bin/rails test test/system
 bin/rails test:all
 ```
 
+## Ảnh chụp màn hình
+
+Xem tài liệu bộ ảnh giao diện tại [screenshots/README.vi.md](screenshots/README.vi.md) để tra cứu có tổ chức các ảnh dashboard, danh sách và trang chi tiết.
+
+Nếu cần tài liệu tiếng Anh, xem [screenshots/README.md](screenshots/README.md).
+
 ## Giấy phép
 
 Rails Bookverse là phần mềm mã nguồn mở và được cung cấp theo [Giấy phép MIT](LICENSE).

@@ -109,6 +109,12 @@ bin/rails test test/system
 bin/rails test:all
 ```
 
+## Screenshots
+
+See the UI screenshot guide at [screenshots/README.md](screenshots/README.md) for an organized catalog of dashboard, index, and detail page captures.
+
+If you prefer Vietnamese documentation, see [screenshots/README.vi.md](screenshots/README.vi.md).
+
 ## License
 
 Rails Bookverse is open source and available under the MIT License. See the [LICENSE](LICENSE) file for more information.
