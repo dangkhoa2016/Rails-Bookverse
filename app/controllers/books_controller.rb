@@ -16,11 +16,13 @@ class BooksController < ApplicationController
     end
 
     if @books.present?
-      book_loans_count = BookLoan.count_by_model_ids(:book, @books.pluck(:id))
-      authors_count = Author.count_by_book_ids(@books.pluck(:id))
-      publishers_count = Publisher.count_by_book_ids(@books.pluck(:id))
-      published_dates_count = PublishedDate.count_by_model_ids(:book, @books.pluck(:id))
-      reviews_count = Review.count_by_book_ids(@books.pluck(:id))
+      # Optimization: Load book IDs once into memory to avoid multiple redundant SELECT id queries
+      book_ids = @books.map(&:id)
+      book_loans_count = BookLoan.count_by_model_ids(:book, book_ids)
+      authors_count = Author.count_by_book_ids(book_ids)
+      publishers_count = Publisher.count_by_book_ids(book_ids)
+      published_dates_count = PublishedDate.count_by_model_ids(:book, book_ids)
+      reviews_count = Review.count_by_book_ids(book_ids)
       @books.each do |book|
         book.book_loans_count = book_loans_count[book.id] || 0
         book.authors_count = authors_count[book.id] || 0

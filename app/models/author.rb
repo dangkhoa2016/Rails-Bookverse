@@ -21,11 +21,12 @@ class Author < ApplicationRecord
   end
 
   def display_author_profiles_count
-    author_profiles_count || author_profiles.count
+    # BOLT OPTIMIZATION: Use .size to leverage preloaded associations or counter cache.
+    author_profiles_count || author_profiles.size
   end
 
   def display_books_count
-    books_count || books.count
+    books_count || books.size
   end
 
   def to_s

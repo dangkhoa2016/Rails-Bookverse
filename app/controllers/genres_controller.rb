@@ -16,7 +16,9 @@ class GenresController < ApplicationController
     end
 
     if @genres.present?
-      books_count = Book.count_by_model_ids(:genre, @genres.pluck(:id))
+      # Optimization: Load genre IDs once into memory to avoid redundant SELECT id query
+      genre_ids = @genres.map(&:id)
+      books_count = Book.count_by_model_ids(:genre, genre_ids)
       @genres.each do |genre|
         genre.books_count = books_count[genre.id] || 0
       end

@@ -16,7 +16,9 @@ class TagsController < ApplicationController
     end
 
     if @tags.present?
-      books_count = Book.count_by_model_ids(:tag, @tags.pluck(:id))
+      # Optimization: Load tag IDs once into memory to avoid redundant SELECT id query
+      tag_ids = @tags.map(&:id)
+      books_count = Book.count_by_model_ids(:tag, tag_ids)
       @tags.each do |tag|
         tag.books_count = books_count[tag.id] || 0
       end
