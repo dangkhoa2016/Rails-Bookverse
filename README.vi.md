@@ -1,5 +1,10 @@
 # Rails Bookverse
 
+[![Ruby 3.4.1](https://img.shields.io/badge/Ruby-3.4.1-red?style=flat&logo=ruby&logoColor=white)](https://www.ruby-lang.org/)
+[![Rails 7.2](https://img.shields.io/badge/Rails-7.2-CC0000?logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/dangkhoa2016/Rails-Bookverse/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/dangkhoa2016/Rails-Bookverse/tree/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > 🌐 Language / Ngôn ngữ: [English](README.md) | **Tiếng Việt**
 
 Rails Bookverse là một ứng dụng web toàn diện để quản lý sách, tác giả, nhà xuất bản, thư viện, thành viên và các lượt mượn sách. Được xây dựng trên nền tảng Ruby on Rails 7.2, ứng dụng cung cấp giao diện quản trị (admin) gọn gàng với đầy đủ các tính năng CRUD cho tất cả thực thể, các trường chọn (select) hỗ trợ tìm kiếm động, hỗ trợ đa ngôn ngữ và nhiều chế độ hiển thị danh sách.

@@ -1,5 +1,10 @@
 # Rails Bookverse
 
+[![Ruby 3.4.1](https://img.shields.io/badge/Ruby-3.4.1-red?style=flat&logo=ruby&logoColor=white)](https://www.ruby-lang.org/)
+[![Rails 7.2](https://img.shields.io/badge/Rails-7.2-CC0000?logo=rubyonrails&logoColor=white)](https://rubyonrails.org/)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/dangkhoa2016/Rails-Bookverse/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/dangkhoa2016/Rails-Bookverse/tree/main)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > 🌐 Language / Ngôn ngữ: **English** | [Tiếng Việt](README.vi.md)
 
 Rails Bookverse is a comprehensive web application for managing books, authors, publishers, libraries, members, and book loans. Built with Ruby on Rails 7.2, it provides a clean admin-style UI with full CRUD for all entities, dynamic search-enabled select fields, multi-language support, and multiple list view modes.
